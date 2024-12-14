@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.ui.theme
+package com.kavi.droid.color.pallet.theme
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
