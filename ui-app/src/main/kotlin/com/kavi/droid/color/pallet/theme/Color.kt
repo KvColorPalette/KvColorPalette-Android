@@ -2,6 +2,8 @@ package com.kavi.droid.color.pallet.theme
 
 import androidx.compose.ui.graphics.Color
 
+val MatWhite = Color(0xAAFFFFFF)
+val MatBlack = Color(0xAA000000)
 val MatRed = Color(0xFFFFCDD2)
 val MatRose = Color(0xFFF8BBD0)
 val MatLPurple = Color(0xFFE1BEE7)

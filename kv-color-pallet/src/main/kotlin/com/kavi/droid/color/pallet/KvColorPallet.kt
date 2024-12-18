@@ -1,8 +1,5 @@
 package com.kavi.droid.color.pallet
 
-import androidx.compose.material3.ColorScheme
-import androidx.compose.material3.darkColorScheme
-import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 import com.kavi.droid.color.pallet.color.Mat100Package
 import com.kavi.droid.color.pallet.color.Mat50Package
@@ -20,10 +17,10 @@ import com.kavi.droid.color.pallet.util.ThemeGenUtil
 class KvColorPallet(private val givenColor: Color = Color.White) {
 
     companion object {
-        private var instance: KvColorPallet? = null
+        var instance: KvColorPallet? = null
         lateinit var appThemePallet: AppThemePallet
 
-        fun init(givenColor: Color = Color.White) {
+        fun init(givenColor: Color) {
             instance ?: run {
                 instance = KvColorPallet(givenColor = givenColor)
             }

@@ -3,13 +3,9 @@ package com.kavi.droid.color.pallet.util
 import androidx.compose.ui.graphics.Color
 import com.kavi.droid.color.pallet.color.Mat200Package
 import com.kavi.droid.color.pallet.color.Mat300Package
-import com.kavi.droid.color.pallet.color.Mat50Package
 import com.kavi.droid.color.pallet.color.Mat700Package
 import com.kavi.droid.color.pallet.color.MatPackage
-import com.kavi.droid.color.pallet.color.PackageType
-import com.kavi.droid.color.pallet.model.AppThemePallet
 import com.kavi.droid.color.pallet.model.KvColor
-import com.kavi.droid.color.pallet.model.ThemeColorPallet
 import kotlin.math.abs
 
 object ColorUtil {

@@ -1,7 +1,6 @@
 package com.kavi.droid.color.pallet.util
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.color.Mat100Package
 import com.kavi.droid.color.pallet.color.Mat200Package
 import com.kavi.droid.color.pallet.color.Mat50Package
 import com.kavi.droid.color.pallet.color.Mat700Package
@@ -67,6 +66,6 @@ object ThemeGenUtil {
     }
 
     private fun generateDarkBackgroundColor(primaryColor: Color): Color {
-        return Color(primaryColor.red*0.3f, primaryColor.green*0.2f, primaryColor.blue*0.1f, 1f)
+        return Color(primaryColor.red*0.1f, primaryColor.green*0.1f, primaryColor.blue*0.1f, 1f)
     }
 }

@@ -5,6 +5,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.Color
 import com.kavi.droid.color.pallet.KvColorPallet
 
 /*private val LightColorScheme = lightColorScheme(
@@ -43,14 +44,14 @@ fun KvColorPalletTheme(
         background = theme.dark.background,
     )
 
-    val colorScheme = when {
+    val appColorScheme = when {
         darkTheme -> themeDark
         else -> themeLight
     }
 
     MaterialTheme(
-        colorScheme = colorScheme,
-        typography = Typography,
+        colorScheme = appColorScheme,
+        typography = AppTypography,
         content = content
     )
 }

@@ -11,6 +11,7 @@ enum class PackageType {
  * Material colors 500
  */
 object MatPackage: ColorPackage() {
+    val MatWhite = KvColor(colorName = "MatRed", packageType= PackageType.PK_500, color = Color(0xAAFFFFFF))
     val MatRed = KvColor(colorName = "MatRed", packageType= PackageType.PK_500, color = Color(0xFFF44336))
     val MatRose = KvColor(colorName = "MatRose", packageType= PackageType.PK_500, color = Color(0xFFE91E63))
     val MatLPurple = KvColor(colorName = "MatLPurple", packageType= PackageType.PK_500, color = Color(0xFF9C27B0))
@@ -26,6 +27,7 @@ object MatPackage: ColorPackage() {
     val MatYellow = KvColor(colorName = "MatYellow", packageType= PackageType.PK_500, color = Color(0xFFFFEB3B))
     val MatGold = KvColor(colorName = "MatGold", packageType= PackageType.PK_500, color = Color(0xFFFFC107))
     val MatOrange = KvColor(colorName = "MatOrange", packageType= PackageType.PK_500, color = Color(0xFFFF9800))
+    val MatBlack = KvColor(colorName = "MatOrange", packageType= PackageType.PK_500, color = Color(0xAA000000))
 
     override fun getColorList(): List<KvColor> = listOf(
         MatRed,

@@ -8,6 +8,6 @@ class KvColorPalletApp: Application() {
     override fun onCreate() {
         super.onCreate()
         // Initialize the kv color pallet
-        KvColorPallet.init(MatPackage.MatDCyan.color)
+        KvColorPallet.init(MatPackage.MatDGreen.color)
     }
 }
