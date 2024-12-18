@@ -23,6 +23,7 @@ import com.kavi.droid.color.pallet.KvColorPallet
 import com.kavi.droid.color.pallet.color.MatPackage
 import com.kavi.droid.color.pallet.model.KvColor
 import com.kavi.droid.color.pallet.ui.common.ColorBox
+import com.kavi.droid.color.pallet.ui.common.ColorDetailRow
 
 @Composable
 fun PalletPager() {
@@ -64,17 +65,7 @@ fun PalletPager() {
             PalletColorRow(givenColor = MatPackage.MatOrange, selectedColor = selectedColor) { color -> selectedColor = color }
         }
 
-        Row (Modifier
-            .fillMaxWidth()
-            .border(1.dp, Color.White, shape = RoundedCornerShape(8.dp))
-            .shadow(
-                elevation = 10.dp,
-                shape = RoundedCornerShape(8.dp)
-            )
-            .background(Color.White)
-        ) {
-            Log.d("COLOR: ", "RED: ${selectedColor.red}, GREEN: ${selectedColor.green}, BLUE: ${selectedColor.blue}, ALPHA: ${selectedColor.alpha}")
-        }
+        ColorDetailRow(selectedColor = selectedColor)
     }
 }
 
