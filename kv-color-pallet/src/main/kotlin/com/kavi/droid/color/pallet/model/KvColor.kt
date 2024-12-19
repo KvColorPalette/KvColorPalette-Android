@@ -12,6 +12,12 @@ import com.kavi.droid.color.pallet.color.MatPackage
 import com.kavi.droid.color.pallet.color.ColorPackageType
 import com.kavi.droid.color.pallet.util.ColorUtil
 
+/**
+ * Color object that holds,
+ * name, package, hex, hex+alpha to the regular `Color` object
+ *
+ * @see Color
+ */
 data class KvColor(
     var colorName: String,
     var colorPackage: ColorPackageType = ColorPackageType.PK_0,
@@ -19,6 +25,13 @@ data class KvColor(
     var colorHex: String = ColorUtil.getHex(color),
     var colorHexWithAlpha: String = ColorUtil.getHexWithAlpha(color)
 ) {
+
+    /**
+     * Change the alpha of the color
+     *
+     * @param modifyAlpha The alpha value to be modified
+     * @return The modified color
+     */
     fun alphaChange(modifyAlpha: Float): KvColor {
         if (modifyAlpha == 1f) {
             return this
@@ -34,6 +47,13 @@ data class KvColor(
         }
     }
 
+    /**
+     * Change the color package of the color. `KvColor` object, color package will be changed and
+     * this method will return the color with requested color package.
+     *
+     * @param colorPackage The new color package
+     * @return The modified color
+     */
     fun changeColorPackage(colorPackage: ColorPackageType): KvColor {
         return when(colorPackage) {
             ColorPackageType.PK_50 -> {

@@ -14,6 +14,9 @@ import com.kavi.droid.color.pallet.model.KvColor
 import com.kavi.droid.color.pallet.util.ColorUtil
 import com.kavi.droid.color.pallet.util.ThemeGenUtil
 
+/**
+ * This is the kv-color-pallet android library.
+ */
 class KvColorPallet(private val givenColor: Color = Color.White) {
 
     companion object {
@@ -28,10 +31,23 @@ class KvColorPallet(private val givenColor: Color = Color.White) {
     }
 
     init {
+        /**
+         * On initiation of kv-color-pallet, we generate a theme color pallet using the given color.
+         * `givenColor` is mandatory parameter while initiate the library.
+         *
+         * Consumer who is using kv-color-pallet, will get a color pallet for the theme of the application
+         */
         val closestColor = ColorUtil.findClosestColor(givenColor)
         appThemePallet = generateThemeColorPallet(closestColor)
     }
 
+    /**
+     * Generate a list of colors with alpha values. According to the feeding color,
+     * this method generate a list of colors with different alpha values.
+     *
+     * @param givenColor The color to generate the alpha values for.
+     * @return A list of colors with alpha values.
+     */
     fun generateAlphaColorPallet(givenColor: Color): List<Color> {
         return listOf(
             Color(givenColor.red, givenColor.green, givenColor.blue, 1f),
@@ -47,6 +63,13 @@ class KvColorPallet(private val givenColor: Color = Color.White) {
         )
     }
 
+    /**
+     * Generate a list of colors with pre-defined color packages. According to the feeding color,
+     * this method generate a list of colors.
+     *
+     * @param givenColor The color to generate the color packages for.
+     * @return A list of colors.
+     */
     fun generateColorPallet(givenColor: KvColor, alphaChange: Float = 1f): List<Color> {
         return listOf(
             Mat700Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
@@ -60,6 +83,13 @@ class KvColorPallet(private val givenColor: Color = Color.White) {
         )
     }
 
+    /**
+     * Generate a theme color pallet. According to the feeding color,
+     * this method generate a theme color pallet.
+     *
+     * @param givenColor The color to generate the theme color pallet for.
+     * @return A theme color pallet.
+     */
     fun generateThemeColorPallet(givenColor: KvColor): AppThemePallet {
         return ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
     }

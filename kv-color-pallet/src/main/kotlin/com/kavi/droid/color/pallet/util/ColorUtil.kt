@@ -10,18 +10,43 @@ import kotlin.math.abs
 
 object ColorUtil {
 
+    /**
+     * Convert hex color to [Color]
+     *
+     * @param color hex color String
+     * @return [Color]
+     */
     fun getColorFromHex(color: String): Color {
         return Color(android.graphics.Color.parseColor(color))
     }
 
+    /**
+     * Get hex value of given color
+     *
+     * @param color [Color]
+     * @return hex color String
+     */
     fun getHex(color: Color): String {
         return String.format("#%02x%02x%02x", (color.red * 255).toInt(), (color.green * 255).toInt(), (color.blue * 255).toInt())
     }
 
+    /**
+     * Get hex value of given color with alpha
+     *
+     * @param color [Color]
+     * @return hex color String
+     */
     fun getHexWithAlpha(color: Color): String {
         return String.format("#%02x%02x%02x%02x", (color.alpha * 255).toInt(),(color.red * 255).toInt(), (color.green * 255).toInt(), (color.blue * 255).toInt())
     }
 
+    /**
+     * Get closest color to the given color from available color packages.
+     * This compares the available colors and find out the closest `KvColor` to the given color.
+     *
+     * @param givenColor [Color]
+     * @return [KvColor] closest color to the given color
+     */
     internal fun findClosestColor(givenColor: Color): KvColor {
         // Do comparison with 700 color list
         val colorMatch700 = Mat700Package.compareColor(givenColor)
@@ -70,6 +95,13 @@ object ColorUtil {
         }
     }
 
+    /**
+     * Get distance between two colors
+     *
+     * @param colorOne [Color]
+     * @param colorTwo [Color]
+     * @return distance between two colors
+     */
     internal fun getColorDistance(colorOne: Color, colorTwo: Color): Float {
         return abs(colorOne.red - colorTwo.red) +
                 abs(colorOne.green - colorTwo.green) +
