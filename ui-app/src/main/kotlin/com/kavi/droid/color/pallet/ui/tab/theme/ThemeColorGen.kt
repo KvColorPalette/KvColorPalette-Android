@@ -32,9 +32,9 @@ import com.kavi.droid.color.pallet.color.MatPackage
 import com.kavi.droid.color.pallet.model.KvColor
 
 @Composable
-fun ThemeColorGen() {
+fun ThemeColorGen(modifier: Modifier) {
     Column(
-        modifier = Modifier
+        modifier = modifier
             .fillMaxSize()
             .padding(8.dp),
         horizontalAlignment = Alignment.CenterHorizontally
@@ -171,5 +171,5 @@ fun ColorCircle(givenColor: Color, colorLetter: String = "", letterColor: Color 
 @Preview
 @Composable
 fun ThemeColorGenPreview() {
-    ThemeColorGen()
+    ThemeColorGen(Modifier)
 }

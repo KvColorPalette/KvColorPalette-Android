@@ -4,14 +4,14 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.BottomNavigation
-import androidx.compose.material.BottomNavigationItem
-import androidx.compose.material.Icon
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -28,6 +28,7 @@ import com.kavi.droid.color.pallet.model.TabItem
 import com.kavi.droid.color.pallet.ui.tab.pallet.ColorPalletTab
 import com.kavi.droid.color.pallet.ui.tab.theme.ThemeColorGen
 import com.kavi.droid.color.pallet.theme.KvColorPalletTheme
+import com.kavi.droid.color.pallet.theme.navigationBarColors
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -54,19 +55,26 @@ fun TabViewExample() {
 
     Scaffold(
         bottomBar = {
-            BottomNavigation(
-                modifier = Modifier.height(100.dp)
+            NavigationBar(
+                containerColor = MaterialTheme.colorScheme.primary
             ) {
                 tabItems.forEachIndexed { index, tabItem ->
-                    BottomNavigationItem(
+                    NavigationBarItem(
                         modifier = Modifier
-                            .height(100.dp)
-                            .background(color = MaterialTheme.colorScheme.primary),
+                            .padding(4.dp),
+                        colors = navigationBarColors(),
                         selected = selectedTabIndex == index,
                         onClick = { selectedTabIndex = index },
                         label = { Text(tabItem.name) },
                         icon = {
-                            Icon(painterResource(id = tabItem.icon), contentDescription = "")
+                            Icon(
+                                painterResource(id = tabItem.icon),
+                                contentDescription = "",
+                                modifier = Modifier
+                                    .width(40.dp)
+                                    .height(40.dp)
+                                    .padding(8.dp),
+                            )
                         }
                     )
                 }
@@ -77,7 +85,7 @@ fun TabViewExample() {
         TabContent(
             selectedTabIndex = selectedTabIndex,
             modifier = Modifier
-                .padding(innerPadding)
+                .padding(bottom = innerPadding.calculateBottomPadding())
                 .fillMaxSize()
         )
     }
@@ -86,8 +94,8 @@ fun TabViewExample() {
 @Composable
 fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
     when (selectedTabIndex) {
-        0 -> ColorPalletTab()
-        1 -> ThemeColorGen()
+        0 -> ColorPalletTab(modifier = modifier)
+        1 -> ThemeColorGen(modifier =  modifier)
     }
 }
 

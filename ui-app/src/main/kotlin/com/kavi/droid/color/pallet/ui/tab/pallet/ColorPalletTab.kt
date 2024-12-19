@@ -27,8 +27,8 @@ import com.kavi.droid.color.pallet.ui.tab.pallet.pager.AlphaPalletPager
 import com.kavi.droid.color.pallet.ui.tab.pallet.pager.PalletPager
 
 @Composable
-fun ColorPalletTab() {
-    Column {
+fun ColorPalletTab(modifier: Modifier) {
+    Column(modifier = modifier) {
         val state = rememberPagerState { 2 }
         HorizontalPager(
             state = state,
@@ -78,5 +78,5 @@ fun ColorPalletTab() {
 @Preview
 @Composable
 fun ColorPalletTabPreview() {
-    ColorPalletTab()
+    ColorPalletTab(modifier = Modifier)
 }
