@@ -34,6 +34,8 @@ fun KvColorPalletTheme(
         secondary = theme.light.secondary,
         tertiary = theme.light.tertiary,
         background = theme.light.background,
+        onPrimary = theme.light.onPrimary,
+        onSecondary = theme.light.onSecondary
     )
 
     val themeDark = darkColorScheme(
@@ -41,6 +43,8 @@ fun KvColorPalletTheme(
         secondary = theme.dark.secondary,
         tertiary = theme.dark.tertiary,
         background = theme.dark.background,
+        onPrimary = theme.dark.onPrimary,
+        onSecondary = theme.dark.onSecondary
     )
 
     val appColorScheme = when {

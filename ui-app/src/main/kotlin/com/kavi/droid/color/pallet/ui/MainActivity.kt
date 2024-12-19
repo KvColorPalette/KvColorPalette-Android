@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import com.kavi.droid.color.pallet.R
 import com.kavi.droid.color.pallet.model.TabItem
 import com.kavi.droid.color.pallet.ui.tab.pallet.ColorPalletTab
-import com.kavi.droid.color.pallet.ui.tab.ThemeColorGen
+import com.kavi.droid.color.pallet.ui.tab.theme.ThemeColorGen
 import com.kavi.droid.color.pallet.theme.KvColorPalletTheme
 
 class MainActivity : ComponentActivity() {
@@ -43,7 +43,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun TabViewExample() {
-    val tabs = listOf("Color Pallet", "Theme Gen")
     val tabItems = listOf(
         TabItem(
             name = "Color Pallet",

@@ -10,7 +10,7 @@ abstract class ColorPackage {
     abstract fun getColorList(): List<KvColor>
 
     fun compareColor(givenColor: Color): ColorCompareResult {
-        var closestColor = KvColor(colorName = "White", color = Color.White)
+        var closestColor = MatPackage.MatWhite
         var shortestDistance: Float? = null
 
         getColorList().forEach { comparingColor ->
@@ -34,6 +34,6 @@ abstract class ColorPackage {
     }
 
     fun getColor(colorName: String): KvColor {
-        return getColorList().find { it.colorName == colorName } ?: run { KvColor(colorName = "White", color = Color.White) }
+        return getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
     }
 }

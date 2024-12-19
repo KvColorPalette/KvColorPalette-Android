@@ -19,7 +19,7 @@ val AppTypography = Typography(
         fontFamily = FontFamily.Monospace,
         fontWeight = FontWeight.Bold,
         fontSize = 48.sp,
-        lineHeight = 48.sp,
+        lineHeight = 54.sp,
         letterSpacing = .5.sp,
     ),
     labelSmall = TextStyle(

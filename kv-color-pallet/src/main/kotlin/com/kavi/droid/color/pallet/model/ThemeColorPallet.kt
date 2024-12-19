@@ -11,5 +11,7 @@ data class ThemeColorPallet(
     val primary: Color,
     val secondary: Color,
     val tertiary: Color,
-    val background: Color = Color.White
+    val background: Color = Color.White,
+    val onPrimary: Color = Color.White,
+    val onSecondary: Color = Color.White,
 )

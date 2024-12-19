@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -31,7 +33,7 @@ fun ColorPalletTab() {
         HorizontalPager(
             state = state,
             modifier = Modifier.fillMaxWidth()
-                .padding(top = 30.dp),
+                .padding(top = 25.dp),
             contentPadding = PaddingValues(horizontal = 0.dp),
             snapPosition = SnapPosition.Center
         ) { page ->
@@ -46,7 +48,7 @@ fun ColorPalletTab() {
                 .wrapContentHeight()
                 .fillMaxWidth()
                 .align(Alignment.CenterHorizontally)
-                .padding(all = 16.dp),
+                .padding(top = 8.dp, start = 16.dp, end = 16.dp, bottom = 4.dp),
             horizontalArrangement = Arrangement.Center
         ) {
             repeat(state.pageCount) { iteration ->
@@ -56,9 +58,19 @@ fun ColorPalletTab() {
                         .padding(2.dp)
                         .clip(CircleShape)
                         .background(color)
-                        .size(16.dp)
+                        .size(12.dp)
                 )
             }
+        }
+
+        Button(
+            modifier = Modifier
+                .padding(top = 4.dp, start = 16.dp, end = 16.dp, bottom = 8.dp)
+                .fillMaxWidth(),
+            onClick = {
+            }
+        ) {
+            Text("Try it out!")
         }
     }
 }

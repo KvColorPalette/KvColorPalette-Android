@@ -46,7 +46,7 @@ fun PalletPager() {
         Column(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(16.dp),
+                .padding(top = 8.dp, start = 16.dp, end = 16.dp, bottom = 8.dp),
         ) {
             PalletColorRow(givenColor = MatPackage.MatRed, selectedColor = selectedColor) { color -> selectedColor = color }
             PalletColorRow(givenColor = MatPackage.MatRose, selectedColor = selectedColor) { color -> selectedColor = color }

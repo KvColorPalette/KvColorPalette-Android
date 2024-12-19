@@ -9,12 +9,12 @@ import com.kavi.droid.color.pallet.color.Mat50Package
 import com.kavi.droid.color.pallet.color.Mat600Package
 import com.kavi.droid.color.pallet.color.Mat700Package
 import com.kavi.droid.color.pallet.color.MatPackage
-import com.kavi.droid.color.pallet.color.PackageType
+import com.kavi.droid.color.pallet.color.ColorPackageType
 import com.kavi.droid.color.pallet.util.ColorUtil
 
 data class KvColor(
     var colorName: String,
-    var packageType: PackageType = PackageType.PK_0,
+    var colorPackage: ColorPackageType = ColorPackageType.PK_0,
     var color: Color,
     var colorHex: String = ColorUtil.getHex(color),
     var colorHexWithAlpha: String = ColorUtil.getHexWithAlpha(color)
@@ -26,7 +26,7 @@ data class KvColor(
             val modifiedColor = Color(color.red, color.green, color.blue, modifyAlpha)
             return KvColor(
                 colorName = colorName,
-                packageType = packageType,
+                colorPackage = colorPackage,
                 color = modifiedColor,
                 colorHex = ColorUtil.getHex(modifiedColor),
                 colorHexWithAlpha = ColorUtil.getHexWithAlpha(modifiedColor)
@@ -34,34 +34,34 @@ data class KvColor(
         }
     }
 
-    fun changePackageType(packageType: PackageType): KvColor {
-        return when(packageType) {
-            PackageType.PK_50 -> {
-                Mat50Package.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+    fun changeColorPackage(colorPackage: ColorPackageType): KvColor {
+        return when(colorPackage) {
+            ColorPackageType.PK_50 -> {
+                Mat50Package.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
-            PackageType.PK_100 -> {
-                Mat100Package.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+            ColorPackageType.PK_100 -> {
+                Mat100Package.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
-            PackageType.PK_200 -> {
-                Mat200Package.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+            ColorPackageType.PK_200 -> {
+                Mat200Package.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
-            PackageType.PK_300 -> {
-                Mat300Package.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+            ColorPackageType.PK_300 -> {
+                Mat300Package.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
-            PackageType.PK_400 -> {
-                Mat400Package.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+            ColorPackageType.PK_400 -> {
+                Mat400Package.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
-            PackageType.PK_500 -> {
-                MatPackage.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+            ColorPackageType.PK_500 -> {
+                MatPackage.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
-            PackageType.PK_600 -> {
-                Mat600Package.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+            ColorPackageType.PK_600 -> {
+                Mat600Package.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
-            PackageType.PK_700 -> {
-                Mat700Package.getColorList().find { it.packageType == packageType } ?: run { KvColor(colorName = "White", color = Color.White) }
+            ColorPackageType.PK_700 -> {
+                Mat700Package.getColorList().find { it.colorName == colorName } ?: run { MatPackage.MatWhite }
             }
             else -> {
-                KvColor(colorName = "White", color = Color.White)
+                MatPackage.MatWhite
             }
         }
     }
