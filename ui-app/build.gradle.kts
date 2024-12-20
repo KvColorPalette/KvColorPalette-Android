@@ -52,10 +52,9 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.compose.material)
+    implementation(libs.androidx.navigation.compose)
 
     implementation(project(":kv-color-pallet"))
-
-    implementation("androidx.navigation:navigation-compose:2.8.5")
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
