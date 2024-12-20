@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.ui.tab.pallet.pager
+package com.kavi.droid.color.pallet.app.ui.tab.pallet.pager
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -18,8 +18,8 @@ import androidx.compose.ui.unit.dp
 import com.kavi.droid.color.pallet.KvColorPallet
 import com.kavi.droid.color.pallet.color.MatPackage
 import com.kavi.droid.color.pallet.model.KvColor
-import com.kavi.droid.color.pallet.ui.common.ColorBox
-import com.kavi.droid.color.pallet.ui.common.ColorDetailRow
+import com.kavi.droid.color.pallet.app.ui.common.ColorBox
+import com.kavi.droid.color.pallet.app.ui.common.ColorDetailRow
 
 @Composable
 fun AlphaPalletPager() {

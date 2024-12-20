@@ -1,7 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish")
 }
+
+val kvColorPalletGroupId: String by project
+val kvColorPalletArtifactId: String by project
+val kvColorPalletVersion: String by project
 
 android {
     namespace = "com.kavi.droid.color.pallet"
@@ -31,6 +36,13 @@ android {
     kotlinOptions {
         jvmTarget = libs.versions.jvmVersion.get()
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
@@ -47,4 +59,18 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = kvColorPalletGroupId
+            artifactId = kvColorPalletArtifactId
+            version = kvColorPalletVersion
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
 }

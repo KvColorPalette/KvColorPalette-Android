@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.ui
+package com.kavi.droid.color.pallet.app.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -23,12 +23,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kavi.droid.color.pallet.R
-import com.kavi.droid.color.pallet.model.TabItem
-import com.kavi.droid.color.pallet.ui.tab.pallet.ColorPalletTab
-import com.kavi.droid.color.pallet.ui.tab.theme.ThemeColorGen
-import com.kavi.droid.color.pallet.theme.KvColorPalletTheme
-import com.kavi.droid.color.pallet.theme.navigationBarColors
+import com.kavi.droid.color.pallet.app.R
+import com.kavi.droid.color.pallet.app.model.TabItem
+import com.kavi.droid.color.pallet.app.ui.tab.pallet.ColorPalletTab
+import com.kavi.droid.color.pallet.app.ui.tab.theme.ThemeColorGen
+import com.kavi.droid.color.pallet.app.theme.KvColorPalletTheme
+import com.kavi.droid.color.pallet.app.theme.navigationBarColors
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

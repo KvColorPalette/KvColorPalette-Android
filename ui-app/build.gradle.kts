@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.kavi.droid.color.pallet"
+    namespace = "com.kavi.droid.color.pallet.app"
     compileSdk = libs.versions.compilerSdkVersion.get().toInt()
 
     defaultConfig {
-        applicationId = "com.kavi.droid.color.pallet"
+        applicationId = "com.kavi.droid.color.pallet.app"
         minSdk = libs.versions.minSdkVersion.get().toInt()
         targetSdk = libs.versions.targetSdkVersion.get().toInt()
         versionCode = 1

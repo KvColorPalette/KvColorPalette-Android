@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.ui.tab.pallet
+package com.kavi.droid.color.pallet.app.ui.tab.pallet
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.SnapPosition
@@ -23,8 +23,8 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kavi.droid.color.pallet.ui.tab.pallet.pager.AlphaPalletPager
-import com.kavi.droid.color.pallet.ui.tab.pallet.pager.PalletPager
+import com.kavi.droid.color.pallet.app.ui.tab.pallet.pager.AlphaPalletPager
+import com.kavi.droid.color.pallet.app.ui.tab.pallet.pager.PalletPager
 
 @Composable
 fun ColorPalletTab(modifier: Modifier) {

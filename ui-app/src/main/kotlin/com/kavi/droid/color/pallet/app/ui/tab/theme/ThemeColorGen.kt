@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.ui.tab.theme
+package com.kavi.droid.color.pallet.app.ui.tab.theme
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background

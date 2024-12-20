@@ -1,6 +1,7 @@
-package com.kavi.droid.color.pallet
+package com.kavi.droid.color.pallet.app
 
 import android.app.Application
+import com.kavi.droid.color.pallet.KvColorPallet
 import com.kavi.droid.color.pallet.color.MatPackage
 
 class KvColorPalletApp: Application() {
