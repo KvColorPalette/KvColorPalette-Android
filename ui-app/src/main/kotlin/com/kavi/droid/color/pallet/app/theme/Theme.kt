@@ -54,8 +54,6 @@ fun KvColorPalletTheme(
         else -> themeLight
     }
 
-
-
     MaterialTheme(
         colorScheme = appColorScheme,
         typography = AppTypography,
