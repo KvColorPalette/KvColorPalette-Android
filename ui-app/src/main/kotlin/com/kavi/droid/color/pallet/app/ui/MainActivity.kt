@@ -49,7 +49,7 @@ fun TabViewExample() {
             name = "Color Pallet",
             icon = R.drawable.icon_color_grid
         ),
-        TabItem(name = "Theme Gen", icon = R.drawable.icon_theme_set)
+        TabItem(name = "Theme Gen", icon = R.drawable.icon_theme_masks)
     )
     var selectedTabIndex by remember { mutableStateOf(0) }
 
