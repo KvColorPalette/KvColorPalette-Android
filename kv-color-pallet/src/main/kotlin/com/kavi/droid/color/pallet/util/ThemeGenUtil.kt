@@ -14,11 +14,11 @@ object ThemeGenUtil {
      * @param givenColor The color to generate theme color set.
      * @return A theme color set. [AppThemePallet]
      */
-    internal fun generateThemeColorSet(givenColor: KvColor): AppThemePallet {
-        val closestColor = findClosestColor(givenColor.color)
+    internal fun generateThemeColorSet(givenColor: Color): AppThemePallet {
+        val closestColor = findClosestColor(givenColor)
 
-        val lightColorPallet = generateLightThemeColorSet(closestColor)
-        val darkColorPallet = generateDarkThemeColorSet(closestColor)
+        val lightColorPallet = generateLightThemeColorSet(givenColor, closestColor)
+        val darkColorPallet = generateDarkThemeColorSet(givenColor, closestColor)
 
         return AppThemePallet(light = lightColorPallet, dark = darkColorPallet)
     }
@@ -28,14 +28,16 @@ object ThemeGenUtil {
      * @param closestColor The closest color to original consumer given color.
      * @return A light theme color set. [ThemeColorPallet]
      */
-    private fun generateLightThemeColorSet(closestColor: KvColor): ThemeColorPallet {
+    private fun generateLightThemeColorSet(givenColor: Color, closestColor: KvColor): ThemeColorPallet {
         return ThemeColorPallet(
+            base = givenColor,
             primary = closestColor.color,
             secondary = generateLightSecondaryColor(closestColor.color),
             tertiary = generateLightTeriaryColor(closestColor),
             background = generateLightBackgroundColor(closestColor),
             onPrimary = Color.White,
-            onSecondary = Color.White
+            onSecondary = Color.White,
+            shadow = Color.Gray
         )
     }
 
@@ -44,16 +46,18 @@ object ThemeGenUtil {
      * @param closestColor The closest color to original consumer given color.
      * @return A dark theme color set. [ThemeColorPallet]
      */
-    private fun generateDarkThemeColorSet(primaryColor: KvColor): ThemeColorPallet {
+    private fun generateDarkThemeColorSet(givenColor: Color, primaryColor: KvColor): ThemeColorPallet {
         val closestColor = findClosestColor(primaryColor.color)
 
         return ThemeColorPallet(
+            base = givenColor,
             primary = generateDarkPrimaryColor(closestColor.color),
             secondary = generateDarkSecondaryColor(closestColor.color),
             tertiary = generateDarkTeriaryColor(closestColor),
             background = generateDarkBackgroundColor(closestColor.color),
             onPrimary = Color.White,
-            onSecondary = Color.Black
+            onSecondary = Color.Black,
+            shadow = Color.White
         )
     }
 
