@@ -66,7 +66,7 @@ fun PalletPager() {
 
 @Composable
 fun PalletColorRow(givenColor: KvColor, selectedColor: Color, onSelect: (color: Color) -> Unit) {
-    val colors = KvColorPallet(givenColor.color).generateColorPallet(givenColor)
+    val colors = KvColorPallet.instance.generateColorPallet(givenColor)
     Row {
         colors.forEach {
             ColorBox(givenColor = it, selectedColor = selectedColor, onSelect = onSelect)

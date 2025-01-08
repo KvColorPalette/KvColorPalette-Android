@@ -1,4 +1,4 @@
-# KV Android Color Pallet
+# KV Color Pallet - Android
 
 This is a lightweight Android library that generates a color palette from a given color and creates a theme color set for Android applications. 
 This library simplifies the process of building consistent and visually appealing color themes.
@@ -24,29 +24,55 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.kavi707:kv-android-color-pallet:0.0.2'
+    implementation 'com.github.kavi707:kv-android-color-pallet:0.0.3'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.kavi707:kv-android-color-pallet:0.0.2")
+    implementation("com.github.kavi707:kv-android-color-pallet:0.0.3")
 }
 ````
 
 # Usage
-### Initiate 
-On usage of the kv-android-color-pallet, from your application class, Initiate it using following code.
-While initiating, you have to parse a color (androidx.compose.ui.graphics.Color) that you prefer to use as your primary color in your application.
+After you integrated the `KvColorPallet-Android` library, you can consume it as follows.
+
+### Basic Usage
+If you wants to consume basic features in `KvColorPallet` then use singleton instance as follows. This singleton instance allows consumers to access following basic functionalities.
+```
+// Generate alpha color schem of given color
+KvColorPallet.instance.generateAlphaColorPallet(givenColor: MatPackage().matGold.color)
+
+// Generate mat color schem of given color
+KvColorPallet.instance.generateColorPallet(givenColor: MatPackage().matGold)
+
+// Generate theme color pallet of given color
+KvColorPallet.instance.generateThemeColorPallet(givenColor: MatPackage().matGold.color)
+```
+
+### Advance Usage
+If you wants to use `KvColorPallet-Android` to generate your theme color pallet when your application start-up, then you have to initiate the library in Application level.
+To initiate you have to pass one base color that you think your application will use. Use following code to initiate the library package.
 ````
 override fun onCreate() {
     super.onCreate()
     // Initialize the kv-android-color-pallet
-    KvColorPallet.init(MatPackage.MatDGreen.color)
+    KvColorPallet.initialize(MatPackage.MatDGreen)
 }
 ````
-This initiation create a color set for a theme using the given color at the initiation. 
-This generated color set available for light and dark theme variants.
+This initiation create a color set for a theme using the given color at the initiation. This generated color set available for light and dark theme variants.
+
+In this `KvColorPallet.appThemePallet` you will have following color attributes.
+|Attribute    |light-theme |dark-theme  |Description   |
+|-------------|------------|------------|--------------|
+|.base        |original    |original    |This is the base color given by the user.   |
+|.primary     |available   |available   |Suggesting primary color. This color can use for buttons, major component etc.   |
+|.secondary   |available   |available   |Suggesting secondary color. For any the secondary components which should not use by primary color.   |
+|.tertiary    |available   |available   |Suggesting tertiary color.   |
+|.background  |available   |available   |Suggesting background color.   |
+|.onPrimary   |available   |available   |This is the color you can use on any component use primary color.   |
+|.onSecondary |available   |available   |This is the color you can use on any component use secondary color.   |
+|.shadow      |available   |available   |This is the color for your shadows.   |
 
 ### Use generated theme
 As mentioned above, according to the initiation color, that generate the color set for light and dark them.

@@ -108,8 +108,8 @@ fun ThemeColorRow(givenColor: KvColor) {
                 .fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
             ) {
-                val appThemeColorSet = KvColorPallet().generateThemeColorPallet(
-                    givenColor = givenColor,
+                val appThemeColorSet = KvColorPallet.instance.generateThemeColorPallet(
+                    givenColor = givenColor.color,
                 )
 
                 Text("Light Theme", Modifier.padding(top = 8.dp, start = 8.dp), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.ExtraBold,)

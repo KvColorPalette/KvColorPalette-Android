@@ -17,28 +17,34 @@ import com.kavi.droid.color.pallet.util.ThemeGenUtil
 /**
  * This is the kv-color-pallet android library.
  */
-class KvColorPallet(private val givenColor: Color = Color.White) {
+class KvColorPallet {
 
     companion object {
-        var instance: KvColorPallet? = null
+        /**
+         * This is a basic initialization without a basic color.  When consumer use this initialization, in default KvColorPallet with not
+         * provide a theme color pallet. Consumer can use this as a singleton.
+         */
+        var instance: KvColorPallet = KvColorPallet()
         lateinit var appThemePallet: AppThemePallet
 
-        fun init(givenColor: Color) {
-            instance ?: run {
-                instance = KvColorPallet(givenColor = givenColor)
-            }
+        /**
+         * KvColorPallet initialization. Consumer can use this to initialize the KvColorPallet from their application delegate if they need a
+         * Theme color pallet at the application start-up.
+         *
+         * On this initiation of kv-color-pallet, we generate a theme color pallet using the given color.
+         * `basicColor` is mandatory parameter while initiate the library.
+         */
+        fun initialize(basicColor: KvColor) {
+            val closestColor = ColorUtil.findClosestColor(basicColor.color)
+            appThemePallet = instance.generateThemeColorPallet(closestColor.color)
         }
     }
 
     init {
         /**
-         * On initiation of kv-color-pallet, we generate a theme color pallet using the given color.
-         * `givenColor` is mandatory parameter while initiate the library.
-         *
-         * Consumer who is using kv-color-pallet, will get a color pallet for the theme of the application
+         * This generate theme-pallet with color transparent. This is un-usable.
          */
-        val closestColor = ColorUtil.findClosestColor(givenColor)
-        appThemePallet = generateThemeColorPallet(closestColor)
+        appThemePallet = generateThemeColorPallet(Color.Transparent)
     }
 
     /**
@@ -90,7 +96,7 @@ class KvColorPallet(private val givenColor: Color = Color.White) {
      * @param givenColor The color to generate the theme color pallet for.
      * @return A theme color pallet.
      */
-    fun generateThemeColorPallet(givenColor: KvColor): AppThemePallet {
+    fun generateThemeColorPallet(givenColor: Color): AppThemePallet {
         return ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
     }
 }

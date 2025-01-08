@@ -76,7 +76,7 @@ object ColorUtil {
                             shortestDistance = colorMatch300.colorDistance
                             closestColor = colorMatch300.matchedColor
 
-                            // Do comparison with 300 color list
+                            // Do comparison with 200 color list
                             val colorMatch200 = Mat200Package.compareColor(givenColor)
 
                             if (colorMatch200.isExactMatch) {
