@@ -49,6 +49,86 @@ object MatPackage: ColorPackage() {
 }
 
 /**
+ * Material colors 900
+ * This is for internal usage only.
+ */
+internal object Mat900Package: ColorPackage() {
+    val MatRed = KvColor(colorName = "MatRed", colorPackage= ColorPackageType.PK_700, color = Color(0xFFB71C1C))
+    val MatRose = KvColor(colorName = "MatRose", colorPackage= ColorPackageType.PK_700, color = Color(0xFF880E4F))
+    val MatLPurple = KvColor(colorName = "MatLPurple", colorPackage= ColorPackageType.PK_700, color = Color(0xFF4A148C))
+    val MatDPurple = KvColor(colorName = "MatDPurple", colorPackage= ColorPackageType.PK_700, color = Color(0xFF311B92))
+    val MatDBlue = KvColor(colorName = "MatDBlue", colorPackage= ColorPackageType.PK_700, color = Color(0xFF1A237E))
+    val MatLBlue = KvColor(colorName = "MatLBlue", colorPackage= ColorPackageType.PK_700, color = Color(0xFF0D47A1))
+    val MatLLBlue = KvColor(colorName = "MatLLBlue", colorPackage= ColorPackageType.PK_700, color = Color(0xFF01579B))
+    val MatLCyan = KvColor(colorName = "MatLCyan", colorPackage= ColorPackageType.PK_700, color = Color(0xFF006064))
+    val MatDCyan = KvColor(colorName = "MatDCyan", colorPackage= ColorPackageType.PK_700, color = Color(0xFF004D40))
+    val MatDGreen = KvColor(colorName = "MatDGreen", colorPackage= ColorPackageType.PK_700, color = Color(0xFF1B5E20))
+    val MatLGreen = KvColor(colorName = "MatLGreen", colorPackage= ColorPackageType.PK_700, color = Color(0xFF33691E))
+    val MatLLGreen = KvColor(colorName = "MatLLGreen", colorPackage= ColorPackageType.PK_700, color = Color(0xFF827717))
+    val MatYellow = KvColor(colorName = "MatYellow", colorPackage= ColorPackageType.PK_700, color = Color(0xFFF57F17))
+    val MatGold = KvColor(colorName = "MatGold", colorPackage= ColorPackageType.PK_700, color = Color(0xFFFF6F00))
+    val MatOrange = KvColor(colorName = "MatOrange", colorPackage= ColorPackageType.PK_700, color = Color(0xFFE65100))
+
+    override fun getColorList(): List<KvColor> = listOf(
+        MatRed,
+        MatRose,
+        MatLPurple,
+        MatDPurple,
+        MatDBlue,
+        MatLBlue,
+        MatLLBlue,
+        MatLCyan,
+        MatDCyan,
+        MatDGreen,
+        MatLGreen,
+        MatLLGreen,
+        MatYellow,
+        MatGold,
+        MatOrange,
+    )
+}
+
+/**
+ * Material colors 800
+ * This is for internal usage only.
+ */
+internal object Mat800Package: ColorPackage() {
+    val MatRed = KvColor(colorName = "MatRed", colorPackage= ColorPackageType.PK_700, color = Color(0xFFC62828))
+    val MatRose = KvColor(colorName = "MatRose", colorPackage= ColorPackageType.PK_700, color = Color(0xFFAD1457))
+    val MatLPurple = KvColor(colorName = "MatLPurple", colorPackage= ColorPackageType.PK_700, color = Color(0xFF6A1B9A))
+    val MatDPurple = KvColor(colorName = "MatDPurple", colorPackage= ColorPackageType.PK_700, color = Color(0xFF4527A0))
+    val MatDBlue = KvColor(colorName = "MatDBlue", colorPackage= ColorPackageType.PK_700, color = Color(0xFF283593))
+    val MatLBlue = KvColor(colorName = "MatLBlue", colorPackage= ColorPackageType.PK_700, color = Color(0xFF1565C0))
+    val MatLLBlue = KvColor(colorName = "MatLLBlue", colorPackage= ColorPackageType.PK_700, color = Color(0xFF0277BD))
+    val MatLCyan = KvColor(colorName = "MatLCyan", colorPackage= ColorPackageType.PK_700, color = Color(0xFF00838F))
+    val MatDCyan = KvColor(colorName = "MatDCyan", colorPackage= ColorPackageType.PK_700, color = Color(0xFF00695C))
+    val MatDGreen = KvColor(colorName = "MatDGreen", colorPackage= ColorPackageType.PK_700, color = Color(0xFF2E7D32))
+    val MatLGreen = KvColor(colorName = "MatLGreen", colorPackage= ColorPackageType.PK_700, color = Color(0xFF558B2F))
+    val MatLLGreen = KvColor(colorName = "MatLLGreen", colorPackage= ColorPackageType.PK_700, color = Color(0xFF9E9D24))
+    val MatYellow = KvColor(colorName = "MatYellow", colorPackage= ColorPackageType.PK_700, color = Color(0xFFF9A825))
+    val MatGold = KvColor(colorName = "MatGold", colorPackage= ColorPackageType.PK_700, color = Color(0xFFFF8F00))
+    val MatOrange = KvColor(colorName = "MatOrange", colorPackage= ColorPackageType.PK_700, color = Color(0xFFEF6C00))
+
+    override fun getColorList(): List<KvColor> = listOf(
+        MatRed,
+        MatRose,
+        MatLPurple,
+        MatDPurple,
+        MatDBlue,
+        MatLBlue,
+        MatLLBlue,
+        MatLCyan,
+        MatDCyan,
+        MatDGreen,
+        MatLGreen,
+        MatLLGreen,
+        MatYellow,
+        MatGold,
+        MatOrange,
+    )
+}
+
+/**
  * Material colors 700
  * This is for internal usage only.
  */
