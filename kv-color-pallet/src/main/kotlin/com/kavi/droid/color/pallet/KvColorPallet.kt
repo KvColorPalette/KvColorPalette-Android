@@ -8,6 +8,8 @@ import com.kavi.droid.color.pallet.color.Mat300Package
 import com.kavi.droid.color.pallet.color.Mat400Package
 import com.kavi.droid.color.pallet.color.Mat600Package
 import com.kavi.droid.color.pallet.color.Mat700Package
+import com.kavi.droid.color.pallet.color.Mat800Package
+import com.kavi.droid.color.pallet.color.Mat900Package
 import com.kavi.droid.color.pallet.color.MatPackage
 import com.kavi.droid.color.pallet.model.AppThemePallet
 import com.kavi.droid.color.pallet.model.KvColor
@@ -78,6 +80,8 @@ class KvColorPallet {
      */
     fun generateColorPallet(givenColor: KvColor, alphaChange: Float = 1f): List<Color> {
         return listOf(
+            Mat900Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat800Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             Mat700Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             Mat600Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             MatPackage.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
