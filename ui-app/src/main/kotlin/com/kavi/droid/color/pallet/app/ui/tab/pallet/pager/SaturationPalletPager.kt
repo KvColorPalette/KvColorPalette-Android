@@ -67,7 +67,7 @@ fun SaturationPalletPager() {
 
 @Composable
 fun SaturationPalletColorRow(givenColor: KvColor, selectedColor: Color, onSelect: (color: Color) -> Unit) {
-    val colors = KvColorPallet.instance.generateSaturationColorPallet(givenColor.color)
+    val colors = KvColorPallet.instance.generateSaturationColorPallet(givenColor = givenColor.color)
     Row {
         colors.forEach {
             ColorBox(givenColor = it, selectedColor = selectedColor, onSelect = onSelect)

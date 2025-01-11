@@ -67,7 +67,7 @@ fun LightnessPalletPager() {
 
 @Composable
 fun LightnessPalletColorRow(givenColor: KvColor, selectedColor: Color, onSelect: (color: Color) -> Unit) {
-    val colors = KvColorPallet.instance.generateLightnessColorPallet(givenColor.color)
+    val colors = KvColorPallet.instance.generateLightnessColorPallet(givenColor = givenColor.color)
     Row {
         colors.forEach {
             ColorBox(givenColor = it, selectedColor = selectedColor, onSelect = onSelect)
