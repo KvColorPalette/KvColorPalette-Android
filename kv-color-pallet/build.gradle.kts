@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     id("maven-publish")
+    alias(libs.plugins.dokka.documentation)
 }
 
 val kvColorPalletGroupId: String by project
@@ -59,6 +60,19 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+}
+
+tasks.dokkaHtml {
+    outputDirectory.set(layout.buildDirectory.asFile)
+    dokkaSourceSets {
+        named("main") {
+            noAndroidSdkLink.set(false)
+            reportUndocumented.set(true) // Optional, to include undocumented declarations
+            skipDeprecated.set(false) // Optional, to skip deprecated members
+            skipEmptyPackages.set(true) // Optional, to skip packages with no documentable members
+            includeNonPublic.set(false) // Optional, to include non-public members
+        }
+    }
 }
 
 publishing {

@@ -1,11 +1,12 @@
 [versions]
-minSdkVersion = "28"
+minSdkVersion = "26"
 compilerSdkVersion = "35"
 targetSdkVersion = "35"
 jvmVersion = "21"
 
 agp = "8.7.3"
 kotlin = "2.0.0"
+dokka = "1.8.10"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -45,4 +46,5 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 android-library = { id = "com.android.library", version.ref = "agp" }
+dokka-documentation = { id = "org.jetbrains.dokka", version.ref = "dokka" }
 

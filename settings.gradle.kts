@@ -16,6 +16,7 @@ pluginManagement {
                 in listOf(
                     "com.google.gms.google-services"
                 ) -> useModule("com.google.gms:google-services:${requested.version}")
+                "org.jetbrains.dokka" -> useModule("org.jetbrains.dokka:dokka-gradle-plugin:${requested.version}")
                 else -> return@eachPlugin
             }
         }
