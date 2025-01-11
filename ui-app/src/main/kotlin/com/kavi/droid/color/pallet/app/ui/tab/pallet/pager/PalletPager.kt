@@ -32,7 +32,7 @@ fun PalletPager() {
         ) {
             Text(
                 modifier = Modifier.padding(8.dp)
-                    .padding(top = 24.dp),
+                    .padding(top = 20.dp),
                 text = "Color Pallet",
                 style = MaterialTheme.typography.titleLarge
             )

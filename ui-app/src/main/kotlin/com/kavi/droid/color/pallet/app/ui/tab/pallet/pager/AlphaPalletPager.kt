@@ -33,8 +33,8 @@ fun AlphaPalletPager() {
         ) {
             Text(
                 modifier = Modifier.padding(8.dp)
-                    .padding(top = 24.dp),
-                text = "Alpha Pallet",
+                    .padding(top = 20.dp),
+                text = "Alpha",
                 style = MaterialTheme.typography.titleLarge
             )
         }

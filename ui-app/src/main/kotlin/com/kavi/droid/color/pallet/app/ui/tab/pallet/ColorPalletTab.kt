@@ -24,12 +24,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kavi.droid.color.pallet.app.ui.tab.pallet.pager.AlphaPalletPager
+import com.kavi.droid.color.pallet.app.ui.tab.pallet.pager.LightnessPalletPager
 import com.kavi.droid.color.pallet.app.ui.tab.pallet.pager.PalletPager
+import com.kavi.droid.color.pallet.app.ui.tab.pallet.pager.SaturationPalletPager
 
 @Composable
 fun ColorPalletTab(modifier: Modifier) {
     Column(modifier = modifier) {
-        val state = rememberPagerState { 2 }
+        val state = rememberPagerState { 4 }
         HorizontalPager(
             state = state,
             modifier = Modifier.fillMaxWidth()
@@ -38,8 +40,10 @@ fun ColorPalletTab(modifier: Modifier) {
             snapPosition = SnapPosition.Center
         ) { page ->
             when (page) {
-                0 -> { AlphaPalletPager() }
-                1 -> { PalletPager() }
+                0 -> { PalletPager() }
+                1 -> { AlphaPalletPager() }
+                2 -> { LightnessPalletPager() }
+                3 -> { SaturationPalletPager() }
             }
         }
 
