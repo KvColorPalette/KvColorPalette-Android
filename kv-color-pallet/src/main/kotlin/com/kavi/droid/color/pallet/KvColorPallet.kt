@@ -55,7 +55,7 @@ class KvColorPallet {
      * this method generate a list of colors with different alpha values.
      *
      * @param givenColor The color to generate the alpha values for.
-     * @return A list of colors with alpha values.
+     * @return A list of colors.
      */
     fun generateAlphaColorPallet(givenColor: Color): List<Color> {
         return listOf(
@@ -72,6 +72,13 @@ class KvColorPallet {
         )
     }
 
+    /**
+     * Generate a list of colors with color saturation values. According to the feeding color,
+     * this method generate a list of color with different saturation values.
+     *
+     * @param givenColor The color to generate the saturation values for.
+     * @return A list of colors.
+     */
     fun generateSaturationColorPallet(givenColor: Color): List<Color> {
         val hue = givenColor.hsl.hue
         val lightness = givenColor.hsl.lightness
@@ -90,6 +97,13 @@ class KvColorPallet {
         )
     }
 
+    /**
+     * Generate a list of colors with color lightness values. According to the feeding color,
+     * this method generate a list of color with different lightness values.
+     *
+     * @param givenColor The color to generate the lightness values for.
+     * @return A list of colors.
+     */
     fun generateLightnessColorPallet(givenColor: Color): List<Color> {
         val hue = givenColor.hsl.hue
         val saturation = givenColor.hsl.saturation
