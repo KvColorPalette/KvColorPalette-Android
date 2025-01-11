@@ -32,7 +32,7 @@ fun PalletPager() {
         ) {
             Text(
                 modifier = Modifier.padding(8.dp)
-                    .padding(top = 24.dp),
+                    .padding(top = 20.dp),
                 text = "Color Pallet",
                 style = MaterialTheme.typography.titleLarge
             )
@@ -66,7 +66,7 @@ fun PalletPager() {
 
 @Composable
 fun PalletColorRow(givenColor: KvColor, selectedColor: Color, onSelect: (color: Color) -> Unit) {
-    val colors = KvColorPallet.instance.generateColorPallet(givenColor)
+    val colors = KvColorPallet.instance.generateColorPallet(givenColor = givenColor)
     Row {
         colors.forEach {
             ColorBox(givenColor = it, selectedColor = selectedColor, onSelect = onSelect)

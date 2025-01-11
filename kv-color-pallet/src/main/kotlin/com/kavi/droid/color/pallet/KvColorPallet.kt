@@ -11,6 +11,7 @@ import com.kavi.droid.color.pallet.color.Mat700Package
 import com.kavi.droid.color.pallet.color.Mat800Package
 import com.kavi.droid.color.pallet.color.Mat900Package
 import com.kavi.droid.color.pallet.color.MatPackage
+import com.kavi.droid.color.pallet.extension.hsl
 import com.kavi.droid.color.pallet.model.AppThemePallet
 import com.kavi.droid.color.pallet.model.KvColor
 import com.kavi.droid.color.pallet.util.ColorUtil
@@ -54,7 +55,7 @@ class KvColorPallet {
      * this method generate a list of colors with different alpha values.
      *
      * @param givenColor The color to generate the alpha values for.
-     * @return A list of colors with alpha values.
+     * @return A list of colors.
      */
     fun generateAlphaColorPallet(givenColor: Color): List<Color> {
         return listOf(
@@ -68,6 +69,56 @@ class KvColorPallet {
             Color(givenColor.red, givenColor.green, givenColor.blue, .3f),
             Color(givenColor.red, givenColor.green, givenColor.blue, .2f),
             Color(givenColor.red, givenColor.green, givenColor.blue, .1f),
+        )
+    }
+
+    /**
+     * Generate a list of colors with color saturation values. According to the feeding color,
+     * this method generate a list of color with different saturation values.
+     *
+     * @param givenColor The color to generate the saturation values for.
+     * @return A list of colors.
+     */
+    fun generateSaturationColorPallet(givenColor: Color): List<Color> {
+        val hue = givenColor.hsl.hue
+        val lightness = givenColor.hsl.lightness
+
+        return listOf(
+            Color.hsl(hue = hue, saturation = 1f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.9f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.8f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.7f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.6f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.5f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.4f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.3f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.2f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.1f, lightness = lightness)
+        )
+    }
+
+    /**
+     * Generate a list of colors with color lightness values. According to the feeding color,
+     * this method generate a list of color with different lightness values.
+     *
+     * @param givenColor The color to generate the lightness values for.
+     * @return A list of colors.
+     */
+    fun generateLightnessColorPallet(givenColor: Color): List<Color> {
+        val hue = givenColor.hsl.hue
+        val saturation = givenColor.hsl.saturation
+
+        return listOf(
+            Color.hsl(hue = hue, saturation = saturation, lightness = 1f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.9f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.8f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.7f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.6f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.5f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.4f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.3f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.2f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.1f)
         )
     }
 
