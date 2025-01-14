@@ -1,35 +1,35 @@
-package com.kavi.droid.color.pallet.util
+package com.kavi.droid.color.palette.util
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.color.ColorPackageType
-import com.kavi.droid.color.pallet.model.AppThemePallet
-import com.kavi.droid.color.pallet.model.KvColor
-import com.kavi.droid.color.pallet.model.ThemeColorPallet
-import com.kavi.droid.color.pallet.util.ColorUtil.findClosestColor
+import com.kavi.droid.color.palette.color.ColorPackageType
+import com.kavi.droid.color.palette.model.AppThemePalette
+import com.kavi.droid.color.palette.model.KvColor
+import com.kavi.droid.color.palette.model.ThemeColorPalette
+import com.kavi.droid.color.palette.util.ColorUtil.findClosestColor
 
 object ThemeGenUtil {
 
     /**
      * Generate theme color set for given color.
      * @param givenColor The color to generate theme color set.
-     * @return A theme color set. [AppThemePallet]
+     * @return A theme color set. [AppThemePalette]
      */
-    internal fun generateThemeColorSet(givenColor: Color): AppThemePallet {
+    internal fun generateThemeColorSet(givenColor: Color): AppThemePalette {
         val closestColor = findClosestColor(givenColor)
 
-        val lightColorPallet = generateLightThemeColorSet(givenColor, closestColor)
-        val darkColorPallet = generateDarkThemeColorSet(givenColor, closestColor)
+        val lightColorPalette = generateLightThemeColorSet(givenColor, closestColor)
+        val darkColorPalette = generateDarkThemeColorSet(givenColor, closestColor)
 
-        return AppThemePallet(light = lightColorPallet, dark = darkColorPallet)
+        return AppThemePalette(light = lightColorPalette, dark = darkColorPalette)
     }
 
     /**
      * Generate light theme color set for given color.
      * @param closestColor The closest color to original consumer given color.
-     * @return A light theme color set. [ThemeColorPallet]
+     * @return A light theme color set. [ThemeColorPalette]
      */
-    private fun generateLightThemeColorSet(givenColor: Color, closestColor: KvColor): ThemeColorPallet {
-        return ThemeColorPallet(
+    private fun generateLightThemeColorSet(givenColor: Color, closestColor: KvColor): ThemeColorPalette {
+        return ThemeColorPalette(
             base = givenColor,
             primary = closestColor.color,
             secondary = generateLightSecondaryColor(closestColor.color),
@@ -44,12 +44,12 @@ object ThemeGenUtil {
     /**
      * Generate dark theme color set for given color.
      * @param closestColor The closest color to original consumer given color.
-     * @return A dark theme color set. [ThemeColorPallet]
+     * @return A dark theme color set. [ThemeColorPalette]
      */
-    private fun generateDarkThemeColorSet(givenColor: Color, primaryColor: KvColor): ThemeColorPallet {
+    private fun generateDarkThemeColorSet(givenColor: Color, primaryColor: KvColor): ThemeColorPalette {
         val closestColor = findClosestColor(primaryColor.color)
 
-        return ThemeColorPallet(
+        return ThemeColorPalette(
             base = givenColor,
             primary = generateDarkPrimaryColor(closestColor.color),
             secondary = generateDarkSecondaryColor(closestColor.color),

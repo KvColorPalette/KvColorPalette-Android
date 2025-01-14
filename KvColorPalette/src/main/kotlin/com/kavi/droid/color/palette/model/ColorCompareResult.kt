@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.model
+package com.kavi.droid.color.palette.model
 
 /**
  * Result of the color comparison functionality in kv-color-pallet library.

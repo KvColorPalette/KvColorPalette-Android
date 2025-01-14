@@ -1,11 +1,11 @@
-package com.kavi.droid.color.pallet.util
+package com.kavi.droid.color.palette.util
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.color.Mat200Package
-import com.kavi.droid.color.pallet.color.Mat300Package
-import com.kavi.droid.color.pallet.color.Mat700Package
-import com.kavi.droid.color.pallet.color.MatPackage
-import com.kavi.droid.color.pallet.model.KvColor
+import com.kavi.droid.color.palette.color.Mat200Package
+import com.kavi.droid.color.palette.color.Mat300Package
+import com.kavi.droid.color.palette.color.Mat700Package
+import com.kavi.droid.color.palette.color.MatPackage
+import com.kavi.droid.color.palette.model.KvColor
 import kotlin.math.abs
 
 object ColorUtil {

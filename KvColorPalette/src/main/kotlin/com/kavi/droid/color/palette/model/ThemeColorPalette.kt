@@ -1,19 +1,19 @@
-package com.kavi.droid.color.pallet.model
+package com.kavi.droid.color.palette.model
 
 import androidx.compose.ui.graphics.Color
 
 /**
  * Application theme pallet for light and dark mode.
  */
-data class AppThemePallet(
-    val light: ThemeColorPallet,
-    val dark: ThemeColorPallet
+data class AppThemePalette(
+    val light: ThemeColorPalette,
+    val dark: ThemeColorPalette
 )
 
 /**
  * Color pallet for theme.
  */
-data class ThemeColorPallet(
+data class ThemeColorPalette(
     val base: Color,
     val primary: Color,
     val secondary: Color,

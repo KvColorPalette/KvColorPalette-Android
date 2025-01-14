@@ -4,12 +4,12 @@ plugins {
     id("maven-publish")
 }
 
-val kvColorPalletGroupId: String by project
-val kvColorPalletArtifactId: String by project
-val kvColorPalletVersion: String by project
+val kvColorPaletteGroupId: String by project
+val kvColorPaletteArtifactId: String by project
+val kvColorPaletteVersion: String by project
 
 android {
-    namespace = "com.kavi.droid.color.pallet"
+    namespace = "com.kavi.droid.color.palette"
     compileSdk = libs.versions.compilerSdkVersion.get().toInt()
 
     defaultConfig {
@@ -64,9 +64,9 @@ dependencies {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = kvColorPalletGroupId
-            artifactId = kvColorPalletArtifactId
-            version = kvColorPalletVersion
+            groupId = kvColorPaletteGroupId
+            artifactId = kvColorPaletteArtifactId
+            version = kvColorPaletteVersion
 
             afterEvaluate {
                 from(components["release"])

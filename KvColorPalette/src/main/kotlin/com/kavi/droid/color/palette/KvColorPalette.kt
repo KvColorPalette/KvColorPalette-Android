@@ -1,53 +1,53 @@
-package com.kavi.droid.color.pallet
+package com.kavi.droid.color.palette
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.color.Mat100Package
-import com.kavi.droid.color.pallet.color.Mat50Package
-import com.kavi.droid.color.pallet.color.Mat200Package
-import com.kavi.droid.color.pallet.color.Mat300Package
-import com.kavi.droid.color.pallet.color.Mat400Package
-import com.kavi.droid.color.pallet.color.Mat600Package
-import com.kavi.droid.color.pallet.color.Mat700Package
-import com.kavi.droid.color.pallet.color.Mat800Package
-import com.kavi.droid.color.pallet.color.Mat900Package
-import com.kavi.droid.color.pallet.color.MatPackage
-import com.kavi.droid.color.pallet.extension.hsl
-import com.kavi.droid.color.pallet.model.AppThemePallet
-import com.kavi.droid.color.pallet.model.KvColor
-import com.kavi.droid.color.pallet.util.ColorUtil
-import com.kavi.droid.color.pallet.util.ThemeGenUtil
+import com.kavi.droid.color.palette.color.Mat100Package
+import com.kavi.droid.color.palette.color.Mat50Package
+import com.kavi.droid.color.palette.color.Mat200Package
+import com.kavi.droid.color.palette.color.Mat300Package
+import com.kavi.droid.color.palette.color.Mat400Package
+import com.kavi.droid.color.palette.color.Mat600Package
+import com.kavi.droid.color.palette.color.Mat700Package
+import com.kavi.droid.color.palette.color.Mat800Package
+import com.kavi.droid.color.palette.color.Mat900Package
+import com.kavi.droid.color.palette.color.MatPackage
+import com.kavi.droid.color.palette.extension.hsl
+import com.kavi.droid.color.palette.model.AppThemePalette
+import com.kavi.droid.color.palette.model.KvColor
+import com.kavi.droid.color.palette.util.ColorUtil
+import com.kavi.droid.color.palette.util.ThemeGenUtil
 
 /**
- * This is the kv-color-pallet android library.
+ * This is the KvColorPallet android library.
  */
-class KvColorPallet {
+class KvColorPalette {
 
     companion object {
         /**
-         * This is a basic initialization without a basic color.  When consumer use this initialization, in default KvColorPallet with not
-         * provide a theme color pallet. Consumer can use this as a singleton.
+         * This is a basic initialization without a basic color.  When consumer use this initialization, in default KvColorPalette with not
+         * provide a theme color palette. Consumer can use this as a singleton.
          */
-        var instance: KvColorPallet = KvColorPallet()
-        lateinit var appThemePallet: AppThemePallet
+        var instance: KvColorPalette = KvColorPalette()
+        lateinit var appThemePalette: AppThemePalette
 
         /**
-         * KvColorPallet initialization. Consumer can use this to initialize the KvColorPallet from their application delegate if they need a
-         * Theme color pallet at the application start-up.
+         * KvColorPalette initialization. Consumer can use this to initialize the KvColorPalette from their application, if they need a
+         * Theme color palette at the application start-up.
          *
-         * On this initiation of kv-color-pallet, we generate a theme color pallet using the given color.
+         * On this initiation of KvColorPalette, we generate a theme color palette using the given color.
          * `basicColor` is mandatory parameter while initiate the library.
          */
         fun initialize(basicColor: KvColor) {
             val closestColor = ColorUtil.findClosestColor(basicColor.color)
-            appThemePallet = instance.generateThemeColorPallet(closestColor.color)
+            appThemePalette = instance.generateThemeColorPalette(closestColor.color)
         }
     }
 
     init {
         /**
-         * This generate theme-pallet with color transparent. This is un-usable.
+         * This generate theme-palette with color transparent. This is un-usable.
          */
-        appThemePallet = generateThemeColorPallet(Color.Transparent)
+        appThemePalette = generateThemeColorPalette(Color.Transparent)
     }
 
     /**
@@ -57,7 +57,7 @@ class KvColorPallet {
      * @param givenColor The color to generate the alpha values for.
      * @return A list of colors.
      */
-    fun generateAlphaColorPallet(givenColor: Color): List<Color> {
+    fun generateAlphaColorPalette(givenColor: Color): List<Color> {
         return listOf(
             Color(givenColor.red, givenColor.green, givenColor.blue, 1f),
             Color(givenColor.red, givenColor.green, givenColor.blue, .9f),
@@ -79,7 +79,7 @@ class KvColorPallet {
      * @param givenColor The color to generate the saturation values for.
      * @return A list of colors.
      */
-    fun generateSaturationColorPallet(givenColor: Color): List<Color> {
+    fun generateSaturationColorPalette(givenColor: Color): List<Color> {
         val hue = givenColor.hsl.hue
         val lightness = givenColor.hsl.lightness
 
@@ -104,7 +104,7 @@ class KvColorPallet {
      * @param givenColor The color to generate the lightness values for.
      * @return A list of colors.
      */
-    fun generateLightnessColorPallet(givenColor: Color): List<Color> {
+    fun generateLightnessColorPalette(givenColor: Color): List<Color> {
         val hue = givenColor.hsl.hue
         val saturation = givenColor.hsl.saturation
 
@@ -129,7 +129,7 @@ class KvColorPallet {
      * @param givenColor The color to generate the color packages for.
      * @return A list of colors.
      */
-    fun generateColorPallet(givenColor: KvColor, alphaChange: Float = 1f): List<Color> {
+    fun generateColorPalette(givenColor: KvColor, alphaChange: Float = 1f): List<Color> {
         return listOf(
             Mat900Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             Mat800Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
@@ -145,13 +145,13 @@ class KvColorPallet {
     }
 
     /**
-     * Generate a theme color pallet. According to the feeding color,
-     * this method generate a theme color pallet.
+     * Generate a theme color palette. According to the feeding color,
+     * this method generate a theme color palette.
      *
-     * @param givenColor The color to generate the theme color pallet for.
-     * @return A theme color pallet.
+     * @param givenColor The color to generate the theme color palette for.
+     * @return A theme color palette.
      */
-    fun generateThemeColorPallet(givenColor: Color): AppThemePallet {
+    fun generateThemeColorPalette(givenColor: Color): AppThemePalette {
         return ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
     }
 }

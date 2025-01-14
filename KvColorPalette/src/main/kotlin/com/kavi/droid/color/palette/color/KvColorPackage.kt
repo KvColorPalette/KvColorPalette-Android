@@ -1,7 +1,7 @@
-package com.kavi.droid.color.pallet.color
+package com.kavi.droid.color.palette.color
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.model.KvColor
+import com.kavi.droid.color.palette.model.KvColor
 
 enum class ColorPackageType {
     PK_0, PK_50, PK_100, PK_200, PK_300, PK_400, PK_500, PK_600, PK_700, PK_800, PK_900

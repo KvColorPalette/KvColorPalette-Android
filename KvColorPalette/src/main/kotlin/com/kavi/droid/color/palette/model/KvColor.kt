@@ -1,16 +1,16 @@
-package com.kavi.droid.color.pallet.model
+package com.kavi.droid.color.palette.model
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.color.Mat100Package
-import com.kavi.droid.color.pallet.color.Mat200Package
-import com.kavi.droid.color.pallet.color.Mat300Package
-import com.kavi.droid.color.pallet.color.Mat400Package
-import com.kavi.droid.color.pallet.color.Mat50Package
-import com.kavi.droid.color.pallet.color.Mat600Package
-import com.kavi.droid.color.pallet.color.Mat700Package
-import com.kavi.droid.color.pallet.color.MatPackage
-import com.kavi.droid.color.pallet.color.ColorPackageType
-import com.kavi.droid.color.pallet.util.ColorUtil
+import com.kavi.droid.color.palette.color.Mat100Package
+import com.kavi.droid.color.palette.color.Mat200Package
+import com.kavi.droid.color.palette.color.Mat300Package
+import com.kavi.droid.color.palette.color.Mat400Package
+import com.kavi.droid.color.palette.color.Mat50Package
+import com.kavi.droid.color.palette.color.Mat600Package
+import com.kavi.droid.color.palette.color.Mat700Package
+import com.kavi.droid.color.palette.color.MatPackage
+import com.kavi.droid.color.palette.color.ColorPackageType
+import com.kavi.droid.color.palette.util.ColorUtil
 
 /**
  * Color object that holds,

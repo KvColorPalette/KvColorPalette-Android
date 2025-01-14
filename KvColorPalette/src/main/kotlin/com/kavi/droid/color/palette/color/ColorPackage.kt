@@ -1,9 +1,9 @@
-package com.kavi.droid.color.pallet.color
+package com.kavi.droid.color.palette.color
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.model.ColorCompareResult
-import com.kavi.droid.color.pallet.model.KvColor
-import com.kavi.droid.color.pallet.util.ColorUtil.getColorDistance
+import com.kavi.droid.color.palette.model.ColorCompareResult
+import com.kavi.droid.color.palette.model.KvColor
+import com.kavi.droid.color.palette.util.ColorUtil.getColorDistance
 
 abstract class ColorPackage {
 

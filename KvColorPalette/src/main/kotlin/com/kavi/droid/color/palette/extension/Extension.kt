@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.extension
+package com.kavi.droid.color.palette.extension
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
