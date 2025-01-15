@@ -1,6 +1,7 @@
 # KvColorPalette - Android
 
-[![](https://jitpack.io/v/KvColorPalette/KvColorPalette-Android-App.svg)](https://jitpack.io/#KvColorPalette/KvColorPalette-Android-App)
+[![](https://jitpack.io/v/KvColorPalette/KvColorPalette-Android-App.svg)](https://jitpack.io/#KvColorPalette/KvColorPalette-Android-App) 
+[![](https://jitci.com/gh/KvColorPalette/KvColorPalette-Android-App/svg)](https://jitci.com/gh/KvColorPalette/KvColorPalette-Android-App)
 
 This is a lightweight Android library that generates a color palette from a given color and creates a theme color set for Android applications. 
 This library simplifies the process of building consistent and visually appealing color themes.
