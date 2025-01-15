@@ -1,0 +1,157 @@
+package com.kavi.droid.color.palette
+
+import androidx.compose.ui.graphics.Color
+import com.kavi.droid.color.palette.color.Mat100Package
+import com.kavi.droid.color.palette.color.Mat50Package
+import com.kavi.droid.color.palette.color.Mat200Package
+import com.kavi.droid.color.palette.color.Mat300Package
+import com.kavi.droid.color.palette.color.Mat400Package
+import com.kavi.droid.color.palette.color.Mat600Package
+import com.kavi.droid.color.palette.color.Mat700Package
+import com.kavi.droid.color.palette.color.Mat800Package
+import com.kavi.droid.color.palette.color.Mat900Package
+import com.kavi.droid.color.palette.color.MatPackage
+import com.kavi.droid.color.palette.extension.hsl
+import com.kavi.droid.color.palette.model.AppThemePalette
+import com.kavi.droid.color.palette.model.KvColor
+import com.kavi.droid.color.palette.util.ColorUtil
+import com.kavi.droid.color.palette.util.ThemeGenUtil
+
+/**
+ * This is the KvColorPallet android library.
+ */
+class KvColorPalette {
+
+    companion object {
+        /**
+         * This is a basic initialization without a basic color.  When consumer use this initialization, in default KvColorPalette with not
+         * provide a theme color palette. Consumer can use this as a singleton.
+         */
+        var instance: KvColorPalette = KvColorPalette()
+        lateinit var appThemePalette: AppThemePalette
+
+        /**
+         * KvColorPalette initialization. Consumer can use this to initialize the KvColorPalette from their application, if they need a
+         * Theme color palette at the application start-up.
+         *
+         * On this initiation of KvColorPalette, we generate a theme color palette using the given color.
+         * `basicColor` is mandatory parameter while initiate the library.
+         */
+        fun initialize(basicColor: KvColor) {
+            val closestColor = ColorUtil.findClosestColor(basicColor.color)
+            appThemePalette = instance.generateThemeColorPalette(closestColor.color)
+        }
+    }
+
+    init {
+        /**
+         * This generate theme-palette with color transparent. This is un-usable.
+         */
+        appThemePalette = generateThemeColorPalette(Color.Transparent)
+    }
+
+    /**
+     * Generate a list of colors with alpha values. According to the feeding color,
+     * this method generate a list of colors with different alpha values.
+     *
+     * @param givenColor The color to generate the alpha values for.
+     * @return A list of colors.
+     */
+    fun generateAlphaColorPalette(givenColor: Color): List<Color> {
+        return listOf(
+            Color(givenColor.red, givenColor.green, givenColor.blue, 1f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .9f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .8f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .7f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .6f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .5f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .4f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .3f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .2f),
+            Color(givenColor.red, givenColor.green, givenColor.blue, .1f),
+        )
+    }
+
+    /**
+     * Generate a list of colors with color saturation values. According to the feeding color,
+     * this method generate a list of color with different saturation values.
+     *
+     * @param givenColor The color to generate the saturation values for.
+     * @return A list of colors.
+     */
+    fun generateSaturationColorPalette(givenColor: Color): List<Color> {
+        val hue = givenColor.hsl.hue
+        val lightness = givenColor.hsl.lightness
+
+        return listOf(
+            Color.hsl(hue = hue, saturation = 1f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.9f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.8f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.7f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.6f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.5f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.4f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.3f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.2f, lightness = lightness),
+            Color.hsl(hue = hue, saturation = 0.1f, lightness = lightness)
+        )
+    }
+
+    /**
+     * Generate a list of colors with color lightness values. According to the feeding color,
+     * this method generate a list of color with different lightness values.
+     *
+     * @param givenColor The color to generate the lightness values for.
+     * @return A list of colors.
+     */
+    fun generateLightnessColorPalette(givenColor: Color): List<Color> {
+        val hue = givenColor.hsl.hue
+        val saturation = givenColor.hsl.saturation
+
+        return listOf(
+            Color.hsl(hue = hue, saturation = saturation, lightness = 1f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.9f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.8f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.7f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.6f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.5f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.4f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.3f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.2f),
+            Color.hsl(hue = hue, saturation = saturation, lightness = 0.1f)
+        )
+    }
+
+    /**
+     * Generate a list of colors with pre-defined color packages. According to the feeding color,
+     * this method generate a list of colors.
+     *
+     * @param givenColor The color to generate the color packages for.
+     * @return A list of colors.
+     */
+    fun generateColorPalette(givenColor: KvColor, alphaChange: Float = 1f): List<Color> {
+        return listOf(
+            Mat900Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat800Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat700Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat600Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            MatPackage.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat400Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat300Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat200Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat100Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
+            Mat50Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color
+        )
+    }
+
+    /**
+     * Generate a theme color palette. According to the feeding color,
+     * this method generate a theme color palette.
+     *
+     * @param givenColor The color to generate the theme color palette for.
+     * @return A theme color palette.
+     */
+    fun generateThemeColorPalette(givenColor: Color): AppThemePalette {
+        return ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
+    }
+}

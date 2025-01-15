@@ -3,19 +3,19 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <application
-        android:name=".KvColorPalletApp"
+        android:name="com.kavi.droid.color.palette.app.KvColorPaletteApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.ColorPalletAndroid"
+        android:theme="@style/Theme.KvColorPaletteTheme"
         tools:targetApi="31">
         <activity
-            android:name=".ui.MainActivity"
+            android:name="com.kavi.droid.color.palette.app.ui.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.ColorPalletAndroid">
+            android:theme="@style/Theme.KvColorPaletteTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

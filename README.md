@@ -1,4 +1,4 @@
-# KV Color Pallet - Android
+# KvColorPalette - Android
 
 This is a lightweight Android library that generates a color palette from a given color and creates a theme color set for Android applications. 
 This library simplifies the process of building consistent and visually appealing color themes.
@@ -35,40 +35,40 @@ dependencies {
 ````
 
 # Usage
-After you integrated the `KvColorPallet-Android` library, you can consume it as follows.
+After you integrated the `KvColorPalette-Android` library, you can consume it as follows.
 
 ### Basic Usage
-If you wants to consume basic features in `KvColorPallet` then use singleton instance as follows. This singleton instance allows consumers to access following basic functionalities.
+If you wants to consume basic features in `KvColorPalette-Android` then use singleton instance as follows. This singleton instance allows consumers to access following basic functionalities.
 ```
 // Generate mat color schem of given color
-KvColorPallet.instance.generateColorPallet(givenColor = MatPackage().matGold)
+KvColorPalette.instance.generateColorPalette(givenColor = MatPackage().matGold)
 
 // Generate alpha color schem of given color
-KvColorPallet.instance.generateAlphaColorPallet(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateAlphaColorPalette(givenColor = MatPackage().matGold.color)
 
 // Generate lightness color schem of given color
-KvColorPallet.instance.generateLightnessColorPallet(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateLightnessColorPalette(givenColor = MatPackage().matGold.color)
 
 // Generate saturation color schem of given color
-KvColorPallet.instance.generateSaturationColorPallet(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateSaturationColorPalette(givenColor = MatPackage().matGold.color)
 
 // Generate theme color pallet of given color
-KvColorPallet.instance.generateThemeColorPallet(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateThemeColorPalette(givenColor = MatPackage().matGold.color)
 ```
 
 ### Advance Usage
-If you wants to use `KvColorPallet-Android` to generate your theme color pallet when your application start-up, then you have to initiate the library in Application level.
+If you wants to use `KvColorPalette-Android` to generate your theme color pallet when your application start-up, then you have to initiate the library in Application level.
 To initiate you have to pass one base color that you think your application will use. Use following code to initiate the library package.
 ````
 override fun onCreate() {
     super.onCreate()
-    // Initialize the kv-android-color-pallet
-    KvColorPallet.initialize(MatPackage.MatDGreen)
+    // Initialize the KvColorPalette-Android
+    KvColorPalette.initialize(Color.blue)
 }
 ````
 This initiation create a color set for a theme using the given color at the initiation. This generated color set available for light and dark theme variants.
 
-In this `KvColorPallet.appThemePallet` you will have following color attributes.
+In this `KvColorPalette.appThemePalette` you will have following color attributes.
 |Attribute    |light-theme |dark-theme  |Description   |
 |-------------|------------|------------|--------------|
 |.base        |original    |original    |This is the base color given by the user.   |
@@ -84,10 +84,10 @@ In this `KvColorPallet.appThemePallet` you will have following color attributes.
 As mentioned above, according to the initiation color, that generate the color set for light and dark them.
 In your Jetpack Compose project, you can assign generate color set the your application theme.
 ````
-    // Access the generated theme color set from kv-android-color-pallet library
-    val theme = KvColorPallet.appThemePallet
+    // Access the generated theme color set from KvColorPalette-Android library
+    val theme = KvColorPalette.appThemePalette
 
-    // Generate application light theme using kv-android-color-pallet light colors
+    // Generate application light theme using KvColorPalette-Android light colors
     val themeLight = lightColorScheme(
         primary = theme.light.primary,
         secondary = theme.light.secondary,
@@ -97,7 +97,7 @@ In your Jetpack Compose project, you can assign generate color set the your appl
         onSecondary = theme.light.onSecondary
     )
 
-    // Generate application dark theme using kv-android-color-pallet dark colors
+    // Generate application dark theme using KvColorPalette-Android dark colors
     val themeDark = darkColorScheme(
         primary = theme.dark.primary,
         secondary = theme.dark.secondary,
@@ -125,7 +125,7 @@ In your Jetpack Compose project, you can assign generate color set the your appl
 We welcome contributions! Please fork the repository, make your changes, and submit a pull request. Ensure your code adheres to the established guidelines.
 
 # License
-kv-android-color-pallet is licensed under the [MIT License](https://github.com/kavi707/kv-android-color-pallet/blob/main/LICENSE).
+`KvColorPalette-Android` is licensed under the [MIT License](https://github.com/KvColorPalette/KvColorPalette-Android-App/blob/main/LICENSE).
 
 # Feedback
 For questions, suggestions, or issues, please open an issue on GitHub or contact us at kavimalw@gmail.com.
