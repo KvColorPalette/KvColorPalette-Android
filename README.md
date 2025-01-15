@@ -1,5 +1,7 @@
 # KvColorPalette - Android
 
+[![](https://jitpack.io/v/KvColorPalette/KvColorPalette-Android-App.svg)](https://jitpack.io/#KvColorPalette/KvColorPalette-Android-App)
+
 This is a lightweight Android library that generates a color palette from a given color and creates a theme color set for Android applications. 
 This library simplifies the process of building consistent and visually appealing color themes.
 
@@ -24,13 +26,13 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.kavi707:kv-android-color-pallet:0.0.4'
+    implementation 'com.github.KvColorPalette:KvColorPalette-Android-App:0.0.4'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.kavi707:kv-android-color-pallet:0.0.4")
+    implementation("com.github.KvColorPalette:KvColorPalette-Android-App:0.0.4")
 }
 ````
 
