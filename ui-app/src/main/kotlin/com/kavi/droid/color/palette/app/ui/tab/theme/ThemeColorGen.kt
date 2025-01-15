@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.app.ui.tab.theme
+package com.kavi.droid.color.palette.app.ui.tab.theme
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -16,8 +16,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kavi.droid.color.pallet.app.ui.common.ThemeColorRow
-import com.kavi.droid.color.pallet.color.MatPackage
+import com.kavi.droid.color.palette.app.ui.common.ThemeColorRow
+import com.kavi.droid.color.palette.color.MatPackage
 
 @Composable
 fun ThemeColorGen(modifier: Modifier) {
@@ -34,7 +34,7 @@ fun ThemeColorGen(modifier: Modifier) {
             Text(
                 modifier = Modifier
                     .padding(start = 8.dp, end = 8.dp, top = 24.dp, bottom = 8.dp),
-                text = "Theme Color Pallets",
+                text = "Theme Color Palettes",
                 style = MaterialTheme.typography.titleLarge
             )
         }

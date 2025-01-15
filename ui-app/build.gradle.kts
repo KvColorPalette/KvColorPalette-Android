@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.kavi.droid.color.pallet.app"
+    namespace = "com.kavi.droid.color.palette.app"
     compileSdk = libs.versions.compilerSdkVersion.get().toInt()
 
     defaultConfig {
-        applicationId = "com.kavi.droid.color.pallet.app"
+        applicationId = "com.kavi.droid.color.palette.app"
         minSdk = libs.versions.minSdkVersion.get().toInt()
         targetSdk = libs.versions.targetSdkVersion.get().toInt()
         versionCode = 1
@@ -54,7 +54,7 @@ dependencies {
     implementation(libs.androidx.compose.material)
     implementation(libs.androidx.navigation.compose)
 
-    implementation(project(":kv-color-pallet"))
+    implementation(project(":KvColorPalette"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

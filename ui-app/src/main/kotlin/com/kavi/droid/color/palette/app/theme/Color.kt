@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.app.theme
+package com.kavi.droid.color.palette.app.theme
 
 import androidx.compose.ui.graphics.Color
 

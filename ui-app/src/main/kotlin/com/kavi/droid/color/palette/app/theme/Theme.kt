@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.app.theme
+package com.kavi.droid.color.palette.app.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
@@ -7,14 +7,14 @@ import androidx.compose.material3.darkColorScheme
 import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.pallet.KvColorPallet
+import com.kavi.droid.color.palette.KvColorPalette
 
 @Composable
-fun KvColorPalletTheme(
+fun KvColorPaletteTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     content: @Composable () -> Unit
 ) {
-    val theme = KvColorPallet.appThemePallet
+    val theme = KvColorPalette.appThemePalette
 
     val themeLight = lightColorScheme(
         primary = theme.light.primary,

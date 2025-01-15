@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.app.model
+package com.kavi.droid.color.palette.app.model
 
 data class TabItem(
     val name: String,

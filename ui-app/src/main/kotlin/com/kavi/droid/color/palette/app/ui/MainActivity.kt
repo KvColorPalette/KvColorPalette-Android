@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.app.ui
+package com.kavi.droid.color.palette.app.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -23,19 +23,19 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kavi.droid.color.pallet.app.R
-import com.kavi.droid.color.pallet.app.model.TabItem
-import com.kavi.droid.color.pallet.app.ui.tab.pallet.ColorPalletTab
-import com.kavi.droid.color.pallet.app.ui.tab.theme.ThemeColorGen
-import com.kavi.droid.color.pallet.app.theme.KvColorPalletTheme
-import com.kavi.droid.color.pallet.app.theme.navigationBarColors
+import com.kavi.droid.color.palette.app.model.TabItem
+import com.kavi.droid.color.palette.app.ui.tab.palette.ColorPaletteTab
+import com.kavi.droid.color.palette.app.ui.tab.theme.ThemeColorGen
+import com.kavi.droid.color.palette.app.theme.KvColorPaletteTheme
+import com.kavi.droid.color.palette.app.theme.navigationBarColors
+import com.kavi.droid.color.palette.app.R
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            KvColorPalletTheme {
+            KvColorPaletteTheme {
                 TabViewExample()
             }
         }
@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
 fun TabViewExample() {
     val tabItems = listOf(
         TabItem(
-            name = "Color Pallet",
+            name = "Color Palette",
             icon = R.drawable.icon_color_grid
         ),
         TabItem(name = "Theme Gen", icon = R.drawable.icon_theme_masks)
@@ -94,7 +94,7 @@ fun TabViewExample() {
 @Composable
 fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
     when (selectedTabIndex) {
-        0 -> ColorPalletTab(modifier = modifier)
+        0 -> ColorPaletteTab(modifier = modifier)
         1 -> ThemeColorGen(modifier =  modifier)
     }
 }
@@ -102,7 +102,7 @@ fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    KvColorPalletTheme {
+    KvColorPaletteTheme {
         TabViewExample()
     }
 }

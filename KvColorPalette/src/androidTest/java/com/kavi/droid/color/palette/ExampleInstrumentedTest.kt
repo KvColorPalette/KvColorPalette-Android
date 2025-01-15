@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet
+package com.kavi.droid.color.palette
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("com.kavi.droid.color.pallet.test", appContext.packageName)
+        assertEquals("com.kavi.droid.color.palette.test", appContext.packageName)
     }
 }

@@ -1,9 +1,9 @@
 import java.net.URI
 
-rootProject.name = "kv-android-color-pallet"
+rootProject.name = "KvColorPalette-Android-App"
 
 listOf(
-    ":kv-color-pallet",
+    ":KvColorPalette",
     ":ui-app"
 ).onEach {
     include(it)

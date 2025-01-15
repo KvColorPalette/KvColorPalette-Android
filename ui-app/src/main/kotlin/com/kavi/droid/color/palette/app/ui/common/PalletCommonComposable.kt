@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.app.ui.common
+package com.kavi.droid.color.palette.app.ui.common
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -23,7 +23,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.unit.dp
-import com.kavi.droid.color.pallet.util.ColorUtil
+import com.kavi.droid.color.palette.util.ColorUtil
 
 @Composable
 fun ColorBox(givenColor: Color, selectedColor: Color?, onSelect: (color: Color) -> Unit) {

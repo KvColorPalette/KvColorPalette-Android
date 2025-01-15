@@ -1,4 +1,4 @@
-package com.kavi.droid.color.pallet.app.ui.common
+package com.kavi.droid.color.palette.app.ui.common
 
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
@@ -22,8 +22,8 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import com.kavi.droid.color.pallet.KvColorPallet
-import com.kavi.droid.color.pallet.model.KvColor
+import com.kavi.droid.color.palette.KvColorPalette
+import com.kavi.droid.color.palette.model.KvColor
 
 @Composable
 fun ColorCircle(givenColor: Color, colorLetter: String = "", letterColor: Color = MaterialTheme.colorScheme.onPrimary) {
@@ -84,7 +84,7 @@ fun ThemeColorRow(givenColor: KvColor) {
                 .fillMaxWidth(),
                 verticalArrangement = Arrangement.Center,
             ) {
-                val appThemeColorSet = KvColorPallet.instance.generateThemeColorPallet(
+                val appThemeColorSet = KvColorPalette.instance.generateThemeColorPalette(
                     givenColor = givenColor.color,
                 )
 
