@@ -23,7 +23,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import com.kavi.droid.color.palette.KvColorPalette
-import com.kavi.droid.color.palette.model.KvColor
 
 @Composable
 fun ColorCircle(givenColor: Color, colorLetter: String = "", letterColor: Color = MaterialTheme.colorScheme.onPrimary) {
@@ -50,7 +49,7 @@ fun ColorCircle(givenColor: Color, colorLetter: String = "", letterColor: Color 
 }
 
 @Composable
-fun ThemeColorRow(givenColor: KvColor) {
+fun ThemeColorRow(givenColor: Color) {
     Box(
         modifier = Modifier
             .padding(10.dp)
@@ -68,7 +67,7 @@ fun ThemeColorRow(givenColor: KvColor) {
                 .width(60.dp)
                 .height(220.dp)
                 .padding(top = 16.dp, start = 16.dp, end = 4.dp, bottom = 16.dp)
-                .background(givenColor.color)
+                .background(givenColor)
             ) {
                 Text("BASE",
                     modifier = Modifier
@@ -85,7 +84,7 @@ fun ThemeColorRow(givenColor: KvColor) {
                 verticalArrangement = Arrangement.Center,
             ) {
                 val appThemeColorSet = KvColorPalette.instance.generateThemeColorPalette(
-                    givenColor = givenColor.color,
+                    givenColor = givenColor,
                 )
 
                 Text("Light Theme", Modifier.padding(top = 8.dp, start = 8.dp), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.ExtraBold,)

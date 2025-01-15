@@ -8,7 +8,7 @@ class KvColorPaletteApp: Application() {
 
     override fun onCreate() {
         super.onCreate()
-        // Initialize the kv color pallet
-        KvColorPalette.initialize(MatPackage.MatDGreen)
+        // Initialize the kv color palette
+        KvColorPalette.initialize(MatPackage.MatDGreen.color)
     }
 }
