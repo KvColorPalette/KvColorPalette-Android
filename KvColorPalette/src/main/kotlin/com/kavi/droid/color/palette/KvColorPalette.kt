@@ -37,8 +37,8 @@ class KvColorPalette {
          * On this initiation of KvColorPalette, we generate a theme color palette using the given color.
          * `basicColor` is mandatory parameter while initiate the library.
          */
-        fun initialize(basicColor: KvColor) {
-            val closestColor = ColorUtil.findClosestColor(basicColor.color)
+        fun initialize(basicColor: Color) {
+            val closestColor = ColorUtil.findClosestColor(basicColor)
             appThemePalette = instance.generateThemeColorPalette(closestColor.color)
         }
     }
