@@ -99,6 +99,7 @@ fun ThemeColorRow(givenColor: KvColor) {
                     ColorCircle(appThemeColorSet.light.primary, colorLetter = "P")
                     ColorCircle(appThemeColorSet.light.secondary, colorLetter = "S")
                     ColorCircle(appThemeColorSet.light.tertiary, colorLetter = "T")
+                    ColorCircle(appThemeColorSet.light.quaternary, colorLetter = "Q")
                     ColorCircle(appThemeColorSet.light.background, colorLetter = "B", letterColor = Color.Black)
                 }
 
@@ -113,6 +114,7 @@ fun ThemeColorRow(givenColor: KvColor) {
                     ColorCircle(appThemeColorSet.dark.primary, colorLetter = "P")
                     ColorCircle(appThemeColorSet.dark.secondary, colorLetter = "S", letterColor = Color.Black)
                     ColorCircle(appThemeColorSet.dark.tertiary, colorLetter = "T")
+                    ColorCircle(appThemeColorSet.dark.quaternary, colorLetter = "Q", letterColor = Color.Black)
                     ColorCircle(appThemeColorSet.dark.background, colorLetter = "B")
                 }
             }
