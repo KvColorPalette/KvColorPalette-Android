@@ -1,11 +1,9 @@
 package com.kavi.droid.color.palette.util
 
 import androidx.compose.ui.graphics.Color
-import com.kavi.droid.color.palette.color.ColorPackageType
+import com.kavi.droid.color.palette.extension.hsl
 import com.kavi.droid.color.palette.model.AppThemePalette
-import com.kavi.droid.color.palette.model.KvColor
 import com.kavi.droid.color.palette.model.ThemeColorPalette
-import com.kavi.droid.color.palette.util.ColorUtil.findClosestColor
 
 object ThemeGenUtil {
 
@@ -15,27 +13,25 @@ object ThemeGenUtil {
      * @return A theme color set. [AppThemePalette]
      */
     internal fun generateThemeColorSet(givenColor: Color): AppThemePalette {
-        val closestColor = findClosestColor(givenColor)
-
-        val lightColorPalette = generateLightThemeColorSet(givenColor, closestColor)
-        val darkColorPalette = generateDarkThemeColorSet(givenColor, closestColor)
+        val lightColorPalette = generateLightThemeColorSet(givenColor)
+        val darkColorPalette = generateDarkThemeColorSet(givenColor)
 
         return AppThemePalette(light = lightColorPalette, dark = darkColorPalette)
     }
 
     /**
      * Generate light theme color set for given color.
-     * @param closestColor The closest color to original consumer given color.
+     * @param givenColor The color to generate theme color set.
      * @return A light theme color set. [ThemeColorPalette]
      */
-    private fun generateLightThemeColorSet(givenColor: Color, closestColor: KvColor): ThemeColorPalette {
+    private fun generateLightThemeColorSet(givenColor: Color): ThemeColorPalette {
         return ThemeColorPalette(
             base = givenColor,
-            primary = closestColor.color,
-            secondary = generateLightSecondaryColor(closestColor.color),
-            tertiary = generateLightTeriaryColor(closestColor),
-            quaternary = closestColor.color,
-            background = generateLightBackgroundColor(closestColor),
+            primary = givenColor,
+            secondary = generateLightSecondaryColor(givenColor),
+            tertiary = generateLightTertiaryColor(givenColor),
+            quaternary = givenColor, // This is for use light theme primary color dark theme contrast color
+            background = generateLightBackgroundColor(givenColor),
             onPrimary = Color.White,
             onSecondary = Color.White,
             shadow = Color.Gray
@@ -44,19 +40,17 @@ object ThemeGenUtil {
 
     /**
      * Generate dark theme color set for given color.
-     * @param closestColor The closest color to original consumer given color.
+     * @param givenColor he color to generate theme color set.
      * @return A dark theme color set. [ThemeColorPalette]
      */
-    private fun generateDarkThemeColorSet(givenColor: Color, primaryColor: KvColor): ThemeColorPalette {
-        val closestColor = findClosestColor(primaryColor.color)
-
+    private fun generateDarkThemeColorSet(givenColor: Color): ThemeColorPalette {
         return ThemeColorPalette(
             base = givenColor,
-            primary = generateDarkPrimaryColor(closestColor.color),
-            secondary = generateDarkSecondaryColor(closestColor.color),
-            tertiary = generateDarkTeriaryColor(closestColor),
-            quaternary = generateDarkSecondaryColor(closestColor.color),
-            background = generateDarkBackgroundColor(closestColor.color),
+            primary = generateDarkPrimaryColor(givenColor),
+            secondary = generateDarkSecondaryColor(givenColor),
+            tertiary = generateDarkTertiaryColor(givenColor),
+            quaternary = generateDarkSecondaryColor(givenColor), // This is for use light theme primary color dark theme contrast color
+            background = generateDarkBackgroundColor(givenColor),
             onPrimary = Color.White,
             onSecondary = Color.Black,
             shadow = Color.White
@@ -73,15 +67,16 @@ object ThemeGenUtil {
     /**
      * Generate light tertiary color for given color.
      */
-    private fun generateLightTeriaryColor(primaryColor: KvColor): Color {
-        return primaryColor.changeColorPackage(ColorPackageType.PK_200).color
+    private fun generateLightTertiaryColor(primaryColor: Color): Color {
+        val firstColor = Color(primaryColor.red/1.5f, primaryColor.green/1.5f, primaryColor.blue/1.5f, 1f)
+        return Color.hsl(hue = firstColor.hsl.hue, saturation = firstColor.hsl.saturation, lightness = .8f)
     }
 
     /**
      * Generate light background color for given color.
      */
-    private fun generateLightBackgroundColor(primaryColor: KvColor): Color {
-        return primaryColor.changeColorPackage(ColorPackageType.PK_50).alphaChange(.5f).color
+    private fun generateLightBackgroundColor(primaryColor: Color): Color {
+        return Color.hsl(hue = primaryColor.hsl.hue, saturation = .4f, lightness = .95f)
     }
 
     /**
@@ -101,8 +96,8 @@ object ThemeGenUtil {
     /**
      * Generate dark tertiary color for given color.
      */
-    private fun generateDarkTeriaryColor(primaryColor: KvColor): Color {
-        return primaryColor.changeColorPackage(ColorPackageType.PK_700).color
+    private fun generateDarkTertiaryColor(primaryColor: Color): Color {
+        return Color.hsl(hue = primaryColor.hsl.hue, saturation = primaryColor.hsl.saturation, lightness = .45f)
     }
 
     /**

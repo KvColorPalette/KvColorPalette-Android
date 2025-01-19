@@ -16,6 +16,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kavi.droid.color.palette.app.theme.Mat500LLBlue
 import com.kavi.droid.color.palette.app.ui.common.ThemeColorRow
 import com.kavi.droid.color.palette.color.MatPackage
 
@@ -44,9 +45,10 @@ fun ThemeColorGen(modifier: Modifier) {
                 .size(720.dp)
                 .verticalScroll(rememberScrollState())
         ) {
-            ThemeColorRow(MatPackage.MatRed)
-            ThemeColorRow(MatPackage.MatOrange)
-            ThemeColorRow(MatPackage.MatDGreen)
+            ThemeColorRow(MatPackage.MatRed.color)
+            ThemeColorRow(MatPackage.MatOrange.color)
+            ThemeColorRow(MatPackage.MatDGreen.color)
+            ThemeColorRow(Mat500LLBlue)
 
             Button(
                 modifier = Modifier

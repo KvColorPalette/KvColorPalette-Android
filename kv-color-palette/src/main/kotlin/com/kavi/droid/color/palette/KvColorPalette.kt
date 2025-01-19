@@ -18,7 +18,7 @@ import com.kavi.droid.color.palette.util.ColorUtil
 import com.kavi.droid.color.palette.util.ThemeGenUtil
 
 /**
- * This is the KvColorPallet android library.
+ * This is the KvColorPalette android library.
  */
 class KvColorPalette {
 
@@ -37,8 +37,8 @@ class KvColorPalette {
          * On this initiation of KvColorPalette, we generate a theme color palette using the given color.
          * `basicColor` is mandatory parameter while initiate the library.
          */
-        fun initialize(basicColor: KvColor) {
-            val closestColor = ColorUtil.findClosestColor(basicColor.color)
+        fun initialize(basicColor: Color) {
+            val closestColor = ColorUtil.findClosestColor(basicColor)
             appThemePalette = instance.generateThemeColorPalette(closestColor.color)
         }
     }
@@ -57,8 +57,8 @@ class KvColorPalette {
      * @param givenColor The color to generate the alpha values for.
      * @return A list of colors.
      */
-    fun generateAlphaColorPalette(givenColor: Color): List<Color> {
-        return listOf(
+    fun generateAlphaColorPalette(givenColor: Color): List<Color> =
+        listOf(
             Color(givenColor.red, givenColor.green, givenColor.blue, 1f),
             Color(givenColor.red, givenColor.green, givenColor.blue, .9f),
             Color(givenColor.red, givenColor.green, givenColor.blue, .8f),
@@ -70,7 +70,6 @@ class KvColorPalette {
             Color(givenColor.red, givenColor.green, givenColor.blue, .2f),
             Color(givenColor.red, givenColor.green, givenColor.blue, .1f),
         )
-    }
 
     /**
      * Generate a list of colors with color saturation values. According to the feeding color,
@@ -129,8 +128,8 @@ class KvColorPalette {
      * @param givenColor The color to generate the color packages for.
      * @return A list of colors.
      */
-    fun generateColorPalette(givenColor: KvColor, alphaChange: Float = 1f): List<Color> {
-        return listOf(
+    fun generateColorPalette(givenColor: KvColor, alphaChange: Float = 1f): List<Color> =
+        listOf(
             Mat900Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             Mat800Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             Mat700Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
@@ -142,7 +141,6 @@ class KvColorPalette {
             Mat100Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             Mat50Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color
         )
-    }
 
     /**
      * Generate a theme color palette. According to the feeding color,
@@ -151,7 +149,13 @@ class KvColorPalette {
      * @param givenColor The color to generate the theme color palette for.
      * @return A theme color palette.
      */
-    fun generateThemeColorPalette(givenColor: Color): AppThemePalette {
-        return ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
-    }
+    fun generateThemeColorPalette(givenColor: Color): AppThemePalette = ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
+
+    /**
+     * This method finds the closest KvColor available in the KvColorPalette-Android to the given color
+     *
+     * @param givenColor: The color to find closest KvColor from color packages
+     * @return KvColor
+     */
+    fun findClosestKvColor(givenColor: Color): KvColor = ColorUtil.findClosestColor(givenColor = givenColor)
 }

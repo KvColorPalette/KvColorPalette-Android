@@ -55,12 +55,12 @@ KvColorPalette.instance.generateLightnessColorPalette(givenColor = MatPackage().
 // Generate saturation color schem of given color
 KvColorPalette.instance.generateSaturationColorPalette(givenColor = MatPackage().matGold.color)
 
-// Generate theme color pallet of given color
+// Generate theme color palette of given color
 KvColorPalette.instance.generateThemeColorPalette(givenColor = MatPackage().matGold.color)
 ```
 
 ### Advance Usage
-If you wants to use `KvColorPalette-Android` to generate your theme color pallet when your application start-up, then you have to initiate the library in Application level.
+If you wants to use `KvColorPalette-Android` to generate your theme color palette when your application start-up, then you have to initiate the library in Application level.
 To initiate you have to pass one base color that you think your application will use. Use following code to initiate the library package.
 ````
 override fun onCreate() {
