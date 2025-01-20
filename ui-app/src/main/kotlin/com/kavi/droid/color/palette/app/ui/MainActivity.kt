@@ -16,6 +16,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
@@ -25,7 +26,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kavi.droid.color.palette.app.model.TabItem
 import com.kavi.droid.color.palette.app.ui.tab.palette.ColorPaletteTab
-import com.kavi.droid.color.palette.app.ui.tab.theme.ThemeColorGen
+import com.kavi.droid.color.palette.app.ui.tab.theme.ThemeColorGenTab
 import com.kavi.droid.color.palette.app.theme.KvColorPaletteTheme
 import com.kavi.droid.color.palette.app.theme.navigationBarColors
 import com.kavi.droid.color.palette.app.R
@@ -36,22 +37,19 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             KvColorPaletteTheme {
-                TabViewExample()
+                DashboardTabView()
             }
         }
     }
 }
 
 @Composable
-fun TabViewExample() {
+fun DashboardTabView() {
     val tabItems = listOf(
-        TabItem(
-            name = "Color Palette",
-            icon = R.drawable.icon_color_grid
-        ),
+        TabItem(name = "Color Palettes", icon = R.drawable.icon_color_grid),
         TabItem(name = "Theme Gen", icon = R.drawable.icon_theme_masks)
     )
-    var selectedTabIndex by remember { mutableStateOf(0) }
+    var selectedTabIndex by remember { mutableIntStateOf(0) }
 
     Scaffold(
         bottomBar = {
@@ -95,7 +93,7 @@ fun TabViewExample() {
 fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
     when (selectedTabIndex) {
         0 -> ColorPaletteTab(modifier = modifier)
-        1 -> ThemeColorGen(modifier =  modifier)
+        1 -> ThemeColorGenTab(modifier =  modifier)
     }
 }
 
@@ -103,6 +101,6 @@ fun TabContent(selectedTabIndex: Int, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     KvColorPaletteTheme {
-        TabViewExample()
+        DashboardTabView()
     }
 }
