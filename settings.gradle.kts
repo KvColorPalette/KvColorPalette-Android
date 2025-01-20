@@ -1,6 +1,6 @@
 import java.net.URI
 
-rootProject.name = "KvColorPalette-Android-App"
+rootProject.name = "KvColorPalette-Android"
 
 listOf(
     ":kv-color-palette",
