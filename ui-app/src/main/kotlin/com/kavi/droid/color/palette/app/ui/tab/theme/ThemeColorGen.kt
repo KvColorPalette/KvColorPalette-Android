@@ -2,6 +2,7 @@ package com.kavi.droid.color.palette.app.ui.tab.theme
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -42,7 +43,8 @@ fun ThemeColorGen(modifier: Modifier) {
 
         Column(
             modifier = Modifier
-                .size(720.dp)
+                .fillMaxWidth()
+                .fillMaxHeight()
                 .verticalScroll(rememberScrollState())
         ) {
             ThemeColorRow(MatPackage.MatRed.color)
