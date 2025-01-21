@@ -26,13 +26,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.kavi.droid.color.palette.app.ui.tab.palette.pager.AlphaPalettePager
 import com.kavi.droid.color.palette.app.ui.tab.palette.pager.LightnessPalettePager
 import com.kavi.droid.color.palette.app.ui.tab.palette.pager.PalettePager
 import com.kavi.droid.color.palette.app.ui.tab.palette.pager.SaturationPalettePager
 
 @Composable
-fun ColorPaletteTab(modifier: Modifier) {
+fun ColorPaletteTab(navController: NavHostController, modifier: Modifier) {
+
     Column(
         modifier = modifier
             .fillMaxWidth()
@@ -80,6 +83,7 @@ fun ColorPaletteTab(modifier: Modifier) {
                 .padding(top = 4.dp, start = 16.dp, end = 16.dp, bottom = 8.dp)
                 .fillMaxWidth(),
             onClick = {
+                navController.navigate("palette-gen-detail")
             }
         ) {
             Text("Try it out!")
@@ -90,5 +94,5 @@ fun ColorPaletteTab(modifier: Modifier) {
 @Preview
 @Composable
 fun ColorPaletteTabPreview() {
-    ColorPaletteTab(modifier = Modifier)
+    ColorPaletteTab(navController = rememberNavController(), modifier = Modifier)
 }

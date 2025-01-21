@@ -16,12 +16,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.kavi.droid.color.palette.app.theme.Mat500LLBlue
 import com.kavi.droid.color.palette.app.ui.common.ThemeColorRow
 import com.kavi.droid.color.palette.color.MatPackage
 
 @Composable
-fun ThemeColorGenTab(modifier: Modifier) {
+fun ThemeColorGenTab(navController: NavHostController, modifier: Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -56,6 +58,7 @@ fun ThemeColorGenTab(modifier: Modifier) {
                     .padding(16.dp)
                     .fillMaxWidth(),
                 onClick = {
+                    navController.navigate("theme-gen-detail")
                 }
             ) {
                 Text("Try it out!")
@@ -67,5 +70,5 @@ fun ThemeColorGenTab(modifier: Modifier) {
 @Preview
 @Composable
 fun ThemeColorGenPreview() {
-    ThemeColorGenTab(Modifier)
+    ThemeColorGenTab(navController = rememberNavController(), Modifier)
 }
