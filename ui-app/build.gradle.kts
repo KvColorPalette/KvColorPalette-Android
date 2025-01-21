@@ -55,6 +55,7 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
 
     implementation(project(":kv-color-palette"))
+//    implementation(project(":kv-color-picker"))
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

@@ -7,7 +7,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.kavi.droid.color.palette.app.theme.KvColorPaletteTheme
-import com.kavi.droid.color.palette.app.ui.navigation.NavigationHost
+import com.kavi.droid.color.palette.app.navigation.NavigationHost
 
 class MainActivity : ComponentActivity() {
 

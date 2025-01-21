@@ -1,4 +1,4 @@
-package com.kavi.droid.color.palette.app.ui.navigation
+package com.kavi.droid.color.palette.app.navigation
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
