@@ -6,7 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kavi.droid.color.palette.app.ui.detail.PaletteGenDetailUI
 import com.kavi.droid.color.palette.app.ui.detail.ThemeGenDetailUI
-import com.kavi.droid.color.palette.app.ui.tab.DashboardTabUI
+import com.kavi.droid.color.palette.app.ui.dashboard.DashboardTabUI
 
 object NavigationHost {
     @Composable

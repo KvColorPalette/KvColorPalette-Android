@@ -1,4 +1,4 @@
-package com.kavi.droid.color.palette.app.ui.tab
+package com.kavi.droid.color.palette.app.ui.dashboard
 
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -25,8 +25,8 @@ import com.kavi.droid.color.palette.app.R
 import com.kavi.droid.color.palette.app.model.TabItem
 import com.kavi.droid.color.palette.app.theme.KvColorPaletteTheme
 import com.kavi.droid.color.palette.app.theme.navigationBarColors
-import com.kavi.droid.color.palette.app.ui.tab.palette.ColorPaletteTab
-import com.kavi.droid.color.palette.app.ui.tab.theme.ThemeColorGenTab
+import com.kavi.droid.color.palette.app.ui.dashboard.palette.ColorPaletteTab
+import com.kavi.droid.color.palette.app.ui.dashboard.theme.ThemeColorGenTab
 
 @Composable
 fun DashboardTabUI(navController: NavHostController) {

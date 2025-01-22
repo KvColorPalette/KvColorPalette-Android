@@ -1,4 +1,4 @@
-package com.kavi.droid.color.palette.app.ui.tab.theme
+package com.kavi.droid.color.palette.app.ui.dashboard.theme
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row

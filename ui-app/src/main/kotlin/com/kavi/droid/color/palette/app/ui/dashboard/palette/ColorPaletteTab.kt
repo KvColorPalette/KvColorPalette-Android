@@ -1,4 +1,4 @@
-package com.kavi.droid.color.palette.app.ui.tab.palette
+package com.kavi.droid.color.palette.app.ui.dashboard.palette
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.snapping.SnapPosition
@@ -28,10 +28,10 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.kavi.droid.color.palette.app.ui.tab.palette.pager.AlphaPalettePager
-import com.kavi.droid.color.palette.app.ui.tab.palette.pager.LightnessPalettePager
-import com.kavi.droid.color.palette.app.ui.tab.palette.pager.PalettePager
-import com.kavi.droid.color.palette.app.ui.tab.palette.pager.SaturationPalettePager
+import com.kavi.droid.color.palette.app.ui.dashboard.palette.pager.AlphaPalettePager
+import com.kavi.droid.color.palette.app.ui.dashboard.palette.pager.LightnessPalettePager
+import com.kavi.droid.color.palette.app.ui.dashboard.palette.pager.PalettePager
+import com.kavi.droid.color.palette.app.ui.dashboard.palette.pager.SaturationPalettePager
 
 @Composable
 fun ColorPaletteTab(navController: NavHostController, modifier: Modifier) {
