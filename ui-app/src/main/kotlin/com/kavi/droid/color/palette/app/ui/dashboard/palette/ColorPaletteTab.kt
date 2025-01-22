@@ -21,6 +21,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -36,6 +41,8 @@ import com.kavi.droid.color.palette.app.ui.dashboard.palette.pager.SaturationPal
 
 @Composable
 fun ColorPaletteTab(navController: NavHostController, modifier: Modifier) {
+
+    var selectedPagerIndex by remember { mutableIntStateOf(0) }
 
     Column(
         modifier = modifier
@@ -68,6 +75,7 @@ fun ColorPaletteTab(navController: NavHostController, modifier: Modifier) {
             horizontalArrangement = Arrangement.Center
         ) {
             repeat(state.pageCount) { iteration ->
+                selectedPagerIndex = state.currentPage
                 val color = if (state.currentPage == iteration) Color.DarkGray else Color.LightGray
                 Box(
                     modifier = Modifier
@@ -85,7 +93,8 @@ fun ColorPaletteTab(navController: NavHostController, modifier: Modifier) {
                 .fillMaxWidth(),
             shape = RoundedCornerShape(8.dp),
             onClick = {
-                navController.navigate("palette-gen-detail")
+
+                navController.navigate("palette-gen-detail/$selectedPagerIndex")
             }
         ) {
             Text("Try it out!")

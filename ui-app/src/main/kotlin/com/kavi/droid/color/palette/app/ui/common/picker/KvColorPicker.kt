@@ -16,6 +16,7 @@ import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
@@ -33,9 +34,8 @@ import com.kavi.droid.color.palette.app.extension.toColorInt
 import com.kavi.droid.color.palette.util.ColorUtil
 
 @Composable
-fun KvColorPicker(modifier: Modifier = Modifier) {
-    // State variables for RGBA values
-    //val alpha = rememberSaveable { mutableFloatStateOf(1f) }
+fun KvColorPicker(modifier: Modifier = Modifier, onColorSelected: (selectedColor: Color) -> Unit) {
+    // State variables for RGB values
     val red = rememberSaveable { mutableFloatStateOf(0f) }
     val green = rememberSaveable { mutableFloatStateOf(0f) }
     val blue = rememberSaveable { mutableFloatStateOf(0f) }
@@ -45,6 +45,11 @@ fun KvColorPicker(modifier: Modifier = Modifier) {
         derivedStateOf {
             Color(red.floatValue, green.floatValue, blue.floatValue)
         }
+    }
+
+    // Launch an effect to invoke the provided callback with the selected color
+    LaunchedEffect(color) {
+        onColorSelected.invoke(color)
     }
 
     Row(
@@ -57,14 +62,13 @@ fun KvColorPicker(modifier: Modifier = Modifier) {
             .background(Color.White)
             .padding(12.dp)
     ) {
-        // Sliders for adjusting RGBA values
+        // Sliders for adjusting RGB values
         Column(
             modifier = Modifier
                 .padding(12.dp)
                 .width(250.dp),
             verticalArrangement = Arrangement.spacedBy(5.dp)
         ) {
-            //ColorSlider("A", alpha, color.copy(1f))
             ColorSlider("R", red, Color.Red)
             ColorSlider("G", green, Color.Green)
             ColorSlider("B", blue, Color.Blue)
@@ -148,5 +152,5 @@ fun ColorSlider(
 @Preview(showBackground = true)
 @Composable
 fun ColorPickerUIPreview() {
-    KvColorPicker()
+    KvColorPicker(onColorSelected = {})
 }

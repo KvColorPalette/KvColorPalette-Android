@@ -1,6 +1,6 @@
 package com.kavi.droid.color.palette.app.ui.detail
 
-import androidx.compose.foundation.background
+import android.webkit.WebSettings
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -15,19 +15,30 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.kavi.droid.color.palette.KvColorPalette
+import com.kavi.droid.color.palette.app.model.PaletteType
 import com.kavi.droid.color.palette.app.theme.KvColorPaletteTheme
 import com.kavi.droid.color.palette.app.ui.common.ColorStrip
 import com.kavi.droid.color.palette.app.ui.common.picker.KvColorPicker
 
 @Composable
-fun PaletteGenDetailUI() {
+fun PaletteGenDetailUI(paletteType: PaletteType) {
+
+    var selectedColor by remember { mutableStateOf(Color.White) }
+    var colorPalette by remember { mutableStateOf<List<Color>>(emptyList()) }
+
     Scaffold { innerPadding ->
         Column(
             modifier = Modifier
@@ -40,15 +51,27 @@ fun PaletteGenDetailUI() {
                 .fillMaxWidth()
                 .padding(top = 24.dp)
             ) {
+                val palletName = when(paletteType) {
+                    PaletteType.KV_PALETTE -> "Kv Palette"
+                    PaletteType.ALPHA_PALETTE -> "Alpha"
+                    PaletteType.LIGHTNESS_PALETTE -> "Lightness"
+                    PaletteType.SATURATION_PALETTE -> "Saturation"
+                }
+                
                 Text(
                     modifier = Modifier
                         .padding(8.dp),
-                    text = "Color Palette Generator",
-                    style = MaterialTheme.typography.titleLarge
+                    text = "Color Palette Generator [$palletName]",
+                    style = MaterialTheme.typography.titleLarge,
+                    fontSize = 28.sp
                 )
             }
 
-            KvColorPicker(modifier = Modifier.padding(8.dp))
+            KvColorPicker(modifier = Modifier.padding(8.dp), onColorSelected = { color ->
+                println("Color: ${color.toArgb()}")
+                selectedColor = color
+                println("Selected Color: ${selectedColor.toArgb()}")
+            })
 
             Button(
                 modifier = Modifier
@@ -56,7 +79,15 @@ fun PaletteGenDetailUI() {
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(8.dp),
                 onClick = {
-                    //navController.navigate("palette-gen-detail")
+                    colorPalette = when (paletteType) {
+                        PaletteType.KV_PALETTE -> {
+                            val closestKvColor = KvColorPalette.instance.findClosestKvColor(givenColor = selectedColor)
+                            KvColorPalette.instance.generateColorPalette(givenColor = closestKvColor)
+                        }
+                        PaletteType.ALPHA_PALETTE -> KvColorPalette.instance.generateAlphaColorPalette(givenColor = selectedColor)
+                        PaletteType.LIGHTNESS_PALETTE -> KvColorPalette.instance.generateLightnessColorPalette(givenColor = selectedColor)
+                        PaletteType.SATURATION_PALETTE -> KvColorPalette.instance.generateSaturationColorPalette(givenColor = selectedColor)
+                    }
                 }
             ) {
                 Text("Generate Palette")
@@ -67,13 +98,10 @@ fun PaletteGenDetailUI() {
                     .fillMaxWidth()
                     .fillMaxHeight()
                     .padding(8.dp)
-                    .shadow(
-                        elevation = 1.dp,
-                        shape = RoundedCornerShape(8.dp)
-                    )
+                    .clip(RoundedCornerShape(8.dp))
                     .verticalScroll(rememberScrollState()),
             ) {
-                val colorPalette = KvColorPalette.instance.generateAlphaColorPalette(givenColor = Color.Red)
+
                 colorPalette.forEach {
                     ColorStrip(color = it)
                 }
@@ -86,6 +114,6 @@ fun PaletteGenDetailUI() {
 @Composable
 fun PaletteGenDetailUIPreview() {
     KvColorPaletteTheme {
-        PaletteGenDetailUI()
+        PaletteGenDetailUI(paletteType = PaletteType.LIGHTNESS_PALETTE)
     }
 }

@@ -39,7 +39,9 @@ fun ThemeGenDetailUI() {
                 )
             }
 
-            KvColorPicker()
+            KvColorPicker(modifier = Modifier.padding(8.dp), onColorSelected = { selectedColor ->
+
+            })
         }
     }
 }
@@ -48,6 +50,6 @@ fun ThemeGenDetailUI() {
 @Composable
 fun ThemeGenDetailUIPreview() {
     KvColorPaletteTheme {
-        PaletteGenDetailUI()
+        ThemeGenDetailUI()
     }
 }
