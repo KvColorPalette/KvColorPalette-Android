@@ -16,6 +16,7 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
@@ -82,6 +83,7 @@ fun ColorPaletteTab(navController: NavHostController, modifier: Modifier) {
             modifier = Modifier
                 .padding(top = 4.dp, start = 16.dp, end = 16.dp, bottom = 8.dp)
                 .fillMaxWidth(),
+            shape = RoundedCornerShape(8.dp),
             onClick = {
                 navController.navigate("palette-gen-detail")
             }

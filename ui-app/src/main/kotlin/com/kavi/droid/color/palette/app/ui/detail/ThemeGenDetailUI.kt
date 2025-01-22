@@ -33,7 +33,7 @@ fun ThemeGenDetailUI() {
             ) {
                 Text(
                     modifier = Modifier
-                        .padding(start = 8.dp, end = 8.dp, top = 24.dp, bottom = 8.dp),
+                        .padding(8.dp),
                     text = "Theme Generator",
                     style = MaterialTheme.typography.titleLarge
                 )

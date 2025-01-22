@@ -87,7 +87,7 @@ fun ThemeColorRow(givenColor: Color) {
                     givenColor = givenColor,
                 )
 
-                Text("Light Theme", Modifier.padding(top = 8.dp, start = 8.dp), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.ExtraBold,)
+                Text("Light Theme", Modifier.padding(top = 8.dp, start = 8.dp), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.ExtraBold, color = Color.Black)
 
                 Row(
                     modifier = Modifier
@@ -102,7 +102,7 @@ fun ThemeColorRow(givenColor: Color) {
                     ColorCircle(appThemeColorSet.light.background, colorLetter = "B", letterColor = Color.Black)
                 }
 
-                Text("Dark Theme", Modifier.padding(top = 8.dp, start = 8.dp), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.ExtraBold,)
+                Text("Dark Theme", Modifier.padding(top = 8.dp, start = 8.dp), style = MaterialTheme.typography.bodyMedium, fontWeight = FontWeight.ExtraBold, color = Color.Black)
 
                 Row(
                     modifier = Modifier

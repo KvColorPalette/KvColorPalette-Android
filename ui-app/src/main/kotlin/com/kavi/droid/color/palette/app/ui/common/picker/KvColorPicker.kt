@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
@@ -32,7 +33,7 @@ import com.kavi.droid.color.palette.app.extension.toColorInt
 import com.kavi.droid.color.palette.util.ColorUtil
 
 @Composable
-fun KvColorPicker() {
+fun KvColorPicker(modifier: Modifier = Modifier) {
     // State variables for RGBA values
     //val alpha = rememberSaveable { mutableFloatStateOf(1f) }
     val red = rememberSaveable { mutableFloatStateOf(0f) }
@@ -47,7 +48,7 @@ fun KvColorPicker() {
     }
 
     Row(
-        modifier = Modifier
+        modifier = modifier
             .border(1.dp, Color.White, shape = RoundedCornerShape(8.dp))
             .shadow(
                 elevation = 10.dp,
@@ -78,16 +79,26 @@ fun KvColorPicker() {
                         .height(80.dp)
                         .width(80.dp)
                         .background(color, shape = MaterialTheme.shapes.large)
+                        .border(2.dp, MaterialTheme.colorScheme.primary, RoundedCornerShape(12.dp))
                 )
             }
 
             Column (
                 modifier = Modifier
+                    .fillMaxWidth()
                     .padding(start = 12.dp, top = 10.dp, end = 12.dp)
                     .align(Alignment.CenterHorizontally)
             ) {
-                Text(text = ColorUtil.getHex(color = color))
-                Text(text = ColorUtil.getHexWithAlpha(color = color))
+                Text(text = ColorUtil.getHex(color = color),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
+                Text(text = ColorUtil.getHexWithAlpha(color = color),
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.primary,
+                    modifier = Modifier.align(Alignment.CenterHorizontally)
+                )
             }
         }
     }
@@ -114,11 +125,12 @@ fun ColorSlider(
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(6.dp)
     ) {
-        Text(text = label)
+        Text(text = label, color = Color.Black)
         Slider(
             value = valueState.value,
             onValueChange = valueState.component2(),
             colors = SliderDefaults.colors(
+                thumbColor = MaterialTheme.colorScheme.primary,
                 activeTrackColor = color
             ),
             modifier = Modifier.weight(1f)
@@ -127,7 +139,8 @@ fun ColorSlider(
             text = valueState.value.toColorInt().toString(),
             modifier = Modifier.width(25.dp),
             textAlign = TextAlign.End,
-            style = MaterialTheme.typography.bodySmall
+            style = MaterialTheme.typography.bodySmall,
+            color = Color.Black
         )
     }
 }

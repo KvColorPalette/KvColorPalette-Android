@@ -35,8 +35,8 @@ fun ColorBox(givenColor: Color, selectedColor: Color?, onSelect: (color: Color) 
 
     Box(
         modifier = Modifier
-            .width(38.dp)
-            .height(38.dp)
+            .width(35.dp)
+            .height(35.dp)
             .background(givenColor, RectangleShape)
             .clickable {
                 isSelected = true
@@ -56,7 +56,7 @@ fun ColorDetailRow(selectedColor: Color) {
             elevation = 10.dp,
             shape = RoundedCornerShape(8.dp)
         )
-        .background(Color.White)
+        .background(MaterialTheme.colorScheme.tertiary)
         .padding(12.dp)
     ) {
         Box(
@@ -78,5 +78,17 @@ fun ColorDetailRow(selectedColor: Color) {
                 Text(ColorUtil.getHexWithAlpha(color = selectedColor), modifier = Modifier.padding(4.dp), style = MaterialTheme.typography.bodyLarge)
             }
         }
+    }
+}
+
+@Composable
+fun ColorStrip(color: Color) {
+    Row {
+        Box (
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(45.dp)
+                .background(color)
+        )
     }
 }
