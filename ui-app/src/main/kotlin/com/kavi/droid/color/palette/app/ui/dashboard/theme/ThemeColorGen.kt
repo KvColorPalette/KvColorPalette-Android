@@ -1,12 +1,13 @@
-package com.kavi.droid.color.palette.app.ui.tab.theme
+package com.kavi.droid.color.palette.app.ui.dashboard.theme
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
 import androidx.compose.material3.MaterialTheme
@@ -16,12 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import com.kavi.droid.color.palette.app.theme.Mat500LLBlue
 import com.kavi.droid.color.palette.app.ui.common.ThemeColorRow
 import com.kavi.droid.color.palette.color.MatPackage
 
 @Composable
-fun ThemeColorGen(modifier: Modifier) {
+fun ThemeColorGenTab(navController: NavHostController, modifier: Modifier) {
     Column(
         modifier = modifier
             .fillMaxSize()
@@ -42,7 +45,8 @@ fun ThemeColorGen(modifier: Modifier) {
 
         Column(
             modifier = Modifier
-                .size(720.dp)
+                .fillMaxWidth()
+                .fillMaxHeight()
                 .verticalScroll(rememberScrollState())
         ) {
             ThemeColorRow(MatPackage.MatRed.color)
@@ -54,7 +58,9 @@ fun ThemeColorGen(modifier: Modifier) {
                 modifier = Modifier
                     .padding(16.dp)
                     .fillMaxWidth(),
+                shape = RoundedCornerShape(8.dp),
                 onClick = {
+                    navController.navigate("theme-gen-detail")
                 }
             ) {
                 Text("Try it out!")
@@ -66,5 +72,5 @@ fun ThemeColorGen(modifier: Modifier) {
 @Preview
 @Composable
 fun ThemeColorGenPreview() {
-    ThemeColorGen(Modifier)
+    ThemeColorGenTab(navController = rememberNavController(), Modifier)
 }
