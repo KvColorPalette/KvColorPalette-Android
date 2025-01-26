@@ -29,7 +29,6 @@ import androidx.compose.ui.unit.sp
 import com.kavi.droid.color.palette.KvColorPalette
 import com.kavi.droid.color.palette.extension.isHighLightColor
 import com.kavi.droid.color.palette.util.ColorUtil
-import java.util.Locale
 
 @Composable
 fun ColorCircle(givenColor: Color, colorLetter: String = "", letterColor: Color = MaterialTheme.colorScheme.onPrimary) {
