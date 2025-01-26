@@ -77,6 +77,7 @@ In this `KvColorPalette.appThemePalette` you will have following color attribute
 |.primary     |available   |available   |Suggesting primary color. This color can use for buttons, major component etc.   |
 |.secondary   |available   |available   |Suggesting secondary color. For any the secondary components which should not use by primary color.   |
 |.tertiary    |available   |available   |Suggesting tertiary color.   |
+|.quaternary  |available   |available   |Suggesting quaternary color.   |
 |.background  |available   |available   |Suggesting background color.   |
 |.onPrimary   |available   |available   |This is the color you can use on any component use primary color.   |
 |.onSecondary |available   |available   |This is the color you can use on any component use secondary color.   |
