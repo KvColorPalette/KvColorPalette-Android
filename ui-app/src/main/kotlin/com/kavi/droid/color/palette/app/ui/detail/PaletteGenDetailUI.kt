@@ -10,9 +10,11 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Button
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberModalBottomSheetState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -22,7 +24,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -30,13 +32,20 @@ import com.kavi.droid.color.palette.KvColorPalette
 import com.kavi.droid.color.palette.app.model.PaletteType
 import com.kavi.droid.color.palette.app.theme.KvColorPaletteTheme
 import com.kavi.droid.color.palette.app.ui.common.ColorStrip
-import com.kavi.droid.color.palette.app.ui.common.picker.KvColorPicker
+import com.kavi.droid.color.palette.app.ui.common.SelectedColorUI
+import com.kavi.droid.color.palette.app.ui.common.picker.KvColorPickerBottomSheet
+import com.kavi.droid.color.palette.util.ColorUtil
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PaletteGenDetailUI(paletteType: PaletteType) {
 
-    var selectedColor by remember { mutableStateOf(Color.White) }
+    val selectedColor = remember { mutableStateOf(Color.White) }
+    val colorHex = remember { mutableStateOf(TextFieldValue("")) }
     var colorPalette by remember { mutableStateOf<List<Color>>(emptyList()) }
+
+    val showSheet = remember { mutableStateOf(false) }
+    val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
     Scaffold { innerPadding ->
         Column(
@@ -66,11 +75,15 @@ fun PaletteGenDetailUI(paletteType: PaletteType) {
                 )
             }
 
-            KvColorPicker(modifier = Modifier.padding(8.dp), onColorSelected = { color ->
-                println("Color: ${color.toArgb()}")
-                selectedColor = color
-                println("Selected Color: ${selectedColor.toArgb()}")
-            })
+            SelectedColorUI(colorHex, selectedColor, showSheet)
+
+            if (showSheet.value) {
+                KvColorPickerBottomSheet(showSheet = showSheet,
+                    sheetState = sheetState, onColorSelected = {
+                        selectedColor.value = it
+                        colorHex.value = TextFieldValue(ColorUtil.getHex(color = selectedColor.value))
+                    })
+            }
 
             Button(
                 modifier = Modifier
@@ -80,12 +93,12 @@ fun PaletteGenDetailUI(paletteType: PaletteType) {
                 onClick = {
                     colorPalette = when (paletteType) {
                         PaletteType.KV_PALETTE -> {
-                            val closestKvColor = KvColorPalette.instance.findClosestKvColor(givenColor = selectedColor)
+                            val closestKvColor = KvColorPalette.instance.findClosestKvColor(givenColor = selectedColor.value)
                             KvColorPalette.instance.generateColorPalette(givenColor = closestKvColor)
                         }
-                        PaletteType.ALPHA_PALETTE -> KvColorPalette.instance.generateAlphaColorPalette(givenColor = selectedColor)
-                        PaletteType.LIGHTNESS_PALETTE -> KvColorPalette.instance.generateLightnessColorPalette(givenColor = selectedColor)
-                        PaletteType.SATURATION_PALETTE -> KvColorPalette.instance.generateSaturationColorPalette(givenColor = selectedColor)
+                        PaletteType.ALPHA_PALETTE -> KvColorPalette.instance.generateAlphaColorPalette(givenColor = selectedColor.value)
+                        PaletteType.LIGHTNESS_PALETTE -> KvColorPalette.instance.generateLightnessColorPalette(givenColor = selectedColor.value)
+                        PaletteType.SATURATION_PALETTE -> KvColorPalette.instance.generateSaturationColorPalette(givenColor = selectedColor.value)
                     }
                 }
             ) {
@@ -100,7 +113,6 @@ fun PaletteGenDetailUI(paletteType: PaletteType) {
                     .clip(RoundedCornerShape(8.dp))
                     .verticalScroll(rememberScrollState()),
             ) {
-
                 colorPalette.forEach {
                     ColorStrip(color = it)
                 }

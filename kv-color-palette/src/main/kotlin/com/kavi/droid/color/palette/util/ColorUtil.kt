@@ -13,11 +13,22 @@ object ColorUtil {
     /**
      * Convert hex color to [Color]
      *
-     * @param color hex color String
+     * @param colorHex hex color String
      * @return [Color]
      */
-    fun getColorFromHex(color: String): Color {
-        return Color(android.graphics.Color.parseColor(color))
+    fun getColorFromHex(colorHex: String): Color {
+        return Color(android.graphics.Color.parseColor(colorHex))
+    }
+
+    /**
+     * Validate if given color hex is valid
+     *
+     * @param colorHex hex color String
+     * @return [Boolean]
+     */
+    fun validateColorHex(colorHex: String): Boolean {
+        val colorRegex = Regex("^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{8})$")
+        return colorRegex.matches(colorHex)
     }
 
     /**
