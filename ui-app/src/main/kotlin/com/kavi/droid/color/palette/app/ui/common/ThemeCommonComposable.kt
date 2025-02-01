@@ -37,7 +37,7 @@ fun ColorCircle(givenColor: Color, colorLetter: String = "", letterColor: Color 
 
     Box(
         modifier = Modifier
-            .padding(8.dp)
+            .padding(4.dp)
     ) {
         Canvas(
             modifier = Modifier.size(circleSize)
