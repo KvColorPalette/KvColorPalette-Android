@@ -47,7 +47,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -63,7 +62,7 @@ dependencies {
 }
 
 tasks.dokkaHtml {
-    outputDirectory.set(layout.buildDirectory.asFile)
+    outputDirectory.set(layout.buildDirectory.asFile.get().resolve("docs/dokkaHtml"))
     dokkaSourceSets {
         named("main") {
             noAndroidSdkLink.set(false)
@@ -75,6 +74,10 @@ tasks.dokkaHtml {
     }
 }
 
+tasks.build {
+    finalizedBy(tasks.dokkaHtml)
+}
+
 publishing {
     publications {
         register<MavenPublication>("release") {
@@ -84,6 +87,11 @@ publishing {
 
             afterEvaluate {
                 from(components["release"])
+                // Attach Dokka documentation
+                artifact(tasks.dokkaJavadoc.map { it.outputDirectory.get().resolve("index.html") }) {
+                    classifier = "javadoc"
+                    extension = "html"
+                }
             }
         }
     }
