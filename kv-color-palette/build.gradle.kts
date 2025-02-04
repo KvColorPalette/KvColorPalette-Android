@@ -63,7 +63,7 @@ dependencies {
 
 tasks.dokkaHtml {
     //outputDirectory.set(layout.buildDirectory.asFile.get().resolve("docs/kv-color-palette"))
-    outputDirectory.set(layout.projectDirectory.asFile.resolve("../docs/kv-color-palette"))
+    outputDirectory.set(layout.projectDirectory.asFile.resolve("../docs"))
     dokkaSourceSets {
         named("main") {
             noAndroidSdkLink.set(false)
