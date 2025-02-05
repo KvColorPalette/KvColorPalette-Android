@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>KvColor</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>kv-color-palette</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":kv-color-palette:dokkaHtml/release">androidJvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="kv-color-palette::com.kavi.droid.color.palette.model/KvColor///PointingToDeclaration//108943073">
+  <div class="breadcrumbs"><a href="../../../index.html">kv-color-palette</a><span class="delimiter">/</span><a href="../index.html">com.kavi.droid.color.palette.model</a><span class="delimiter">/</span><span class="current">KvColor</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Kv</span><wbr></wbr><span><span>Color</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">KvColor</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">var </span>colorName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>colorPackage<span class="token operator">: </span><a href="../../com.kavi.droid.color.palette.color/-color-package-type/index.html">ColorPackageType</a><span class="token operator"> = </span>ColorPackageType.PK_0<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>colorHex<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span>ColorUtil.getHex(color)<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">var </span>colorHexWithAlpha<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span>ColorUtil.getHexWithAlpha(color)</span></span><span class="token punctuation">)</span></div><p class="paragraph">Color object that holds, name, package, hex, hex+alpha to the regular <code class="lang-kotlin">Color</code> object</p><h4 class="">See also</h4><div class="table"><div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html"><span><span>Color</span></span></a></div></span></div><div></div></div></div></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,FUNCTION,PROPERTY">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-2098899453%2FConstructors%2F108943073" anchor-label="KvColor" id="-2098899453%2FConstructors%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-kv-color.html"><span>Kv</span><wbr></wbr><span><span>Color</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2098899453%2FConstructors%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">colorName<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">colorPackage<span class="token operator">: </span><a href="../../com.kavi.droid.color.palette.color/-color-package-type/index.html">ColorPackageType</a><span class="token operator"> = </span>ColorPackageType.PK_0<span class="token punctuation">, </span></span><span class="parameter ">color<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter ">colorHex<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span>ColorUtil.getHex(color)<span class="token punctuation">, </span></span><span class="parameter ">colorHexWithAlpha<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator"> = </span>ColorUtil.getHexWithAlpha(color)</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-42540123%2FFunctions%2F108943073" anchor-label="alphaChange" id="-42540123%2FFunctions%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="alpha-change.html"><span>alpha</span><wbr></wbr><span><span>Change</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-42540123%2FFunctions%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="alpha-change.html"><span class="token function">alphaChange</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">modifyAlpha<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-float/index.html">Float</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KvColor</a></div><div class="brief "><p class="paragraph">Change the alpha of the color</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1454404339%2FFunctions%2F108943073" anchor-label="changeColorPackage" id="-1454404339%2FFunctions%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="change-color-package.html"><span>change</span><wbr></wbr><span>Color</span><wbr></wbr><span><span>Package</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1454404339%2FFunctions%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="change-color-package.html"><span class="token function">changeColorPackage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">colorPackage<span class="token operator">: </span><a href="../../com.kavi.droid.color.palette.color/-color-package-type/index.html">ColorPackageType</a></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="index.html">KvColor</a></div><div class="brief "><p class="paragraph">Change the color package of the color. <code class="lang-kotlin">KvColor</code> object, color package will be changed and this method will return the color with requested color package.</p></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="-1153857%2FProperties%2F108943073" anchor-label="color" id="-1153857%2FProperties%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="color.html"><span><span>color</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1153857%2FProperties%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="color.html">color</a><span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1855794976%2FProperties%2F108943073" anchor-label="colorHex" id="-1855794976%2FProperties%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="color-hex.html"><span>color</span><wbr></wbr><span><span>Hex</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1855794976%2FProperties%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="color-hex.html">colorHex</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1452678370%2FProperties%2F108943073" anchor-label="colorHexWithAlpha" id="1452678370%2FProperties%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="color-hex-with-alpha.html"><span>color</span><wbr></wbr><span>Hex</span><wbr></wbr><span>With</span><wbr></wbr><span><span>Alpha</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1452678370%2FProperties%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="color-hex-with-alpha.html">colorHexWithAlpha</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1668322444%2FProperties%2F108943073" anchor-label="colorName" id="-1668322444%2FProperties%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="color-name.html"><span>color</span><wbr></wbr><span><span>Name</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1668322444%2FProperties%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="color-name.html">colorName</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2107254549%2FProperties%2F108943073" anchor-label="colorPackage" id="2107254549%2FProperties%2F108943073" data-filterable-set=":kv-color-palette:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="color-package.html"><span>color</span><wbr></wbr><span><span>Package</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2107254549%2FProperties%2F108943073"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">var </span><a href="color-package.html">colorPackage</a><span class="token operator">: </span><a href="../../com.kavi.droid.color.palette.color/-color-package-type/index.html">ColorPackageType</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>
