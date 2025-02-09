@@ -45,10 +45,20 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout --orphan gh-pages
-          git rm -rf .
-          mv ./kv-color-palette/build/docs/dokkaHtml/* .
-          touch .nojekyll  # Prevents GitHub from treating it as a Jekyll site
+          
+          # Check if gh-pages exists
+          if git ls-remote --exit-code --heads origin gh-pages; then
+            git fetch origin gh-pages
+            git checkout gh-pages
+            git rm -rf .
+          else
+            git checkout --orphan gh-pages
+          fi
+
+          # Move new documentation
+          rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ .
+
+          touch .nojekyll  # Prevent GitHub from treating it as a Jekyll site
           git add .
-          git commit -m "Deploy Dokka documentation"
+          git commit -m "Deploy Dokka documentation" || echo "No changes to commit"
           git push --force origin gh-pages
