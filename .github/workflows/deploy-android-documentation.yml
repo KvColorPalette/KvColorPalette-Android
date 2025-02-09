@@ -41,30 +41,33 @@ jobs:
       - name: Generate Dokka Documentation
         run: ./gradlew dokkaHtml
 
-      - name: Deploy to gh-pages
+      - name: Zip Generated Documentation
+        run: zip -r kv-color-palette-dokka.zip kv-color-palette/build/docs/dokkaHtml
+
+      - name: Remove all files except documentation
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          shopt -s extglob
+          rm -rf !(kv-color-palette-dokka.zip|.git)
+          ls -la
+
+      #- name: Deploy to gh-pages
+      #  run: |
+      #    git config --global user.name "github-actions[bot]"
+      #    git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           # Check if gh-pages exists
-          if git ls-remote --exit-code --heads origin gh-pages; then
-            git fetch origin gh-pages
-            git checkout gh-pages
-            git rm -rf .
-          else
-            git checkout --orphan gh-pages
-          fi
-
-          # Ensure the build folder exists
-          if [ ! -d "kv-color-palette/build/docs/dokkaHtml" ]; then
-            echo "Dokka documentation not found!"
-            exit 1
-          fi
+      #    if git ls-remote --exit-code --heads origin gh-pages; then
+      #      git fetch origin gh-pages
+      #      git checkout gh-pages
+      #      git rm -rf .
+      #    else
+      #      git checkout --orphan gh-pages
+      #    fi
 
           # Sync documentation (ignore harmless vanishing file warnings)
-          rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ . || true
+      #    rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ . || true
 
-          touch .nojekyll  # Prevent GitHub from treating it as a Jekyll site
-          git add .
-          git commit -m "Deploy Dokka documentation" || echo "No changes to commit"
-          git push --force origin gh-pages
+      #    touch .nojekyll  # Prevent GitHub from treating it as a Jekyll site
+      #    git add .
+      #    git commit -m "Deploy Dokka documentation" || echo "No changes to commit"
+      #    git push --force origin gh-pages
