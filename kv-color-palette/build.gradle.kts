@@ -62,7 +62,7 @@ dependencies {
 }
 
 tasks.dokkaHtml {
-    outputDirectory.set(layout.projectDirectory.asFile.resolve("../docs"))
+    outputDirectory.set(layout.buildDirectory.asFile.get().resolve("docs/dokkaHtml"))
     dokkaSourceSets {
         named("main") {
             noAndroidSdkLink.set(false)
