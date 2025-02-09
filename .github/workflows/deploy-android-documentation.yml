@@ -69,6 +69,7 @@ jobs:
           unzip kv-color-palette-dokka.zip
           rm -rf kv-color-palette-dokka.zip
           ls -la
+          ls -la kv-color-palette/
 
           # Sync documentation (ignore harmless vanishing file warnings)
       #    rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ . || true
