@@ -50,19 +50,25 @@ jobs:
           rm -rf !(kv-color-palette-dokka.zip|.git)
           ls -la
 
-      #- name: Deploy to gh-pages
-      #  run: |
-      #    git config --global user.name "github-actions[bot]"
-      #    git config --global user.email "github-actions[bot]@users.noreply.github.com"
+      - name: Checkout to gh-pages
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
           # Check if gh-pages exists
-      #    if git ls-remote --exit-code --heads origin gh-pages; then
-      #      git fetch origin gh-pages
-      #      git checkout gh-pages
-      #      git rm -rf .
-      #    else
-      #      git checkout --orphan gh-pages
-      #    fi
+          if git ls-remote --exit-code --heads origin gh-pages; then
+            git fetch origin gh-pages
+            git checkout gh-pages
+            git rm -rf .
+          else
+            git checkout --orphan gh-pages
+          fi
+
+      - name: Extract documentation
+        run: |
+          unzip kv-color-palette-dokka.zip
+          rm -rf kv-color-palette-dokka.zip
+          ls -la
 
           # Sync documentation (ignore harmless vanishing file warnings)
       #    rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ . || true
