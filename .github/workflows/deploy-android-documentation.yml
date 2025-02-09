@@ -42,7 +42,9 @@ jobs:
         run: ./gradlew dokkaHtml
 
       - name: Zip Generated Documentation
-        run: zip -r kv-color-palette-dokka.zip kv-color-palette/build/docs/dokkaHtml
+        run: |
+          cd kv-color-palette/build/docs/dokkaHtml
+          zip -r ../../../../kv-color-palette-dokka.zip .
 
       - name: Remove all files except documentation
         run: |
