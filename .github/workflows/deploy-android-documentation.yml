@@ -74,4 +74,9 @@ jobs:
           touch .nojekyll  # Prevent GitHub from treating it as a Jekyll site
           git add .
           git commit -m "Deploy Dokka documentation" || echo "No changes to commit"
-          git push --force origin gh-pages
+
+      - name: Push Changes with SSH
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add - <<< "${{ secrets.SSH_PRIVATE_KEY }}"
+          git push git@github.com:KvColorPalette/KvColorPalette-Android.git gh-pages
