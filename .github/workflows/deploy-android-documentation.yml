@@ -50,7 +50,6 @@ jobs:
         run: |
           shopt -s extglob
           rm -rf !(kv-color-palette-dokka.zip|.git)
-          ls -la
 
       - name: Checkout to gh-pages
         run: |
@@ -70,13 +69,9 @@ jobs:
         run: |
           unzip kv-color-palette-dokka.zip
           rm -rf kv-color-palette-dokka.zip
-          ls -la
-          ls -la kv-color-palette/
+          rm -rf .gradle
 
-          # Sync documentation (ignore harmless vanishing file warnings)
-      #    rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ . || true
-
-      #    touch .nojekyll  # Prevent GitHub from treating it as a Jekyll site
-      #    git add .
-      #    git commit -m "Deploy Dokka documentation" || echo "No changes to commit"
-      #    git push --force origin gh-pages
+          touch .nojekyll  # Prevent GitHub from treating it as a Jekyll site
+          git add .
+          git commit -m "Deploy Dokka documentation" || echo "No changes to commit"
+          git push --force origin gh-pages
