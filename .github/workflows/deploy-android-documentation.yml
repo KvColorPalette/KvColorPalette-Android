@@ -55,8 +55,14 @@ jobs:
             git checkout --orphan gh-pages
           fi
 
-           # Move new documentation
-          rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ .
+          # Ensure the build folder exists
+          if [ ! -d "kv-color-palette/build/docs/dokkaHtml" ]; then
+            echo "Dokka documentation not found!"
+            exit 1
+          fi
+
+          # Sync documentation (ignore harmless vanishing file warnings)
+          rsync -av --delete kv-color-palette/build/docs/dokkaHtml/ . || true
 
           touch .nojekyll  # Prevent GitHub from treating it as a Jekyll site
           git add .
