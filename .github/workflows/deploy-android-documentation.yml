@@ -47,7 +47,7 @@ jobs:
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git checkout --orphan gh-pages
           git rm -rf .
-          mv kv-color-palette/build/docs/dokkaHtml/* .
+          mv ./kv-color-palette/build/docs/dokkaHtml/* .
           touch .nojekyll  # Prevents GitHub from treating it as a Jekyll site
           git add .
           git commit -m "Deploy Dokka documentation"
