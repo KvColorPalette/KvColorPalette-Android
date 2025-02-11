@@ -128,7 +128,7 @@ In your Jetpack Compose project, you can assign generate color set the your appl
 We welcome contributions! Please fork the repository, make your changes, and submit a pull request. Ensure your code adheres to the established guidelines.
 
 # License
-`KvColorPalette-Android` is licensed under the [MIT License](https://github.com/KvColorPalette/KvColorPalette-Android-App/blob/main/LICENSE).
+`KvColorPalette-Android` is licensed under the [MIT License](https://github.com/KvColorPalette/KvColorPalette-Android/blob/main/LICENSE).
 
 # Feedback
 For questions, suggestions, or issues, please open an issue on GitHub or contact us at kavimalw@gmail.com.
