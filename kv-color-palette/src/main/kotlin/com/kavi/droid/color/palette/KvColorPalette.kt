@@ -29,6 +29,7 @@ class KvColorPalette {
          * provide a theme color palette. Consumer can use this as a singleton.
          */
         var instance: KvColorPalette = KvColorPalette()
+        @Deprecated("This field is deprecated. This is replaced by colorSchemeThemePalette")
         lateinit var appThemePalette: AppThemePalette
         lateinit var colorSchemeThemePalette: ColorSchemeThemePalette
 
@@ -159,14 +160,17 @@ class KvColorPalette {
      * @param givenColor The color to generate the theme color palette for.
      * @return A theme color palette.
      */
+    @Deprecated("This method is deprecated and replaced by generateThemeColorSchemePalette method", replaceWith = ReplaceWith(
+        "KvColorPalette.instance.generateThemeColorSchemePalette(givenColor = givenColor)"
+    ))
     fun generateThemeColorPalette(givenColor: Color): AppThemePalette = ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
 
     /**
      * Generate a theme color palette. According to the feeding color,
-     * this method generate a theme color palette.
+     * this method generate a color scheme theme color palette.
      *
      * @param givenColor The color to generate the theme color palette for.
-     * @return A theme color palette.
+     * @return A color scheme theme palette. [ColorSchemeThemePalette]
      */
     fun generateThemeColorSchemePalette(givenColor: Color): ColorSchemeThemePalette = ThemeGenUtil.generateThemeColorScheme(givenColor = givenColor)
 

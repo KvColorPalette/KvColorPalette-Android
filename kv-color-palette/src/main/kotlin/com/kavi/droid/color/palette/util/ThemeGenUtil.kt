@@ -42,7 +42,10 @@ object ThemeGenUtil {
      * @param givenColor The color to generate theme color set.
      * @return A theme color set. [AppThemePalette]
      */
-    @Deprecated("")
+    @Deprecated(
+        message = "This method is deprecated and replaced by generateThemeColorScheme.",
+        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeColorScheme(givenColor = givenColor)")
+    )
     internal fun generateThemeColorSet(givenColor: Color): AppThemePalette {
         val lightColorPalette = generateLightThemeColorSet(givenColor)
         val darkColorPalette = generateDarkThemeColorSet(givenColor)
@@ -67,7 +70,10 @@ object ThemeGenUtil {
      * @param givenColor The color to generate theme color set.
      * @return A light theme color set. [ThemeColorPalette]
      */
-    @Deprecated("")
+    @Deprecated(
+        message = "This method is deprecated and replaced by generateThemeLightColorScheme.",
+        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeLightColorScheme(givenColor = givenColor)")
+    )
     private fun generateLightThemeColorSet(givenColor: Color): ThemeColorPalette {
         return ThemeColorPalette(
             base = givenColor,
@@ -108,7 +114,10 @@ object ThemeGenUtil {
      * @param givenColor he color to generate theme color set.
      * @return A dark theme color set. [ThemeColorPalette]
      */
-    @Deprecated("")
+    @Deprecated(
+        message = "This method is deprecated and replaced by generateThemeDarkColorScheme.",
+        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeDarkColorScheme(givenColor = givenColor)")
+    )
     private fun generateDarkThemeColorSet(givenColor: Color): ThemeColorPalette {
         return ThemeColorPalette(
             base = givenColor,
