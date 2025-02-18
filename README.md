@@ -7,7 +7,7 @@ This library simplifies the process of building consistent and visually appealin
 
 # Features
 * Generate a color palette based on a single input color. Using color alpha/mat-colors
-* Create a complete theme color set, including primary, secondary, background, and surface colors.
+* Create a complete theme color schemas, including primary, secondary, background, and surface colors.
 * Support for Material Design color guidelines.
 * Easy integration with Android projects.
 
@@ -26,13 +26,13 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.KvColorPalette:KvColorPalette-Android:1.2.1'
+    implementation 'com.github.KvColorPalette:KvColorPalette-Android:2.0.0'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.KvColorPalette:KvColorPalette-Android:1.2.1")
+    implementation("com.github.KvColorPalette:KvColorPalette-Android:2.0.0")
 }
 ````
 
@@ -68,9 +68,9 @@ override fun onCreate() {
     KvColorPalette.initialize(Color.blue)
 }
 ````
-This initiation create a color set for a theme using the given color at the initiation. This generated color set available for light and dark theme variants.
+This initiation create a color schemas for a theme using the given color at the initiation. This generated color schemas will available for light and dark theme variants.
 
-In this `KvColorPalette.appThemePalette` you will have following color attributes.
+In this `KvColorPalette.colorSchemeThemePalette` you will have following color attributes.
 |Attribute    |light-theme |dark-theme  |Description   |
 |-------------|------------|------------|--------------|
 |.base        |original    |original    |This is the base color given by the user.   |
@@ -83,9 +83,12 @@ In this `KvColorPalette.appThemePalette` you will have following color attribute
 |.onSecondary |available   |available   |This is the color you can use on any component use secondary color.   |
 |.shadow      |available   |available   |This is the color for your shadows.   |
 
+This `ColorSchemaThemePalette` is another Android Jetpack Compose `ColorSchema`. But that contains additional attributes like `base`, `quaternary`, `shadow` that provide 
+by the `KvColorPalette-Android` library. All above table mentioned colors are generated according to the given color and created the `ColorScheme`.
+
 ### Use generated theme
 As mentioned above, according to the initiation color, that generate the color set for light and dark them.
-In your Jetpack Compose project, you can assign generate color set the your application theme.
+In your Jetpack Compose project, you can assign generate color schemas to your application theme.
 ````
     // Generate the color schema
     val appColorScheme = when {
