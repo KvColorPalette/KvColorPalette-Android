@@ -87,33 +87,10 @@ In this `KvColorPalette.appThemePalette` you will have following color attribute
 As mentioned above, according to the initiation color, that generate the color set for light and dark them.
 In your Jetpack Compose project, you can assign generate color set the your application theme.
 ````
-    // Access the generated theme color set from KvColorPalette-Android library
-    val theme = KvColorPalette.appThemePalette
-
-    // Generate application light theme using KvColorPalette-Android light colors
-    val themeLight = lightColorScheme(
-        primary = theme.light.primary,
-        secondary = theme.light.secondary,
-        tertiary = theme.light.tertiary,
-        background = theme.light.background,
-        onPrimary = theme.light.onPrimary,
-        onSecondary = theme.light.onSecondary
-    )
-
-    // Generate application dark theme using KvColorPalette-Android dark colors
-    val themeDark = darkColorScheme(
-        primary = theme.dark.primary,
-        secondary = theme.dark.secondary,
-        tertiary = theme.dark.tertiary,
-        background = theme.dark.background,
-        onPrimary = theme.dark.onPrimary,
-        onSecondary = theme.dark.onSecondary
-    )
-    
     // Generate the color schema
     val appColorScheme = when {
-        darkTheme -> themeDark
-        else -> themeLight
+        darkTheme -> KvColorPalette.colorSchemeThemePalette.darkColorScheme
+        else -> KvColorPalette.colorSchemeThemePalette.lightColorScheme
     }
 
     // Assign the color schema to the team.
