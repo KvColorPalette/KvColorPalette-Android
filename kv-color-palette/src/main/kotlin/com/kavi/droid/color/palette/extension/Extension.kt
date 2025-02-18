@@ -3,6 +3,7 @@ package com.kavi.droid.color.palette.extension
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.core.graphics.ColorUtils
+import com.kavi.droid.color.palette.model.HSL
 
 /**
  * Extension function to get HSL properties of a [Color]
@@ -11,15 +12,6 @@ import androidx.core.graphics.ColorUtils
  */
 internal val Color.hsl: HSL
     get() = getHslProperties(this)
-
-/**
- * Data class to hold the hue, saturation and lightness properties of a [Color]
- */
-data class HSL(
-    val hue: Float,
-    val saturation: Float,
-    val lightness: Float
-)
 
 /**
  * This method extract and returns the hue, saturation and lightness properties of a [Color]
