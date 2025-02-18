@@ -13,6 +13,7 @@ import com.kavi.droid.color.palette.color.Mat900Package
 import com.kavi.droid.color.palette.color.MatPackage
 import com.kavi.droid.color.palette.extension.hsl
 import com.kavi.droid.color.palette.model.AppThemePalette
+import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
 import com.kavi.droid.color.palette.model.KvColor
 import com.kavi.droid.color.palette.util.ColorUtil
 import com.kavi.droid.color.palette.util.ThemeGenUtil
@@ -29,6 +30,7 @@ class KvColorPalette {
          */
         var instance: KvColorPalette = KvColorPalette()
         lateinit var appThemePalette: AppThemePalette
+        lateinit var colorSchemeThemePalette: ColorSchemeThemePalette
 
         /**
          * KvColorPalette initialization. Consumer can use this to initialize the KvColorPalette from their application, if they need a
@@ -36,10 +38,13 @@ class KvColorPalette {
          *
          * On this initiation of KvColorPalette, we generate a theme color palette using the given color.
          * `basicColor` is mandatory parameter while initiate the library.
+         *
+         * @param basicColor: Color: Given color for generate theme palette.
          */
         fun initialize(basicColor: Color) {
-            val closestColor = ColorUtil.findClosestColor(basicColor)
-            appThemePalette = instance.generateThemeColorPalette(closestColor.color)
+            val closestColor = ColorUtil.findClosestColor(givenColor = basicColor)
+            appThemePalette = instance.generateThemeColorPalette(givenColor = closestColor.color)
+            colorSchemeThemePalette = instance.generateThemeColorSchemePalette(givenColor = closestColor.color)
         }
     }
 
@@ -48,6 +53,11 @@ class KvColorPalette {
          * This generate theme-palette with color transparent. This is un-usable.
          */
         appThemePalette = generateThemeColorPalette(Color.Transparent)
+
+        /**
+         * This generate theme-palette with color transparent. This is un-usable.
+         */
+        colorSchemeThemePalette = generateThemeColorSchemePalette(Color.Transparent)
     }
 
     /**
@@ -150,6 +160,15 @@ class KvColorPalette {
      * @return A theme color palette.
      */
     fun generateThemeColorPalette(givenColor: Color): AppThemePalette = ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
+
+    /**
+     * Generate a theme color palette. According to the feeding color,
+     * this method generate a theme color palette.
+     *
+     * @param givenColor The color to generate the theme color palette for.
+     * @return A theme color palette.
+     */
+    fun generateThemeColorSchemePalette(givenColor: Color): ColorSchemeThemePalette = ThemeGenUtil.generateThemeColorScheme(givenColor = givenColor)
 
     /**
      * This method finds the closest KvColor available in the KvColorPalette-Android to the given color

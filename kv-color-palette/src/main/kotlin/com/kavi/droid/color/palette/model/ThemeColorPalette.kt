@@ -1,5 +1,6 @@
 package com.kavi.droid.color.palette.model
 
+import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
 
 /**
@@ -8,6 +9,14 @@ import androidx.compose.ui.graphics.Color
 data class AppThemePalette(
     val light: ThemeColorPalette,
     val dark: ThemeColorPalette
+)
+
+/**
+ * Application [ColorScheme] theme palette for light and dark mode.
+ */
+data class ColorSchemeThemePalette(
+    val lightColorScheme: ColorScheme,
+    val darkColorScheme: ColorScheme
 )
 
 /**
