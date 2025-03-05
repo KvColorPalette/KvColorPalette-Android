@@ -26,13 +26,13 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.KvColorPalette:KvColorPalette-Android:2.1.0'
+    implementation 'com.github.KvColorPalette:KvColorPalette-Android:2.1.1'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.KvColorPalette:KvColorPalette-Android:2.1.0")
+    implementation("com.github.KvColorPalette:KvColorPalette-Android:2.1.1")
 }
 ````
 
@@ -55,7 +55,7 @@ KvColorPalette.instance.generateLightnessColorPalette(givenColor = MatPackage().
 KvColorPalette.instance.generateSaturationColorPalette(givenColor = MatPackage().matGold.color)
 
 // Generate theme color palette of given color
-KvColorPalette.instance.generateThemeColorPalette(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateThemeColorSchemePalette(givenColor = MatPackage().matGold.color)
 ```
 
 ### Advance Usage

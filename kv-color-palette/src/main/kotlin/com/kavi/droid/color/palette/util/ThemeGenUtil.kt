@@ -66,6 +66,22 @@ object ThemeGenUtil {
     }
 
     /**
+     * This method is generating quaternary color in the color theme palette for light mode. This is for internal use method
+     * @param givenColor: Color to generate light mode quaternary color
+     * @return Color
+     */
+    internal fun generateLightQuaternaryColor(givenColor: Color): Color =
+        givenColor
+
+    /**
+     * This method is generating quaternary color in the color theme palette for dark mode. This is for internal use method
+     * @param givenColor: Color to generate dark mode quaternary color
+     * @return Color
+     */
+    internal fun generateDarkQuaternaryColor(givenColor: Color): Color =
+        generateDarkSecondaryColor(givenColor)
+
+    /**
      * Generate light theme color set for given color.
      * @param givenColor The color to generate theme color set.
      * @return A light theme color set. [ThemeColorPalette]
@@ -103,8 +119,6 @@ object ThemeGenUtil {
             onSecondary = Color.White
         )
         lightColorScheme.base = givenColor
-        lightColorScheme.quaternary = givenColor // This is for use light theme primary color dark theme contrast color
-        lightColorScheme.shadow = Color.Gray
 
         return lightColorScheme
     }
@@ -148,8 +162,6 @@ object ThemeGenUtil {
         )
 
         darkColorScheme.base = givenColor
-        darkColorScheme.quaternary = generateDarkSecondaryColor(givenColor) // This is for use light theme primary color dark theme contrast color
-        darkColorScheme.shadow = Color.White
 
         return darkColorScheme
     }
