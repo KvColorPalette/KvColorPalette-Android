@@ -66,9 +66,11 @@ class KvColorPalette {
      * this method generate a list of colors with different alpha values.
      *
      * @param givenColor The color to generate the alpha values for.
+     * @param colorCount The number of colors to generate. In default that returns 10 colors.
+     * This accept integer value in a range of 2 - 30. Even someone passes number more than 30, this will returns only 30 colors.
      * @return A list of colors.
      */
-    fun generateAlphaColorPalette(givenColor: Color): List<Color> =
+    fun generateAlphaColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> =
         listOf(
             Color(givenColor.red, givenColor.green, givenColor.blue, 1f),
             Color(givenColor.red, givenColor.green, givenColor.blue, .9f),
@@ -87,9 +89,11 @@ class KvColorPalette {
      * this method generate a list of color with different saturation values.
      *
      * @param givenColor The color to generate the saturation values for.
+     * @param colorCount The number of colors to generate. In default that returns 10 colors.
+     * This accept integer value in a range of 2 - 30. Even someone passes number more than 30, this will returns only 30 colors.
      * @return A list of colors.
      */
-    fun generateSaturationColorPalette(givenColor: Color): List<Color> {
+    fun generateSaturationColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> {
         val hue = givenColor.hsl.hue
         val lightness = givenColor.hsl.lightness
 
@@ -112,9 +116,11 @@ class KvColorPalette {
      * this method generate a list of color with different lightness values.
      *
      * @param givenColor The color to generate the lightness values for.
+     * @param colorCount The number of colors to generate. In default that returns 10 colors.
+     * This accept integer value in a range of 2 - 30. Even someone passes number more than 30, this will returns only 30 colors.
      * @return A list of colors.
      */
-    fun generateLightnessColorPalette(givenColor: Color): List<Color> {
+    fun generateLightnessColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> {
         val hue = givenColor.hsl.hue
         val saturation = givenColor.hsl.saturation
 
