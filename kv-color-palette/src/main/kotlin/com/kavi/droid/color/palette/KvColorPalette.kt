@@ -70,19 +70,14 @@ class KvColorPalette {
      * This accept integer value in a range of 2 - 30. Even someone passes number more than 30, this will returns only 30 colors.
      * @return A list of colors.
      */
-    fun generateAlphaColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> =
-        listOf(
-            Color(givenColor.red, givenColor.green, givenColor.blue, 1f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .9f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .8f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .7f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .6f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .5f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .4f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .3f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .2f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .1f),
-        )
+    fun generateAlphaColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> {
+        val colorList = mutableListOf<Color>()
+        val reviseColorCount = ColorUtil.validateAndReviseColorCount(colorCount)
+        for (i in reviseColorCount downTo 1) {
+            colorList.add(Color(givenColor.red, givenColor.green, givenColor.blue, ((1f/colorCount)*i)))
+        }
+        return colorList
+    }
 
     /**
      * Generate a list of colors with color saturation values. According to the feeding color,
