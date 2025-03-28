@@ -114,7 +114,15 @@ class KvColorPalette {
         val hue = givenColor.hsl.hue
         val saturation = givenColor.hsl.saturation
 
-        return listOf(
+        val colorList = mutableListOf<Color>()
+        val reviseColorCount = ColorUtil.validateAndReviseColorCount(colorCount)
+
+        for (i in reviseColorCount downTo 1) {
+            colorList.add(Color.hsl(hue = hue, saturation = saturation, lightness = ((1f/colorCount)*i)))
+        }
+        return colorList
+
+        /*return listOf(
             Color.hsl(hue = hue, saturation = saturation, lightness = 1f),
             Color.hsl(hue = hue, saturation = saturation, lightness = 0.9f),
             Color.hsl(hue = hue, saturation = saturation, lightness = 0.8f),
@@ -125,7 +133,7 @@ class KvColorPalette {
             Color.hsl(hue = hue, saturation = saturation, lightness = 0.3f),
             Color.hsl(hue = hue, saturation = saturation, lightness = 0.2f),
             Color.hsl(hue = hue, saturation = saturation, lightness = 0.1f)
-        )
+        )*/
     }
 
     /**
