@@ -121,19 +121,6 @@ class KvColorPalette {
             colorList.add(Color.hsl(hue = hue, saturation = saturation, lightness = ((1f/colorCount)*i)))
         }
         return colorList
-
-        /*return listOf(
-            Color.hsl(hue = hue, saturation = saturation, lightness = 1f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.9f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.8f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.7f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.6f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.5f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.4f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.3f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.2f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.1f)
-        )*/
     }
 
     /**
