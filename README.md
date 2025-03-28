@@ -26,13 +26,13 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.KvColorPalette:KvColorPalette-Android:2.1.1'
+    implementation 'com.github.KvColorPalette:KvColorPalette-Android:2.2.0'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.KvColorPalette:KvColorPalette-Android:2.1.1")
+    implementation("com.github.KvColorPalette:KvColorPalette-Android:2.2.0")
 }
 ````
 
@@ -46,13 +46,13 @@ If you wants to consume basic features in `KvColorPalette-Android` then use sing
 KvColorPalette.instance.generateColorPalette(givenColor = MatPackage().matGold)
 
 // Generate alpha color schem of given color
-KvColorPalette.instance.generateAlphaColorPalette(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateAlphaColorPalette(givenColor = MatPackage().matGold.color, colorCount = 8)
 
 // Generate lightness color schem of given color
-KvColorPalette.instance.generateLightnessColorPalette(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateLightnessColorPalette(givenColor = MatPackage().matGold.color, colorCount = 12)
 
 // Generate saturation color schem of given color
-KvColorPalette.instance.generateSaturationColorPalette(givenColor = MatPackage().matGold.color)
+KvColorPalette.instance.generateSaturationColorPalette(givenColor = MatPackage().matGold.color, colorCount = 15)
 
 // Generate theme color palette of given color
 KvColorPalette.instance.generateThemeColorSchemePalette(givenColor = MatPackage().matGold.color)
