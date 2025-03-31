@@ -120,4 +120,14 @@ object ColorUtil {
                 abs(colorOne.alpha - colorTwo.alpha)
 
     }
+
+    /**
+     * Validate the color count requested by the user in the color palette.
+     * If the color count is greater than 30, then it will return 30. If the color count is less than 1, then it will return 1.
+     *
+     * @param colorCount [Int] The number of colors to generate.
+     * @return Int: The validated color count.
+     */
+    internal fun validateAndReviseColorCount(colorCount: Int): Int =
+        if (colorCount >= 30) { 30 } else if (colorCount <= 1) { 1 } else { colorCount }
 }

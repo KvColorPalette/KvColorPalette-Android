@@ -66,45 +66,39 @@ class KvColorPalette {
      * this method generate a list of colors with different alpha values.
      *
      * @param givenColor The color to generate the alpha values for.
+     * @param colorCount The number of colors to generate. In default that returns 10 colors.
+     * This accept integer value in a range of 2 - 30. Even someone passes number more than 30, this will returns only 30 colors.
      * @return A list of colors.
      */
-    fun generateAlphaColorPalette(givenColor: Color): List<Color> =
-        listOf(
-            Color(givenColor.red, givenColor.green, givenColor.blue, 1f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .9f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .8f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .7f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .6f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .5f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .4f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .3f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .2f),
-            Color(givenColor.red, givenColor.green, givenColor.blue, .1f),
-        )
+    fun generateAlphaColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> {
+        val colorList = mutableListOf<Color>()
+        val reviseColorCount = ColorUtil.validateAndReviseColorCount(colorCount)
+        for (i in reviseColorCount downTo 1) {
+            colorList.add(Color(givenColor.red, givenColor.green, givenColor.blue, ((1f/colorCount)*i)))
+        }
+        return colorList
+    }
 
     /**
      * Generate a list of colors with color saturation values. According to the feeding color,
      * this method generate a list of color with different saturation values.
      *
      * @param givenColor The color to generate the saturation values for.
+     * @param colorCount The number of colors to generate. In default that returns 10 colors.
+     * This accept integer value in a range of 2 - 30. Even someone passes number more than 30, this will returns only 30 colors.
      * @return A list of colors.
      */
-    fun generateSaturationColorPalette(givenColor: Color): List<Color> {
+    fun generateSaturationColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> {
         val hue = givenColor.hsl.hue
         val lightness = givenColor.hsl.lightness
 
-        return listOf(
-            Color.hsl(hue = hue, saturation = 1f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.9f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.8f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.7f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.6f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.5f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.4f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.3f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.2f, lightness = lightness),
-            Color.hsl(hue = hue, saturation = 0.1f, lightness = lightness)
-        )
+        val colorList = mutableListOf<Color>()
+        val reviseColorCount = ColorUtil.validateAndReviseColorCount(colorCount)
+
+        for (i in reviseColorCount downTo 1) {
+            colorList.add(Color.hsl(hue = hue, saturation = ((1f/colorCount)*i), lightness = lightness))
+        }
+        return colorList
     }
 
     /**
@@ -112,24 +106,21 @@ class KvColorPalette {
      * this method generate a list of color with different lightness values.
      *
      * @param givenColor The color to generate the lightness values for.
+     * @param colorCount The number of colors to generate. In default that returns 10 colors.
+     * This accept integer value in a range of 2 - 30. Even someone passes number more than 30, this will returns only 30 colors.
      * @return A list of colors.
      */
-    fun generateLightnessColorPalette(givenColor: Color): List<Color> {
+    fun generateLightnessColorPalette(givenColor: Color, colorCount: Int = 10): List<Color> {
         val hue = givenColor.hsl.hue
         val saturation = givenColor.hsl.saturation
 
-        return listOf(
-            Color.hsl(hue = hue, saturation = saturation, lightness = 1f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.9f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.8f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.7f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.6f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.5f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.4f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.3f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.2f),
-            Color.hsl(hue = hue, saturation = saturation, lightness = 0.1f)
-        )
+        val colorList = mutableListOf<Color>()
+        val reviseColorCount = ColorUtil.validateAndReviseColorCount(colorCount)
+
+        for (i in reviseColorCount downTo 1) {
+            colorList.add(Color.hsl(hue = hue, saturation = saturation, lightness = ((1f/colorCount)*i)))
+        }
+        return colorList
     }
 
     /**
