@@ -2,7 +2,7 @@ name: KvColorPalette-Android CI
 
 on:
   push:
-    branches: [ "main", "feature/create-android-ci" ]
+    branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
 
