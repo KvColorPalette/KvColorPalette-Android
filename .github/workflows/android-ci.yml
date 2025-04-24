@@ -1,10 +1,10 @@
-name: Android CI
+name: KvColorPalette-Android CI
 
 on:
   push:
     branches: [ "main", "feature/create-android-ci" ]
   pull_request:
-    branches: [ main ]
+    branches: [ "main" ]
 
 jobs:
   build:
@@ -36,3 +36,6 @@ jobs:
 
       - name: Build project
         run: ./gradlew assembleDebug
+
+      - name: Run unit tests
+        run: ./gradlew testDebugUnitTest
