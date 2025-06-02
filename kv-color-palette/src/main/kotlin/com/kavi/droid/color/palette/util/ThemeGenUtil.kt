@@ -8,11 +8,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 import com.kavi.droid.color.palette.extension.base
 import com.kavi.droid.color.palette.extension.hsl
-import com.kavi.droid.color.palette.extension.quaternary
-import com.kavi.droid.color.palette.extension.shadow
-import com.kavi.droid.color.palette.model.AppThemePalette
 import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
-import com.kavi.droid.color.palette.model.ThemeColorPalette
 
 object ThemeGenUtil {
 
@@ -35,22 +31,6 @@ object ThemeGenUtil {
                 false
             }
         }
-    }
-
-    /**
-     * Generate theme color set for given color.
-     * @param givenColor The color to generate theme color set.
-     * @return A theme color set. [AppThemePalette]
-     */
-    @Deprecated(
-        message = "This method is deprecated and replaced by generateThemeColorScheme.",
-        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeColorScheme(givenColor = givenColor)")
-    )
-    internal fun generateThemeColorSet(givenColor: Color): AppThemePalette {
-        val lightColorPalette = generateLightThemeColorSet(givenColor)
-        val darkColorPalette = generateDarkThemeColorSet(givenColor)
-
-        return AppThemePalette(light = lightColorPalette, dark = darkColorPalette)
     }
 
     /**
@@ -84,29 +64,6 @@ object ThemeGenUtil {
     /**
      * Generate light theme color set for given color.
      * @param givenColor The color to generate theme color set.
-     * @return A light theme color set. [ThemeColorPalette]
-     */
-    @Deprecated(
-        message = "This method is deprecated and replaced by generateThemeLightColorScheme.",
-        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeLightColorScheme(givenColor = givenColor)")
-    )
-    private fun generateLightThemeColorSet(givenColor: Color): ThemeColorPalette {
-        return ThemeColorPalette(
-            base = givenColor,
-            primary = givenColor,
-            secondary = generateLightSecondaryColor(givenColor),
-            tertiary = generateLightTertiaryColor(givenColor),
-            quaternary = givenColor, // This is for use light theme primary color dark theme contrast color
-            background = generateLightBackgroundColor(givenColor),
-            onPrimary = Color.White,
-            onSecondary = Color.White,
-            shadow = Color.Gray
-        )
-    }
-
-    /**
-     * Generate light theme color set for given color.
-     * @param givenColor The color to generate theme color set.
      * @return A light theme color set. [ColorScheme]
      */
     private fun generateThemeLightColorScheme(givenColor: Color): ColorScheme {
@@ -121,29 +78,6 @@ object ThemeGenUtil {
         lightColorScheme.base = givenColor
 
         return lightColorScheme
-    }
-
-    /**
-     * Generate dark theme color set for given color.
-     * @param givenColor he color to generate theme color set.
-     * @return A dark theme color set. [ThemeColorPalette]
-     */
-    @Deprecated(
-        message = "This method is deprecated and replaced by generateThemeDarkColorScheme.",
-        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeDarkColorScheme(givenColor = givenColor)")
-    )
-    private fun generateDarkThemeColorSet(givenColor: Color): ThemeColorPalette {
-        return ThemeColorPalette(
-            base = givenColor,
-            primary = generateDarkPrimaryColor(givenColor),
-            secondary = generateDarkSecondaryColor(givenColor),
-            tertiary = generateDarkTertiaryColor(givenColor),
-            quaternary = generateDarkSecondaryColor(givenColor), // This is for use light theme primary color dark theme contrast color
-            background = generateDarkBackgroundColor(givenColor),
-            onPrimary = Color.White,
-            onSecondary = Color.Black,
-            shadow = Color.White
-        )
     }
 
     /**

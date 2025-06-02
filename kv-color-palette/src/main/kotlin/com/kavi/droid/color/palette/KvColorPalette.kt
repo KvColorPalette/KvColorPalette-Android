@@ -12,7 +12,6 @@ import com.kavi.droid.color.palette.color.Mat800Package
 import com.kavi.droid.color.palette.color.Mat900Package
 import com.kavi.droid.color.palette.color.MatPackage
 import com.kavi.droid.color.palette.extension.hsl
-import com.kavi.droid.color.palette.model.AppThemePalette
 import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
 import com.kavi.droid.color.palette.model.KvColor
 import com.kavi.droid.color.palette.util.ColorUtil
@@ -29,8 +28,6 @@ class KvColorPalette {
          * provide a theme color palette. Consumer can use this as a singleton.
          */
         var instance: KvColorPalette = KvColorPalette()
-        @Deprecated("This field is deprecated. This is replaced by colorSchemeThemePalette")
-        lateinit var appThemePalette: AppThemePalette
         lateinit var colorSchemeThemePalette: ColorSchemeThemePalette
 
         /**
@@ -44,17 +41,11 @@ class KvColorPalette {
          */
         fun initialize(basicColor: Color) {
             val closestColor = ColorUtil.findClosestColor(givenColor = basicColor)
-            appThemePalette = instance.generateThemeColorPalette(givenColor = closestColor.color)
             colorSchemeThemePalette = instance.generateThemeColorSchemePalette(givenColor = closestColor.color)
         }
     }
 
     init {
-        /**
-         * This generate theme-palette with color transparent. This is un-usable.
-         */
-        appThemePalette = generateThemeColorPalette(Color.Transparent)
-
         /**
          * This generate theme-palette with color transparent. This is un-usable.
          */
@@ -143,18 +134,6 @@ class KvColorPalette {
             Mat100Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color,
             Mat50Package.getColor(colorName = givenColor.colorName).alphaChange(alphaChange).color
         )
-
-    /**
-     * Generate a theme color palette. According to the feeding color,
-     * this method generate a theme color palette.
-     *
-     * @param givenColor The color to generate the theme color palette for.
-     * @return A theme color palette.
-     */
-    @Deprecated("This method is deprecated and replaced by generateThemeColorSchemePalette method", replaceWith = ReplaceWith(
-        "KvColorPalette.instance.generateThemeColorSchemePalette(givenColor = givenColor)"
-    ))
-    fun generateThemeColorPalette(givenColor: Color): AppThemePalette = ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
 
     /**
      * Generate a theme color palette. According to the feeding color,
