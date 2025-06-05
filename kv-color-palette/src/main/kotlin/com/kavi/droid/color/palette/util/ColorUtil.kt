@@ -52,6 +52,22 @@ object ColorUtil {
     }
 
     /**
+     * This method is to blend given two colors and return new color
+     *
+     * @param firstColor [Color] First color to blend
+     * @param secondColor [Color] Second color to blend
+     * @param bias [Float] Bias to the new color for first / second color.
+     */
+    internal fun blendColors(firstColor: Color, secondColor: Color, bias: Float = 0.5f): Color {
+        val blendRed = ((firstColor.red * 255) + (secondColor.red * 255)) * (1f - bias)
+        val blendGreen = ((firstColor.green * 255) + (secondColor.green * 255)) * (1f - bias)
+        val blendBlue = ((firstColor.blue * 255) + (secondColor.blue * 255)) * (1f - bias)
+        //val blendAlpha = (firstColor.alpha + secondColor.alpha) * bias
+
+        return Color(blendRed / 255, blendGreen / 255, blendBlue / 255)
+    }
+
+    /**
      * Get closest color to the given color from available color packages.
      * This compares the available colors and find out the closest `KvColor` to the given color.
      *
