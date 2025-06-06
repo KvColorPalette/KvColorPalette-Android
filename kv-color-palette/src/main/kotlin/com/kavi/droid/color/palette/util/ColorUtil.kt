@@ -62,7 +62,6 @@ object ColorUtil {
         val blendRed = ((firstColor.red * 255) + (secondColor.red * 255)) * (1f - bias)
         val blendGreen = ((firstColor.green * 255) + (secondColor.green * 255)) * (1f - bias)
         val blendBlue = ((firstColor.blue * 255) + (secondColor.blue * 255)) * (1f - bias)
-        //val blendAlpha = (firstColor.alpha + secondColor.alpha) * bias
 
         return Color(blendRed / 255, blendGreen / 255, blendBlue / 255)
     }

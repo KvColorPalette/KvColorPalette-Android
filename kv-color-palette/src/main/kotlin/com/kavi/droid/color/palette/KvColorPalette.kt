@@ -14,6 +14,7 @@ import com.kavi.droid.color.palette.color.MatPackage
 import com.kavi.droid.color.palette.extension.hsl
 import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
 import com.kavi.droid.color.palette.model.KvColor
+import com.kavi.droid.color.palette.model.ThemeGenPattern
 import com.kavi.droid.color.palette.util.ColorUtil
 import com.kavi.droid.color.palette.util.ThemeGenUtil
 
@@ -142,8 +143,21 @@ class KvColorPalette {
      * @param givenColor The color to generate the theme color palette for.
      * @return A color scheme theme palette. [ColorSchemeThemePalette]
      */
-    fun generateThemeColorSchemePalette(givenColor: Color): ColorSchemeThemePalette = ThemeGenUtil.generateThemeColorScheme(givenColor = givenColor)
+    fun generateThemeColorSchemePalette(givenColor: Color): ColorSchemeThemePalette = ThemeGenUtil.singleColorThemeColorScheme(givenColor = givenColor)
 
+    /**
+     * Generate a theme color palette. According to the feeding color,
+     * this method generate a color scheme theme color palette.
+     *
+     * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param bias The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
+     * 0f means full bias to first color and 1f means full bias to second color.
+     * @return A color scheme theme palette. [ColorSchemeThemePalette]
+     */
+    fun generateMultiColorThemeColorSchemePalette(givenColor: Color, secondColor: Color, bias: Float = .5f, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE): ColorSchemeThemePalette {
+        return ThemeGenUtil.multiColorInputThemeColorScheme(givenColor = givenColor, secondColor = secondColor, bias = bias, themeGenPattern = themeGenPattern)
+    }
     /**
      * This method finds the closest KvColor available in the KvColorPalette-Android to the given color
      *
