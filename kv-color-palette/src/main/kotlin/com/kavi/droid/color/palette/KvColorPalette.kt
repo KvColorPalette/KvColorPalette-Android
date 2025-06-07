@@ -35,7 +35,7 @@ class KvColorPalette {
          * KvColorPalette initialization. Consumer can use this to initialize the KvColorPalette from their application, if they need a
          * Theme color palette at the application start-up.
          *
-         * On this initiation of KvColorPalette, we generate a theme color palette using the given color.
+         * On this initiation of KvColorPalette, library generate a theme color palette using the given color.
          * `baseColor` is mandatory parameter while initiate the library.
          *
          * @param baseColor: Color: Given color for generate theme palette.
@@ -45,6 +45,22 @@ class KvColorPalette {
             colorSchemeThemePalette = instance.generateThemeColorSchemePalette(givenColor = closestColor.color)
         }
 
+        /**
+         * KvColorPalette initialization. Consumer can use this to initialize the KvColorPalette from their application, if they need a
+         * Theme color palette at the application start-up.
+         *
+         * On this initiation of KvColorPalette, library generate a theme color palette using the given base color and second color.
+         * `baseColor` and `secondColor` are mandatory parameter while initiate the library. Other two parameters are optional.
+         *
+         * @param baseColor: Color: Given first for generate theme palette.
+         * @param secondColor: Color: Given second color for generate theme palette.
+         * @param bias: Float: The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
+         * 0f means full bias to first color and 1f means full bias to second color.
+         * @param themeGenPattern: ThemeGenPattern: The pattern to generate the theme color palette.
+         * Default is [ThemeGenPattern.SEQUENCE] and available options are [ThemeGenPattern.SEQUENCE] and [ThemeGenPattern.BLEND]
+         * - [ThemeGenPattern.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+         * - [ThemeGenPattern.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
+         */
         fun initialize(baseColor: Color, secondColor: Color, bias: Float = .5f, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE) {
             colorSchemeThemePalette = instance.generateMultiColorThemeColorSchemePalette(
                 givenColor = baseColor,
@@ -162,6 +178,10 @@ class KvColorPalette {
      * @param secondColor The secondary color to generate the theme color palette blending with first color.
      * @param bias The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
      * 0f means full bias to first color and 1f means full bias to second color.
+     * @param themeGenPattern: ThemeGenPattern: The pattern to generate the theme color palette.
+     * Default is [ThemeGenPattern.SEQUENCE] and available options are [ThemeGenPattern.SEQUENCE] and [ThemeGenPattern.BLEND]
+     * - [ThemeGenPattern.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+     * - [ThemeGenPattern.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
      * @return A color scheme theme palette. [ColorSchemeThemePalette]
      */
     fun generateMultiColorThemeColorSchemePalette(givenColor: Color, secondColor: Color, bias: Float = .5f, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE): ColorSchemeThemePalette {

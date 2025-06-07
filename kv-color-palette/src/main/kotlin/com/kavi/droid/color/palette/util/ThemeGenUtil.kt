@@ -46,6 +46,20 @@ object ThemeGenUtil {
         return ColorSchemeThemePalette(lightColorScheme = lightColorPalette, darkColorScheme = darkColorPalette)
     }
 
+    /**
+     * Generate a theme color palette. According to the feeding color,
+     * this method generate a color scheme theme color palette.
+     *
+     * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param bias The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
+     * 0f means full bias to first color and 1f means full bias to second color.
+     * @param themeGenPattern: ThemeGenPattern: The pattern to generate the theme color palette.
+     * Default is [ThemeGenPattern.SEQUENCE] and available options are [ThemeGenPattern.SEQUENCE] and [ThemeGenPattern.BLEND]
+     * - [ThemeGenPattern.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+     * - [ThemeGenPattern.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
+     * @return A color scheme theme palette. [ColorSchemeThemePalette]
+     */
     internal fun multiColorInputThemeColorScheme(givenColor: Color, secondColor: Color, bias: Float = 0.5f, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE): ColorSchemeThemePalette {
         var blendColor: Color? = null
 
@@ -95,6 +109,13 @@ object ThemeGenUtil {
         return lightColorScheme
     }
 
+    /**
+     * Generate light theme color set for given colors.
+     * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param themeGenPattern: ThemeGenPattern: The pattern to generate the theme color palette.
+     * @return A light theme color set. [ColorScheme]
+     */
     private fun generateMultiInputThemeLightColorScheme(givenColor: Color, secondColor: Color, blendColor: Color? = null, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE): ColorScheme {
         when (themeGenPattern) {
             ThemeGenPattern.SEQUENCE -> {
@@ -147,6 +168,13 @@ object ThemeGenUtil {
         return darkColorScheme
     }
 
+    /**
+     * Generate dark theme color set for given color.
+     * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param themeGenPattern: ThemeGenPattern: The pattern to generate the theme color palette.
+     * @return A dark theme color set. [ColorScheme]
+     */
     private fun generateMultiInputThemeDarkColorScheme(givenColor: Color, secondColor: Color, blendColor: Color? = null, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE): ColorScheme {
         when (themeGenPattern) {
             ThemeGenPattern.SEQUENCE -> {
