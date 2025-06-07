@@ -59,9 +59,9 @@ object ColorUtil {
      * @param bias [Float] Bias to the new color for first / second color.
      */
     internal fun blendColors(firstColor: Color, secondColor: Color, bias: Float = 0.5f): Color {
-        val blendRed = ((firstColor.red * 255) + (secondColor.red * 255)) * (1f - bias)
-        val blendGreen = ((firstColor.green * 255) + (secondColor.green * 255)) * (1f - bias)
-        val blendBlue = ((firstColor.blue * 255) + (secondColor.blue * 255)) * (1f - bias)
+        val blendRed = colorBlendingComponent(firstColor.red, secondColor.red, bias)
+        val blendGreen = colorBlendingComponent(firstColor.green, secondColor.green, bias)
+        val blendBlue = colorBlendingComponent(firstColor.blue, secondColor.blue, bias)
 
         return Color(blendRed / 255, blendGreen / 255, blendBlue / 255)
     }
@@ -145,4 +145,26 @@ object ColorUtil {
      */
     internal fun validateAndReviseColorCount(colorCount: Int): Int =
         if (colorCount >= 30) { 30 } else if (colorCount <= 1) { 1 } else { colorCount }
+
+    /**
+     * This method can return the color value of red/green/blue according to the blending bias
+     * with given first color's red/green/blue value and second color's red/green/blue value.
+     *
+     * @param firstColor The first color's red/green/blue value
+     * @param secondColor The second color's red/green/blue value
+     * @param bias The blending bias value.
+     *
+     */
+    private fun colorBlendingComponent(firstColor: Float, secondColor: Float, bias: Float): Float {
+        val difference = abs(firstColor * 255 - secondColor * 255)
+        val blending = difference * bias // How bias to the blending colors, first or second
+
+        return if (firstColor < secondColor) {
+            (firstColor * 255) + blending // First color is in lower end, therefore adding bias
+        } else if (firstColor > secondColor) {
+            (firstColor * 255) - blending // First color is in higher end, therefore subtracting bias
+        } else {
+            (firstColor * 255) // This means, first component and second component are same. Therefore, returns same value.
+        }
+    }
 }
