@@ -14,7 +14,7 @@ import com.kavi.droid.color.palette.color.MatPackage
 import com.kavi.droid.color.palette.extension.hsl
 import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
 import com.kavi.droid.color.palette.model.KvColor
-import com.kavi.droid.color.palette.model.ThemeGenPattern
+import com.kavi.droid.color.palette.model.ThemeGenMode
 import com.kavi.droid.color.palette.util.ColorUtil
 import com.kavi.droid.color.palette.util.ThemeGenUtil
 
@@ -41,8 +41,7 @@ class KvColorPalette {
          * @param baseColor: Color: Given color for generate theme palette.
          */
         fun initialize(baseColor: Color) {
-            val closestColor = ColorUtil.findClosestColor(givenColor = baseColor)
-            colorSchemeThemePalette = instance.generateThemeColorSchemePalette(givenColor = closestColor.color)
+            colorSchemeThemePalette = instance.generateThemeColorSchemePalette(givenColor = baseColor)
         }
 
         /**
@@ -56,17 +55,17 @@ class KvColorPalette {
          * @param secondColor: Color: Given second color for generate theme palette.
          * @param bias: Float: The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
          * 0f means full bias to first color and 1f means full bias to second color.
-         * @param themeGenPattern: ThemeGenPattern: The pattern to generate the theme color palette.
-         * Default is [ThemeGenPattern.SEQUENCE] and available options are [ThemeGenPattern.SEQUENCE] and [ThemeGenPattern.BLEND]
-         * - [ThemeGenPattern.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
-         * - [ThemeGenPattern.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
+         * @param themeGenMode: ThemeGenPattern: The pattern to generate the theme color palette.
+         * Default is [ThemeGenMode.SEQUENCE] and available options are [ThemeGenMode.SEQUENCE] and [ThemeGenMode.BLEND]
+         * - [ThemeGenMode.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+         * - [ThemeGenMode.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
          */
-        fun initialize(baseColor: Color, secondColor: Color, bias: Float = .5f, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE) {
+        fun initialize(baseColor: Color, secondColor: Color, bias: Float = .5f, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE) {
             colorSchemeThemePalette = instance.generateMultiColorThemeColorSchemePalette(
                 givenColor = baseColor,
                 secondColor = secondColor,
                 bias = bias,
-                themeGenPattern = themeGenPattern
+                themeGenMode = themeGenMode
             )
         }
     }
@@ -178,14 +177,14 @@ class KvColorPalette {
      * @param secondColor The secondary color to generate the theme color palette blending with first color.
      * @param bias The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
      * 0f means full bias to first color and 1f means full bias to second color.
-     * @param themeGenPattern: ThemeGenPattern: The pattern to generate the theme color palette.
-     * Default is [ThemeGenPattern.SEQUENCE] and available options are [ThemeGenPattern.SEQUENCE] and [ThemeGenPattern.BLEND]
-     * - [ThemeGenPattern.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
-     * - [ThemeGenPattern.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
+     * @param themeGenMode: ThemeGenPattern: The pattern to generate the theme color palette.
+     * Default is [ThemeGenMode.SEQUENCE] and available options are [ThemeGenMode.SEQUENCE] and [ThemeGenMode.BLEND]
+     * - [ThemeGenMode.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+     * - [ThemeGenMode.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
      * @return A color scheme theme palette. [ColorSchemeThemePalette]
      */
-    fun generateMultiColorThemeColorSchemePalette(givenColor: Color, secondColor: Color, bias: Float = .5f, themeGenPattern: ThemeGenPattern = ThemeGenPattern.SEQUENCE): ColorSchemeThemePalette {
-        return ThemeGenUtil.multiColorInputThemeColorScheme(givenColor = givenColor, secondColor = secondColor, bias = bias, themeGenPattern = themeGenPattern)
+    fun generateMultiColorThemeColorSchemePalette(givenColor: Color, secondColor: Color, bias: Float = .5f, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE): ColorSchemeThemePalette {
+        return ThemeGenUtil.multiColorInputThemeColorScheme(givenColor = givenColor, secondColor = secondColor, bias = bias, themeGenMode = themeGenMode)
     }
     /**
      * This method finds the closest KvColor available in the KvColorPalette-Android to the given color

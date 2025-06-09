@@ -1,5 +1,5 @@
 package com.kavi.droid.color.palette.model
 
-enum class ThemeGenPattern {
+enum class ThemeGenMode {
     SEQUENCE, BLEND
 }
