@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>generateMultiColorThemeColorSchemePalette</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+            <a href="../../../index.html">
+                    <span>kv-color-palette</span>
+            </a>
+    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":kv-color-palette:dokkaHtml/release">androidJvm</button>
+        </div>
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" data-page-type="member" id="content" pageIds="kv-color-palette::com.kavi.droid.color.palette/KvColorPalette/generateMultiColorThemeColorSchemePalette/#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#kotlin.Float#com.kavi.droid.color.palette.model.ThemeGenMode/PointingToDeclaration//108943073">
+  <div class="breadcrumbs"><a href="../../../index.html">kv-color-palette</a><span class="delimiter">/</span><a href="../index.html">com.kavi.droid.color.palette</a><span class="delimiter">/</span><a href="index.html">KvColorPalette</a><span class="delimiter">/</span><span class="current">generateMultiColorThemeColorSchemePalette</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>generate</span><wbr></wbr><span>Multi</span><wbr></wbr><span>Color</span><wbr></wbr><span>Theme</span><wbr></wbr><span>Color</span><wbr></wbr><span>Scheme</span><wbr></wbr><span><span>Palette</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kv-color-palette:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword"></span><span class="token keyword">fun </span><a href="generate-multi-color-theme-color-scheme-palette.html"><span class="token function">generateMultiColorThemeColorSchemePalette</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">givenColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter ">secondColor<span class="token operator">: </span><a href="https://developer.android.com/reference/kotlin/androidx/compose/ui/graphics/Color.html">Color</a><span class="token punctuation">, </span></span><span class="parameter ">bias<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-float/index.html">Float</a><span class="token operator"> = </span><span class="token constant">0.5f</span><span class="token punctuation">, </span></span><span class="parameter ">themeGenMode<span class="token operator">: </span><a href="../../com.kavi.droid.color.palette.model/-theme-gen-mode/index.html">ThemeGenMode</a><span class="token operator"> = </span>ThemeGenMode.SEQUENCE</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../../com.kavi.droid.color.palette.model/-color-scheme-theme-palette/index.html">ColorSchemeThemePalette</a></div><p class="paragraph">Generate a theme color palette. According to the feeding color, this method generate a color scheme theme color palette.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">A color scheme theme palette. <a href="../../com.kavi.droid.color.palette.model/-color-scheme-theme-palette/index.html">ColorSchemeThemePalette</a></p></span><h4 class="">Parameters</h4><div class="table"><div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>given</span><wbr></wbr><span><span>Color</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The color to generate the theme color palette for.</p></div></div></div></div><div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>second</span><wbr></wbr><span><span>Color</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The secondary color to generate the theme color palette blending with first color.</p></div></div></div></div><div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span><span>bias</span></span></u></div></span></div><div><div class="title"><p class="paragraph">The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0. 0f means full bias to first color and 1f means full bias to second color.</p></div></div></div></div><div class="table-row" data-filterable-current=":kv-color-palette:dokkaHtml/release" data-filterable-set=":kv-color-palette:dokkaHtml/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><u><span>theme</span><wbr></wbr><span>Gen</span><wbr></wbr><span><span>Mode</span></span></u></div></span></div><div><div class="title"><p class="paragraph">: ThemeGenPattern: The pattern to generate the theme color palette. Default is <a href="../../com.kavi.droid.color.palette.model/-theme-gen-mode/-s-e-q-u-e-n-c-e/index.html">ThemeGenMode.SEQUENCE</a> and available options are <a href="../../com.kavi.droid.color.palette.model/-theme-gen-mode/-s-e-q-u-e-n-c-e/index.html">ThemeGenMode.SEQUENCE</a> and <a href="../../com.kavi.droid.color.palette.model/-theme-gen-mode/-b-l-e-n-d/index.html">ThemeGenMode.BLEND</a></p><ul><li><p class="paragraph"><a href="../../com.kavi.droid.color.palette.model/-theme-gen-mode/-s-e-q-u-e-n-c-e/index.html">ThemeGenMode.SEQUENCE</a> will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.</p></li><li><p class="paragraph"><a href="../../com.kavi.droid.color.palette.model/-theme-gen-mode/-b-l-e-n-d/index.html">ThemeGenMode.BLEND</a> will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.</p></li></ul></div></div></div></div></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+</body>
+</html>

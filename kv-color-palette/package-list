@@ -46,10 +46,6 @@ $dokka.location:com.kavi.droid.color.palette.extension//isHighLightColor/android
 $dokka.location:com.kavi.droid.color.palette.extension//quaternary/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/quaternary.html
 $dokka.location:com.kavi.droid.color.palette.extension//shadow/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/shadow.html
 $dokka.location:com.kavi.droid.color.palette.model////PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/index.html
-$dokka.location:com.kavi.droid.color.palette.model/AppThemePalette///PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-app-theme-palette/index.html
-$dokka.location:com.kavi.droid.color.palette.model/AppThemePalette/AppThemePalette/#com.kavi.droid.color.palette.model.ThemeColorPalette#com.kavi.droid.color.palette.model.ThemeColorPalette/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-app-theme-palette/-app-theme-palette.html
-$dokka.location:com.kavi.droid.color.palette.model/AppThemePalette/dark/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-app-theme-palette/dark.html
-$dokka.location:com.kavi.droid.color.palette.model/AppThemePalette/light/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-app-theme-palette/light.html
 $dokka.location:com.kavi.droid.color.palette.model/ColorCompareResult///PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-color-compare-result/index.html
 $dokka.location:com.kavi.droid.color.palette.model/ColorCompareResult/ColorCompareResult/#kotlin.Boolean#kotlin.Float#com.kavi.droid.color.palette.model.KvColor/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-color-compare-result/-color-compare-result.html
 $dokka.location:com.kavi.droid.color.palette.model/ColorCompareResult/colorDistance/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-color-compare-result/color-distance.html
@@ -84,6 +80,11 @@ $dokka.location:com.kavi.droid.color.palette.model/ThemeColorPalette/quaternary/
 $dokka.location:com.kavi.droid.color.palette.model/ThemeColorPalette/secondary/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-theme-color-palette/secondary.html
 $dokka.location:com.kavi.droid.color.palette.model/ThemeColorPalette/shadow/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-theme-color-palette/shadow.html
 $dokka.location:com.kavi.droid.color.palette.model/ThemeColorPalette/tertiary/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-theme-color-palette/tertiary.html
+$dokka.location:com.kavi.droid.color.palette.model/ThemeGenMode.BLEND///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}kv-color-palette/com.kavi.droid.color.palette.model/-theme-gen-mode/-b-l-e-n-d/index.html
+$dokka.location:com.kavi.droid.color.palette.model/ThemeGenMode.SEQUENCE///PointingToDeclaration/{"org.jetbrains.dokka.links.EnumEntryDRIExtra":{"key":"org.jetbrains.dokka.links.EnumEntryDRIExtra"}}kv-color-palette/com.kavi.droid.color.palette.model/-theme-gen-mode/-s-e-q-u-e-n-c-e/index.html
+$dokka.location:com.kavi.droid.color.palette.model/ThemeGenMode///PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-theme-gen-mode/index.html
+$dokka.location:com.kavi.droid.color.palette.model/ThemeGenMode/valueOf/#kotlin.String/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-theme-gen-mode/value-of.html
+$dokka.location:com.kavi.droid.color.palette.model/ThemeGenMode/values/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-theme-gen-mode/values.html
 $dokka.location:com.kavi.droid.color.palette.util////PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/index.html
 $dokka.location:com.kavi.droid.color.palette.util/ColorUtil///PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-color-util/index.html
 $dokka.location:com.kavi.droid.color.palette.util/ColorUtil/getColorFromHex/#kotlin.String/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-color-util/get-color-from-hex.html
@@ -94,8 +95,8 @@ $dokka.location:com.kavi.droid.color.palette.util/ThemeGenUtil///PointingToDecla
 $dokka.location:com.kavi.droid.color.palette.util/ThemeGenUtil/isAppInNightMode/#android.content.Context/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-theme-gen-util/is-app-in-night-mode.html
 $dokka.location:com.kavi.droid.color.palette////PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/index.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette.Companion///PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/-companion/index.html
-$dokka.location:com.kavi.droid.color.palette/KvColorPalette.Companion/appThemePalette/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/-companion/app-theme-palette.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette.Companion/colorSchemeThemePalette/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/-companion/color-scheme-theme-palette.html
+$dokka.location:com.kavi.droid.color.palette/KvColorPalette.Companion/initialize/#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#kotlin.Float#com.kavi.droid.color.palette.model.ThemeGenMode/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/-companion/initialize.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette.Companion/initialize/#androidx.compose.ui.graphics.Color/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/-companion/initialize.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette.Companion/instance/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/-companion/instance.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette///PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/index.html
@@ -104,8 +105,8 @@ $dokka.location:com.kavi.droid.color.palette/KvColorPalette/findClosestKvColor/#
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette/generateAlphaColorPalette/#androidx.compose.ui.graphics.Color#kotlin.Int/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/generate-alpha-color-palette.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette/generateColorPalette/#com.kavi.droid.color.palette.model.KvColor#kotlin.Float/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/generate-color-palette.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette/generateLightnessColorPalette/#androidx.compose.ui.graphics.Color#kotlin.Int/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/generate-lightness-color-palette.html
+$dokka.location:com.kavi.droid.color.palette/KvColorPalette/generateMultiColorThemeColorSchemePalette/#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#kotlin.Float#com.kavi.droid.color.palette.model.ThemeGenMode/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/generate-multi-color-theme-color-scheme-palette.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette/generateSaturationColorPalette/#androidx.compose.ui.graphics.Color#kotlin.Int/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/generate-saturation-color-palette.html
-$dokka.location:com.kavi.droid.color.palette/KvColorPalette/generateThemeColorPalette/#androidx.compose.ui.graphics.Color/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/generate-theme-color-palette.html
 $dokka.location:com.kavi.droid.color.palette/KvColorPalette/generateThemeColorSchemePalette/#androidx.compose.ui.graphics.Color/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette/-kv-color-palette/generate-theme-color-scheme-palette.html
 com.kavi.droid.color.palette
 com.kavi.droid.color.palette.color
