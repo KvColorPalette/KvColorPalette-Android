@@ -26,13 +26,13 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.KvColorPalette:KvColorPalette-Android:2.2.0'
+    implementation 'com.github.KvColorPalette:KvColorPalette-Android:3.0.0'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.KvColorPalette:KvColorPalette-Android:2.2.0")
+    implementation("com.github.KvColorPalette:KvColorPalette-Android:3.0.0")
 }
 ````
 
@@ -60,12 +60,27 @@ KvColorPalette.instance.generateThemeColorSchemePalette(givenColor = MatPackage(
 
 ### Advance Usage
 If you wants to use `KvColorPalette-Android` to generate your theme color palette when your application start-up, then you have to initiate the library in Application level.
-To initiate you have to pass one base color that you think your application will use. Use following code to initiate the library package.
+There are two ways to initiate the library. These two methods for two different scenarios. First is to initiate the library with one base color and other is to initiate the library with two base colors.
+In two color method, there are additional parameters like `bias` and `themeGenPattern`.
+If your application styling with one base color then you can use following method to initialized,
 ````
 override fun onCreate() {
     super.onCreate()
     // Initialize the KvColorPalette-Android
-    KvColorPalette.initialize(Color.blue)
+    KvColorPalette.initialize(baseColor = Color.blue)
+}
+````
+If your application has two base colors, then you can use following method to initialized,
+````
+override fun onCreate() {
+    super.onCreate()
+    // Initialize the KvColorPalette-Android
+    KvColorPalette.initialize(
+        baseColor = Color.blue, 
+        secondColor = Color.red, 
+        themeGenPattern = ThemeGenMode.BLEND // The way to generate the theme palette using two colors.
+        bias = 0.5f, // How bias to first or second color
+    )
 }
 ````
 This initiation create a color schemas for a theme using the given color at the initiation. This generated color schemas will available for light and dark theme variants.

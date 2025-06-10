@@ -8,11 +8,8 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 import com.kavi.droid.color.palette.extension.base
 import com.kavi.droid.color.palette.extension.hsl
-import com.kavi.droid.color.palette.extension.quaternary
-import com.kavi.droid.color.palette.extension.shadow
-import com.kavi.droid.color.palette.model.AppThemePalette
 import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
-import com.kavi.droid.color.palette.model.ThemeColorPalette
+import com.kavi.droid.color.palette.model.ThemeGenMode
 
 object ThemeGenUtil {
 
@@ -40,27 +37,39 @@ object ThemeGenUtil {
     /**
      * Generate theme color set for given color.
      * @param givenColor The color to generate theme color set.
-     * @return A theme color set. [AppThemePalette]
+     * @return A theme color set. [ColorSchemeThemePalette]
      */
-    @Deprecated(
-        message = "This method is deprecated and replaced by generateThemeColorScheme.",
-        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeColorScheme(givenColor = givenColor)")
-    )
-    internal fun generateThemeColorSet(givenColor: Color): AppThemePalette {
-        val lightColorPalette = generateLightThemeColorSet(givenColor)
-        val darkColorPalette = generateDarkThemeColorSet(givenColor)
+    internal fun singleColorThemeColorScheme(givenColor: Color): ColorSchemeThemePalette {
+        val lightColorPalette = generateThemeLightColorScheme(givenColor)
+        val darkColorPalette = generateThemeDarkColorScheme(givenColor)
 
-        return AppThemePalette(light = lightColorPalette, dark = darkColorPalette)
+        return ColorSchemeThemePalette(lightColorScheme = lightColorPalette, darkColorScheme = darkColorPalette)
     }
 
     /**
-     * Generate theme color set for given color.
-     * @param givenColor The color to generate theme color set.
-     * @return A theme color set. [ColorSchemeThemePalette]
+     * Generate a theme color palette. According to the feeding color,
+     * this method generate a color scheme theme color palette.
+     *
+     * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param bias The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
+     * 0f means full bias to first color and 1f means full bias to second color.
+     * @param themeGenMode: ThemeGenPattern: The pattern to generate the theme color palette.
+     * Default is [ThemeGenMode.SEQUENCE] and available options are [ThemeGenMode.SEQUENCE] and [ThemeGenMode.BLEND]
+     * - [ThemeGenMode.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+     * - [ThemeGenMode.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
+     * @return A color scheme theme palette. [ColorSchemeThemePalette]
      */
-    internal fun generateThemeColorScheme(givenColor: Color): ColorSchemeThemePalette {
-        val lightColorPalette = generateThemeLightColorScheme(givenColor)
-        val darkColorPalette = generateThemeDarkColorScheme(givenColor)
+    internal fun multiColorInputThemeColorScheme(givenColor: Color, secondColor: Color, bias: Float = 0.5f, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE): ColorSchemeThemePalette {
+        var blendColor: Color? = null
+
+        blendColor = when (themeGenMode) {
+            ThemeGenMode.SEQUENCE -> { null }
+            ThemeGenMode.BLEND -> { ColorUtil.blendColors(firstColor = givenColor, secondColor = secondColor, bias = bias) }
+        }
+
+        val lightColorPalette = generateMultiInputThemeLightColorScheme(givenColor = givenColor, secondColor = secondColor, blendColor = blendColor, themeGenMode = themeGenMode)
+        val darkColorPalette = generateMultiInputThemeDarkColorScheme(givenColor = givenColor, secondColor = secondColor, blendColor = blendColor, themeGenMode = themeGenMode)
 
         return ColorSchemeThemePalette(lightColorScheme = lightColorPalette, darkColorScheme = darkColorPalette)
     }
@@ -84,29 +93,6 @@ object ThemeGenUtil {
     /**
      * Generate light theme color set for given color.
      * @param givenColor The color to generate theme color set.
-     * @return A light theme color set. [ThemeColorPalette]
-     */
-    @Deprecated(
-        message = "This method is deprecated and replaced by generateThemeLightColorScheme.",
-        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeLightColorScheme(givenColor = givenColor)")
-    )
-    private fun generateLightThemeColorSet(givenColor: Color): ThemeColorPalette {
-        return ThemeColorPalette(
-            base = givenColor,
-            primary = givenColor,
-            secondary = generateLightSecondaryColor(givenColor),
-            tertiary = generateLightTertiaryColor(givenColor),
-            quaternary = givenColor, // This is for use light theme primary color dark theme contrast color
-            background = generateLightBackgroundColor(givenColor),
-            onPrimary = Color.White,
-            onSecondary = Color.White,
-            shadow = Color.Gray
-        )
-    }
-
-    /**
-     * Generate light theme color set for given color.
-     * @param givenColor The color to generate theme color set.
      * @return A light theme color set. [ColorScheme]
      */
     private fun generateThemeLightColorScheme(givenColor: Color): ColorScheme {
@@ -124,26 +110,42 @@ object ThemeGenUtil {
     }
 
     /**
-     * Generate dark theme color set for given color.
-     * @param givenColor he color to generate theme color set.
-     * @return A dark theme color set. [ThemeColorPalette]
+     * Generate light theme color set for given colors.
+     * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param themeGenMode: ThemeGenPattern: The pattern to generate the theme color palette.
+     * @return A light theme color set. [ColorScheme]
      */
-    @Deprecated(
-        message = "This method is deprecated and replaced by generateThemeDarkColorScheme.",
-        replaceWith = ReplaceWith("ThemeGenUtil.generateThemeDarkColorScheme(givenColor = givenColor)")
-    )
-    private fun generateDarkThemeColorSet(givenColor: Color): ThemeColorPalette {
-        return ThemeColorPalette(
-            base = givenColor,
-            primary = generateDarkPrimaryColor(givenColor),
-            secondary = generateDarkSecondaryColor(givenColor),
-            tertiary = generateDarkTertiaryColor(givenColor),
-            quaternary = generateDarkSecondaryColor(givenColor), // This is for use light theme primary color dark theme contrast color
-            background = generateDarkBackgroundColor(givenColor),
-            onPrimary = Color.White,
-            onSecondary = Color.Black,
-            shadow = Color.White
-        )
+    private fun generateMultiInputThemeLightColorScheme(givenColor: Color, secondColor: Color, blendColor: Color? = null, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE): ColorScheme {
+        when (themeGenMode) {
+            ThemeGenMode.SEQUENCE -> {
+                val light = lightColorScheme(
+                    primary = givenColor,
+                    secondary = secondColor,
+                    tertiary = generateLightTertiaryColor(givenColor),
+                    background = generateLightBackgroundColor(givenColor),
+                    onPrimary = Color.White,
+                    onSecondary = Color.White
+                )
+                light.base = givenColor
+
+                return light
+            }
+            ThemeGenMode.BLEND -> {
+                val blend = blendColor ?: run { givenColor }
+                val light = lightColorScheme(
+                    primary = givenColor,
+                    secondary = secondColor,
+                    tertiary = generateLightTertiaryColor(blend),
+                    background = generateLightBackgroundColor(blend),
+                    onPrimary = Color.White,
+                    onSecondary = Color.White
+                )
+                light.base = blend
+
+                return light
+            }
+        }
     }
 
     /**
@@ -164,6 +166,45 @@ object ThemeGenUtil {
         darkColorScheme.base = givenColor
 
         return darkColorScheme
+    }
+
+    /**
+     * Generate dark theme color set for given color.
+     * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param themeGenMode: ThemeGenPattern: The pattern to generate the theme color palette.
+     * @return A dark theme color set. [ColorScheme]
+     */
+    private fun generateMultiInputThemeDarkColorScheme(givenColor: Color, secondColor: Color, blendColor: Color? = null, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE): ColorScheme {
+        when (themeGenMode) {
+            ThemeGenMode.SEQUENCE -> {
+                val dark = darkColorScheme(
+                    primary = generateDarkPrimaryColor(givenColor),
+                    secondary = generateDarkSecondaryColor(secondColor),
+                    tertiary = generateDarkTertiaryColor(givenColor),
+                    background = generateDarkBackgroundColor(givenColor),
+                    onPrimary = Color.White,
+                    onSecondary = Color.White,
+                )
+                dark.base = givenColor
+
+                return dark
+            }
+            ThemeGenMode.BLEND -> {
+                val blend = blendColor ?: run { givenColor }
+                val dark = darkColorScheme(
+                    primary = generateDarkPrimaryColor(givenColor),
+                    secondary = generateDarkSecondaryColor(secondColor),
+                    tertiary = generateDarkTertiaryColor(blend),
+                    background = generateDarkBackgroundColor(blend),
+                    onPrimary = Color.White,
+                    onSecondary = Color.White,
+                )
+                dark.base = blend
+
+                return dark
+            }
+        }
     }
 
     /**

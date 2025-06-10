@@ -12,9 +12,9 @@ import com.kavi.droid.color.palette.color.Mat800Package
 import com.kavi.droid.color.palette.color.Mat900Package
 import com.kavi.droid.color.palette.color.MatPackage
 import com.kavi.droid.color.palette.extension.hsl
-import com.kavi.droid.color.palette.model.AppThemePalette
 import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
 import com.kavi.droid.color.palette.model.KvColor
+import com.kavi.droid.color.palette.model.ThemeGenMode
 import com.kavi.droid.color.palette.util.ColorUtil
 import com.kavi.droid.color.palette.util.ThemeGenUtil
 
@@ -29,32 +29,48 @@ class KvColorPalette {
          * provide a theme color palette. Consumer can use this as a singleton.
          */
         var instance: KvColorPalette = KvColorPalette()
-        @Deprecated("This field is deprecated. This is replaced by colorSchemeThemePalette")
-        lateinit var appThemePalette: AppThemePalette
         lateinit var colorSchemeThemePalette: ColorSchemeThemePalette
 
         /**
          * KvColorPalette initialization. Consumer can use this to initialize the KvColorPalette from their application, if they need a
          * Theme color palette at the application start-up.
          *
-         * On this initiation of KvColorPalette, we generate a theme color palette using the given color.
-         * `basicColor` is mandatory parameter while initiate the library.
+         * On this initiation of KvColorPalette, library generate a theme color palette using the given color.
+         * `baseColor` is mandatory parameter while initiate the library.
          *
-         * @param basicColor: Color: Given color for generate theme palette.
+         * @param baseColor: Color: Given color for generate theme palette.
          */
-        fun initialize(basicColor: Color) {
-            val closestColor = ColorUtil.findClosestColor(givenColor = basicColor)
-            appThemePalette = instance.generateThemeColorPalette(givenColor = closestColor.color)
-            colorSchemeThemePalette = instance.generateThemeColorSchemePalette(givenColor = closestColor.color)
+        fun initialize(baseColor: Color) {
+            colorSchemeThemePalette = instance.generateThemeColorSchemePalette(givenColor = baseColor)
+        }
+
+        /**
+         * KvColorPalette initialization. Consumer can use this to initialize the KvColorPalette from their application, if they need a
+         * Theme color palette at the application start-up.
+         *
+         * On this initiation of KvColorPalette, library generate a theme color palette using the given base color and second color.
+         * `baseColor` and `secondColor` are mandatory parameter while initiate the library. Other two parameters are optional.
+         *
+         * @param baseColor: Color: Given first for generate theme palette.
+         * @param secondColor: Color: Given second color for generate theme palette.
+         * @param bias: Float: The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
+         * 0f means full bias to first color and 1f means full bias to second color.
+         * @param themeGenMode: ThemeGenPattern: The pattern to generate the theme color palette.
+         * Default is [ThemeGenMode.SEQUENCE] and available options are [ThemeGenMode.SEQUENCE] and [ThemeGenMode.BLEND]
+         * - [ThemeGenMode.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+         * - [ThemeGenMode.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
+         */
+        fun initialize(baseColor: Color, secondColor: Color, bias: Float = .5f, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE) {
+            colorSchemeThemePalette = instance.generateMultiColorThemeColorSchemePalette(
+                givenColor = baseColor,
+                secondColor = secondColor,
+                bias = bias,
+                themeGenMode = themeGenMode
+            )
         }
     }
 
     init {
-        /**
-         * This generate theme-palette with color transparent. This is un-usable.
-         */
-        appThemePalette = generateThemeColorPalette(Color.Transparent)
-
         /**
          * This generate theme-palette with color transparent. This is un-usable.
          */
@@ -146,25 +162,30 @@ class KvColorPalette {
 
     /**
      * Generate a theme color palette. According to the feeding color,
-     * this method generate a theme color palette.
+     * this method generate a color scheme theme color palette.
      *
      * @param givenColor The color to generate the theme color palette for.
-     * @return A theme color palette.
+     * @return A color scheme theme palette. [ColorSchemeThemePalette]
      */
-    @Deprecated("This method is deprecated and replaced by generateThemeColorSchemePalette method", replaceWith = ReplaceWith(
-        "KvColorPalette.instance.generateThemeColorSchemePalette(givenColor = givenColor)"
-    ))
-    fun generateThemeColorPalette(givenColor: Color): AppThemePalette = ThemeGenUtil.generateThemeColorSet(givenColor = givenColor)
+    fun generateThemeColorSchemePalette(givenColor: Color): ColorSchemeThemePalette = ThemeGenUtil.singleColorThemeColorScheme(givenColor = givenColor)
 
     /**
      * Generate a theme color palette. According to the feeding color,
      * this method generate a color scheme theme color palette.
      *
      * @param givenColor The color to generate the theme color palette for.
+     * @param secondColor The secondary color to generate the theme color palette blending with first color.
+     * @param bias The bias value to blend the two colors. In default that is 0.5f. This accept float value in a range of 0.0 - 1.0.
+     * 0f means full bias to first color and 1f means full bias to second color.
+     * @param themeGenMode: ThemeGenPattern: The pattern to generate the theme color palette.
+     * Default is [ThemeGenMode.SEQUENCE] and available options are [ThemeGenMode.SEQUENCE] and [ThemeGenMode.BLEND]
+     * - [ThemeGenMode.SEQUENCE] will add base color & primary & second color as secondary, rest of the colors will generate by using given base color.
+     * - [ThemeGenMode.BLEND] will add base color & primary & second color as primary, rest of the colors will generate by after generating new color blend first and second colors.
      * @return A color scheme theme palette. [ColorSchemeThemePalette]
      */
-    fun generateThemeColorSchemePalette(givenColor: Color): ColorSchemeThemePalette = ThemeGenUtil.generateThemeColorScheme(givenColor = givenColor)
-
+    fun generateMultiColorThemeColorSchemePalette(givenColor: Color, secondColor: Color, bias: Float = .5f, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE): ColorSchemeThemePalette {
+        return ThemeGenUtil.multiColorInputThemeColorScheme(givenColor = givenColor, secondColor = secondColor, bias = bias, themeGenMode = themeGenMode)
+    }
     /**
      * This method finds the closest KvColor available in the KvColorPalette-Android to the given color
      *

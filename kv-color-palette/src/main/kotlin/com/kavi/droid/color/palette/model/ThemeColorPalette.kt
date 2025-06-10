@@ -4,17 +4,6 @@ import androidx.compose.material3.ColorScheme
 import androidx.compose.ui.graphics.Color
 
 /**
- * Application theme palette for light and dark mode.
- */
-@Deprecated(message = "This model is deprecated",
-    ReplaceWith("ColorSchemeThemePalette(lightColorScheme = lightScheme, darkColorScheme = darkScheme)")
-)
-data class AppThemePalette(
-    val light: ThemeColorPalette,
-    val dark: ThemeColorPalette
-)
-
-/**
  * Application [ColorScheme] theme palette for light and dark mode.
  */
 data class ColorSchemeThemePalette(
