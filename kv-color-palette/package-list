@@ -87,6 +87,7 @@ $dokka.location:com.kavi.droid.color.palette.model/ThemeGenMode/valueOf/#kotlin.
 $dokka.location:com.kavi.droid.color.palette.model/ThemeGenMode/values/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.model/-theme-gen-mode/values.html
 $dokka.location:com.kavi.droid.color.palette.util////PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/index.html
 $dokka.location:com.kavi.droid.color.palette.util/ColorUtil///PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-color-util/index.html
+$dokka.location:com.kavi.droid.color.palette.util/ColorUtil/blendColors/#androidx.compose.ui.graphics.Color#androidx.compose.ui.graphics.Color#kotlin.Float/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-color-util/blend-colors.html
 $dokka.location:com.kavi.droid.color.palette.util/ColorUtil/getColorFromHex/#kotlin.String/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-color-util/get-color-from-hex.html
 $dokka.location:com.kavi.droid.color.palette.util/ColorUtil/getHex/#androidx.compose.ui.graphics.Color/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-color-util/get-hex.html
 $dokka.location:com.kavi.droid.color.palette.util/ColorUtil/getHexWithAlpha/#androidx.compose.ui.graphics.Color/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.util/-color-util/get-hex-with-alpha.html
