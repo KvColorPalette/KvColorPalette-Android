@@ -58,7 +58,7 @@ object ColorUtil {
      * @param secondColor [Color] Second color to blend
      * @param bias [Float] Bias to the new color for first / second color.
      */
-    internal fun blendColors(firstColor: Color, secondColor: Color, bias: Float = 0.5f): Color {
+    fun blendColors(firstColor: Color, secondColor: Color, bias: Float = 0.5f): Color {
         val blendRed = colorBlendingComponent(firstColor.red, secondColor.red, bias)
         val blendGreen = colorBlendingComponent(firstColor.green, secondColor.green, bias)
         val blendBlue = colorBlendingComponent(firstColor.blue, secondColor.blue, bias)
