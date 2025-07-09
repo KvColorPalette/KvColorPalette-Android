@@ -136,5 +136,4 @@ We welcome contributions! Please fork the repository, make your changes, and sub
 # Feedback
 For questions, suggestions, or issues, please open an issue on GitHub or contact us at kavimalw@gmail.com.
 
-# Buy me a coffee
-If you think to help me with a coffee, I'm thrilled!!! [Support](coff.ee/kavimalw)
+<a href="https://www.buymeacoffee.com/kavimalw" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
