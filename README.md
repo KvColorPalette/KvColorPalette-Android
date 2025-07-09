@@ -136,4 +136,5 @@ We welcome contributions! Please fork the repository, make your changes, and sub
 # Feedback
 For questions, suggestions, or issues, please open an issue on GitHub or contact us at kavimalw@gmail.com.
 
-
+# Buy me a coffee
+If you think to help me with a coffee, I'm thrilled!!! [Support](coff.ee/kavimalw)
