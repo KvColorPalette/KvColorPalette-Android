@@ -96,13 +96,17 @@ object ThemeGenUtil {
      * @return A light theme color set. [ColorScheme]
      */
     private fun generateThemeLightColorScheme(givenColor: Color): ColorScheme {
+        val secondaryColor = generateLightSecondaryColor(givenColor)
+        val backgroundColor = generateLightBackgroundColor(givenColor)
         val lightColorScheme = lightColorScheme(
             primary = givenColor,
-            secondary = generateLightSecondaryColor(givenColor),
+            secondary = secondaryColor,
             tertiary = generateLightTertiaryColor(givenColor),
-            background = generateLightBackgroundColor(givenColor),
-            onPrimary = Color.White,
-            onSecondary = Color.White
+            background = backgroundColor,
+            surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
+            onPrimary = ColorUtil.blendColors(firstColor = givenColor, Color.White, .9f),
+            onSecondary = ColorUtil.blendColors(firstColor = secondaryColor, Color.White, .9f),
+            onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
         )
         lightColorScheme.base = givenColor
 
@@ -119,13 +123,16 @@ object ThemeGenUtil {
     private fun generateMultiInputThemeLightColorScheme(givenColor: Color, secondColor: Color, blendColor: Color? = null, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE): ColorScheme {
         when (themeGenMode) {
             ThemeGenMode.SEQUENCE -> {
+                val backgroundColor = generateLightBackgroundColor(givenColor)
                 val light = lightColorScheme(
                     primary = givenColor,
                     secondary = secondColor,
                     tertiary = generateLightTertiaryColor(givenColor),
-                    background = generateLightBackgroundColor(givenColor),
-                    onPrimary = Color.White,
-                    onSecondary = Color.White
+                    background = backgroundColor,
+                    surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
+                    onPrimary = ColorUtil.blendColors(firstColor = givenColor, Color.White, .9f),
+                    onSecondary = ColorUtil.blendColors(firstColor = secondColor, Color.White, .9f),
+                    onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
                 )
                 light.base = givenColor
 
@@ -133,13 +140,16 @@ object ThemeGenUtil {
             }
             ThemeGenMode.BLEND -> {
                 val blend = blendColor ?: run { givenColor }
+                val backgroundColor = generateLightBackgroundColor(blend)
                 val light = lightColorScheme(
                     primary = givenColor,
                     secondary = secondColor,
                     tertiary = generateLightTertiaryColor(blend),
-                    background = generateLightBackgroundColor(blend),
-                    onPrimary = Color.White,
-                    onSecondary = Color.White
+                    background = backgroundColor,
+                    surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
+                    onPrimary = ColorUtil.blendColors(firstColor = givenColor, Color.White, .9f),
+                    onSecondary = ColorUtil.blendColors(firstColor = secondColor, Color.White, .9f),
+                    onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
                 )
                 light.base = blend
 
@@ -154,13 +164,18 @@ object ThemeGenUtil {
      * @return A dark theme color set. [ColorScheme]
      */
     private fun generateThemeDarkColorScheme(givenColor: Color): ColorScheme {
+        val darkPrimary = generateDarkPrimaryColor(givenColor)
+        val darkSecondary = generateDarkSecondaryColor(givenColor)
+        val darkBackground = generateDarkBackgroundColor(givenColor)
         val darkColorScheme = darkColorScheme(
-            primary = generateDarkPrimaryColor(givenColor),
-            secondary = generateDarkSecondaryColor(givenColor),
+            primary = darkPrimary,
+            secondary = darkSecondary,
             tertiary = generateDarkTertiaryColor(givenColor),
-            background = generateDarkBackgroundColor(givenColor),
-            onPrimary = Color.White,
-            onSecondary = Color.Black,
+            background = darkBackground,
+            surface = ColorUtil.blendColors(firstColor = darkBackground, secondColor = Color.Black, .9f),
+            onPrimary = ColorUtil.blendColors(firstColor = darkPrimary, secondColor = Color.White, .9f),
+            onSecondary = ColorUtil.blendColors(firstColor = darkSecondary, secondColor = Color.White, .9f),
+            onSurface = Color.White
         )
 
         darkColorScheme.base = givenColor
@@ -178,13 +193,18 @@ object ThemeGenUtil {
     private fun generateMultiInputThemeDarkColorScheme(givenColor: Color, secondColor: Color, blendColor: Color? = null, themeGenMode: ThemeGenMode = ThemeGenMode.SEQUENCE): ColorScheme {
         when (themeGenMode) {
             ThemeGenMode.SEQUENCE -> {
+                val darkPrimary = generateDarkPrimaryColor(givenColor)
+                val darkSecondary = generateDarkSecondaryColor(secondColor)
+                val darkBackground = generateDarkBackgroundColor(givenColor)
                 val dark = darkColorScheme(
-                    primary = generateDarkPrimaryColor(givenColor),
-                    secondary = generateDarkSecondaryColor(secondColor),
+                    primary = darkPrimary,
+                    secondary = darkSecondary,
                     tertiary = generateDarkTertiaryColor(givenColor),
-                    background = generateDarkBackgroundColor(givenColor),
-                    onPrimary = Color.White,
-                    onSecondary = Color.White,
+                    background = darkBackground,
+                    surface = ColorUtil.blendColors(firstColor = darkBackground, secondColor = Color.Black, .9f),
+                    onPrimary = ColorUtil.blendColors(firstColor = darkPrimary, secondColor = Color.White, .9f),
+                    onSecondary = ColorUtil.blendColors(firstColor = darkSecondary, secondColor = Color.White, .9f),
+                    onSurface = Color.White
                 )
                 dark.base = givenColor
 
@@ -192,13 +212,18 @@ object ThemeGenUtil {
             }
             ThemeGenMode.BLEND -> {
                 val blend = blendColor ?: run { givenColor }
+                val darkPrimary = generateDarkPrimaryColor(givenColor)
+                val darkSecondary = generateDarkSecondaryColor(secondColor)
+                val darkBackground = generateDarkBackgroundColor(blend)
                 val dark = darkColorScheme(
-                    primary = generateDarkPrimaryColor(givenColor),
-                    secondary = generateDarkSecondaryColor(secondColor),
+                    primary = darkPrimary,
+                    secondary = darkSecondary,
                     tertiary = generateDarkTertiaryColor(blend),
-                    background = generateDarkBackgroundColor(blend),
-                    onPrimary = Color.White,
-                    onSecondary = Color.White,
+                    background = darkBackground,
+                    surface = ColorUtil.blendColors(firstColor = darkBackground, secondColor = Color.Black, .9f),
+                    onPrimary = ColorUtil.blendColors(firstColor = darkPrimary, secondColor = Color.White, .9f),
+                    onSecondary = ColorUtil.blendColors(firstColor = darkSecondary, secondColor = Color.White, .9f),
+                    onSurface = Color.White
                 )
                 dark.base = blend
 
