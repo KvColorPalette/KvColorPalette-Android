@@ -8,6 +8,7 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.ui.graphics.Color
 import com.kavi.droid.color.palette.extension.base
 import com.kavi.droid.color.palette.extension.hsl
+import com.kavi.droid.color.palette.extension.isHighLightColor
 import com.kavi.droid.color.palette.model.ColorSchemeThemePalette
 import com.kavi.droid.color.palette.model.ThemeGenMode
 
@@ -104,8 +105,8 @@ object ThemeGenUtil {
             tertiary = generateLightTertiaryColor(givenColor),
             background = backgroundColor,
             surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
-            onPrimary = ColorUtil.blendColors(firstColor = givenColor, Color.White, .9f),
-            onSecondary = ColorUtil.blendColors(firstColor = secondaryColor, Color.White, .9f),
+            onPrimary = generateOverTheTopLightColor(givenColor),
+            onSecondary = generateOverTheTopLightColor(secondaryColor),
             onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
         )
         lightColorScheme.base = givenColor
@@ -130,8 +131,8 @@ object ThemeGenUtil {
                     tertiary = generateLightTertiaryColor(givenColor),
                     background = backgroundColor,
                     surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
-                    onPrimary = ColorUtil.blendColors(firstColor = givenColor, Color.White, .9f),
-                    onSecondary = ColorUtil.blendColors(firstColor = secondColor, Color.White, .9f),
+                    onPrimary = generateOverTheTopLightColor(givenColor),
+                    onSecondary = generateOverTheTopLightColor(secondColor),
                     onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
                 )
                 light.base = givenColor
@@ -147,8 +148,8 @@ object ThemeGenUtil {
                     tertiary = generateLightTertiaryColor(blend),
                     background = backgroundColor,
                     surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
-                    onPrimary = ColorUtil.blendColors(firstColor = givenColor, Color.White, .9f),
-                    onSecondary = ColorUtil.blendColors(firstColor = secondColor, Color.White, .9f),
+                    onPrimary = generateOverTheTopLightColor(givenColor),
+                    onSecondary = generateOverTheTopLightColor(secondColor),
                     onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
                 )
                 light.base = blend
@@ -252,6 +253,14 @@ object ThemeGenUtil {
      */
     private fun generateLightBackgroundColor(primaryColor: Color): Color {
         return Color.hsl(hue = primaryColor.hsl.hue, saturation = .4f, lightness = .95f)
+    }
+
+    private fun generateOverTheTopLightColor(givenColor: Color): Color {
+        return if (givenColor.isHighLightColor) {
+            ColorUtil.blendColors(firstColor = givenColor, Color.Black, .6f)
+        } else {
+            ColorUtil.blendColors(firstColor = givenColor, Color.White, .9f)
+        }
     }
 
     /**
