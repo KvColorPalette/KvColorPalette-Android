@@ -34,13 +34,13 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.KvColorPalette:KvColorPalette-Android:3.1.0'
+    implementation 'com.github.KvColorPalette:KvColorPalette-Android:3.2.0'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.KvColorPalette:KvColorPalette-Android:3.1.0")
+    implementation("com.github.KvColorPalette:KvColorPalette-Android:3.2.0")
 }
 ````
 
@@ -102,8 +102,10 @@ In this `KvColorPalette.colorSchemeThemePalette` you will have following color a
 |.tertiary    |available   |available   |Suggesting tertiary color.   |
 |.quaternary  |available   |available   |Suggesting quaternary color.   |
 |.background  |available   |available   |Suggesting background color.   |
+|.surface     |available   |available   |Suggesting background color.   |
 |.onPrimary   |available   |available   |This is the color you can use on any component use primary color.   |
 |.onSecondary |available   |available   |This is the color you can use on any component use secondary color.   |
+|.onSurface   |available   |available   |This is the color you can use on any component use secondary color.   |
 |.shadow      |available   |available   |This is the color for your shadows.   |
 
 This `ColorSchemaThemePalette` is another Android Jetpack Compose `ColorSchema`. But that contains additional attributes like `base`, `quaternary`, `shadow` that provide 
