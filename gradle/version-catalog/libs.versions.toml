@@ -19,6 +19,9 @@ material = "1.12.0"
 composeMaterial = "1.7.6"
 composeNavigation = "2.8.5"
 
+googleTruthVersion = "1.4.4"
+mockKVersion = "1.14.5"
+
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -40,6 +43,8 @@ androidx-navigation-compose = { group = "androidx.navigation", name = "navigatio
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 
 junit = { group = "junit", name = "junit", version.ref = "junit" }
+google-truth = { group = "com.google.truth", name="truth", version.ref = "googleTruthVersion" }
+mockk = { group = "io.mockk", name="mockk", version.ref = "mockKVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
