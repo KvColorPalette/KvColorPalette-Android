@@ -57,6 +57,8 @@ dependencies {
     implementation(libs.androidx.ui.graphics)
 
     testImplementation(libs.junit)
+    testImplementation(libs.google.truth)
+    testImplementation(libs.mockk)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
