@@ -108,6 +108,7 @@ In this `KvColorPalette.colorSchemeThemePalette` you will have following color a
 |.onSecondary           |available   |available   |This is the color you can use on any component use secondary color.   |
 |.onSurface             |available   |available   |This is the color you can use on any component use secondary color.   |
 |.shadow                |available   |available   |This is the color for your shadows.   |
+|.inverseDefault        |available   |available   |This color defines LightMode -> Black, DarkMode -> White.   |
 |.inverseOnPrimary      |available   |available   |This is the inverse color of onPrimary color.   |
 |.inverseOnBackground   |available   |available   |This is the inverse color of onBackground color.   |
 
