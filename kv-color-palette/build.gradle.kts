@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -34,8 +36,11 @@ android {
         sourceCompatibility = javaVersion
         targetCompatibility = javaVersion
     }
-    kotlinOptions {
-        jvmTarget = libs.versions.jvmVersion.get()
+
+    kotlin {
+        compilerOptions {
+            jvmTarget = JvmTarget.fromTarget(libs.versions.jvmVersion.get())
+        }
     }
 
     publishing {
@@ -48,7 +53,6 @@ android {
 
 dependencies {
     implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.material3)
 
