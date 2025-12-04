@@ -41,7 +41,11 @@ $dokka.location:com.kavi.droid.color.palette.color/MatPackage/MatYellow/#/Pointi
 $dokka.location:com.kavi.droid.color.palette.color/MatPackage/getColorList/#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.color/-mat-package/get-color-list.html
 $dokka.location:com.kavi.droid.color.palette.extension////PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/index.html
 $dokka.location:com.kavi.droid.color.palette.extension//base/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/base.html
+$dokka.location:com.kavi.droid.color.palette.extension//default/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/default.html
 $dokka.location:com.kavi.droid.color.palette.extension//hsl/androidx.compose.ui.graphics.Color#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/hsl.html
+$dokka.location:com.kavi.droid.color.palette.extension//inverseDefault/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/inverse-default.html
+$dokka.location:com.kavi.droid.color.palette.extension//inverseOnBackground/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/inverse-on-background.html
+$dokka.location:com.kavi.droid.color.palette.extension//inverseOnPrimary/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/inverse-on-primary.html
 $dokka.location:com.kavi.droid.color.palette.extension//isHighLightColor/androidx.compose.ui.graphics.Color#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/is-high-light-color.html
 $dokka.location:com.kavi.droid.color.palette.extension//quaternary/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/quaternary.html
 $dokka.location:com.kavi.droid.color.palette.extension//shadow/androidx.compose.material3.ColorScheme#/PointingToDeclaration/kv-color-palette/com.kavi.droid.color.palette.extension/shadow.html
