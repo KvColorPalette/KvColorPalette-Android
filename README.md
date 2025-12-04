@@ -94,19 +94,22 @@ override fun onCreate() {
 This initiation create a color schemas for a theme using the given color at the initiation. This generated color schemas will available for light and dark theme variants.
 
 In this `KvColorPalette.colorSchemeThemePalette` you will have following color attributes.
-|Attribute    |light-theme |dark-theme  |Description   |
-|-------------|------------|------------|--------------|
-|.base        |original    |original    |This is the base color given by the user.   |
-|.primary     |available   |available   |Suggesting primary color. This color can use for buttons, major component etc.   |
-|.secondary   |available   |available   |Suggesting secondary color. For any the secondary components which should not use by primary color.   |
-|.tertiary    |available   |available   |Suggesting tertiary color.   |
-|.quaternary  |available   |available   |Suggesting quaternary color.   |
-|.background  |available   |available   |Suggesting background color.   |
-|.surface     |available   |available   |Suggesting background color.   |
-|.onPrimary   |available   |available   |This is the color you can use on any component use primary color.   |
-|.onSecondary |available   |available   |This is the color you can use on any component use secondary color.   |
-|.onSurface   |available   |available   |This is the color you can use on any component use secondary color.   |
-|.shadow      |available   |available   |This is the color for your shadows.   |
+|Attribute              |light-theme |dark-theme  |Description   |
+|-----------------------|------------|------------|--------------|
+|.base                  |original    |original    |This is the base color given by the user.   |
+|.default               |available   |available   |This color defines LightMode -> White, DarkMode -> Black.   |
+|.primary               |available   |available   |Suggesting primary color. This color can use for buttons, major component etc.   |
+|.secondary             |available   |available   |Suggesting secondary color. For any the secondary components which should not use by primary color.   |
+|.tertiary              |available   |available   |Suggesting tertiary color.   |
+|.quaternary            |available   |available   |Suggesting quaternary color.   |
+|.background            |available   |available   |Suggesting background color.   |
+|.surface               |available   |available   |Suggesting background color.   |
+|.onPrimary             |available   |available   |This is the color you can use on any component use primary color.   |
+|.onSecondary           |available   |available   |This is the color you can use on any component use secondary color.   |
+|.onSurface             |available   |available   |This is the color you can use on any component use secondary color.   |
+|.shadow                |available   |available   |This is the color for your shadows.   |
+|.inverseOnPrimary      |available   |available   |This is the inverse color of onPrimary color.   |
+|.inverseOnBackground   |available   |available   |This is the inverse color of onBackground color.   |
 
 This `ColorSchemaThemePalette` is another Android Jetpack Compose `ColorSchema`. But that contains additional attributes like `base`, `quaternary`, `shadow` that provide 
 by the `KvColorPalette-Android` library. All above table mentioned colors are generated according to the given color and created the `ColorScheme`.
