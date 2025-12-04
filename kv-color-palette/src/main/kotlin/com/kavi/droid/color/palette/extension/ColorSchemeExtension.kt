@@ -31,6 +31,13 @@ val ColorScheme.default: Color
     get() = getDefaultColor(this)
 
 /**
+ * This is for use light theme Black color and dark theme White color. This can use most of background or
+ * shadow mode with alpha value on the color according to the theme.
+ */
+val ColorScheme.inverseDefault: Color
+    get() = getDefaultInverseColor(this)
+
+/**
  * This is for use light theme primary color dark theme contrast color
  */
 val ColorScheme.quaternary: Color
@@ -68,6 +75,21 @@ private fun getDefaultColor(colorScheme: ColorScheme): Color {
         Color.White
     else
         Color.Black
+}
+
+/**
+ * This returns inverse of default color according to the theme mode. This method finds the mode from the
+ * theme color scheme's background color. If the background color is a lighter one, it's assume
+ * this is light mode and generate the inverse of default color.
+ *
+ * @param colorScheme: [ColorScheme] of the theme
+ * @return color: [Color] inverse of default color for theme
+ */
+private fun getDefaultInverseColor(colorScheme: ColorScheme): Color {
+    return if (colorScheme.background.isHighLightColor)
+        Color.Black
+    else
+        Color.White
 }
 
 /**
