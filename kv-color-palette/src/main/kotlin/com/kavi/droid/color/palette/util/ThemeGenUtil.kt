@@ -105,6 +105,7 @@ object ThemeGenUtil {
             tertiary = generateLightTertiaryColor(givenColor),
             background = backgroundColor,
             surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
+            scrim = Color.Black,
             onPrimary = generateOverTheTopLightColor(givenColor),
             onSecondary = generateOverTheTopLightColor(secondaryColor),
             onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
@@ -131,6 +132,7 @@ object ThemeGenUtil {
                     tertiary = generateLightTertiaryColor(givenColor),
                     background = backgroundColor,
                     surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
+                    scrim = Color.Black,
                     onPrimary = generateOverTheTopLightColor(givenColor),
                     onSecondary = generateOverTheTopLightColor(secondColor),
                     onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
@@ -148,6 +150,7 @@ object ThemeGenUtil {
                     tertiary = generateLightTertiaryColor(blend),
                     background = backgroundColor,
                     surface = ColorUtil.blendColors(firstColor = backgroundColor, secondColor = Color.White, .9f),
+                    scrim = Color.Black,
                     onPrimary = generateOverTheTopLightColor(givenColor),
                     onSecondary = generateOverTheTopLightColor(secondColor),
                     onSurface = ColorUtil.blendColors(firstColor = Color.Black, Color.White, .25f)
@@ -174,6 +177,7 @@ object ThemeGenUtil {
             tertiary = generateDarkTertiaryColor(givenColor),
             background = darkBackground,
             surface = ColorUtil.blendColors(firstColor = darkBackground, secondColor = Color.Black, .9f),
+            scrim = Color.White,
             onPrimary = ColorUtil.blendColors(firstColor = darkPrimary, secondColor = Color.White, .9f),
             onSecondary = ColorUtil.blendColors(firstColor = darkSecondary, secondColor = Color.White, .9f),
             onSurface = Color.White
@@ -203,6 +207,7 @@ object ThemeGenUtil {
                     tertiary = generateDarkTertiaryColor(givenColor),
                     background = darkBackground,
                     surface = ColorUtil.blendColors(firstColor = darkBackground, secondColor = Color.Black, .9f),
+                    scrim = Color.White,
                     onPrimary = ColorUtil.blendColors(firstColor = darkPrimary, secondColor = Color.White, .9f),
                     onSecondary = ColorUtil.blendColors(firstColor = darkSecondary, secondColor = Color.White, .9f),
                     onSurface = Color.White
@@ -222,6 +227,7 @@ object ThemeGenUtil {
                     tertiary = generateDarkTertiaryColor(blend),
                     background = darkBackground,
                     surface = ColorUtil.blendColors(firstColor = darkBackground, secondColor = Color.Black, .9f),
+                    scrim = Color.White,
                     onPrimary = ColorUtil.blendColors(firstColor = darkPrimary, secondColor = Color.White, .9f),
                     onSecondary = ColorUtil.blendColors(firstColor = darkSecondary, secondColor = Color.White, .9f),
                     onSurface = Color.White
@@ -255,6 +261,9 @@ object ThemeGenUtil {
         return Color.hsl(hue = primaryColor.hsl.hue, saturation = .4f, lightness = .95f)
     }
 
+    /**
+     * Generate onPrimary color according to the selected primary color
+     */
     private fun generateOverTheTopLightColor(givenColor: Color): Color {
         return if (givenColor.isHighLightColor) {
             ColorUtil.blendColors(firstColor = givenColor, Color.Black, .6f)
