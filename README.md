@@ -40,7 +40,7 @@ dependencies {
 For Kotlin DSL - `build.gradle.kts`:
 ````
 dependencies {
-    implementation("com.github.KvColorPalette:KvColorPalette-Android:3.2.0")
+    implementation("com.github.KvColorPalette:KvColorPalette-Android:3.3.0")
 }
 ````
 
