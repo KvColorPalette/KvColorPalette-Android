@@ -34,7 +34,7 @@ Add the following dependency to your `build.gradle` / `build.gradle.kts` file:
 For Groovy - `build.gradle`:
 ````
 dependencies {
-    implementation 'com.github.KvColorPalette:KvColorPalette-Android:3.2.0'
+    implementation 'com.github.KvColorPalette:KvColorPalette-Android:3.3.0'
 }
 ````
 For Kotlin DSL - `build.gradle.kts`:
